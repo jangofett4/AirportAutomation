@@ -49,4 +49,4 @@ Install both of them. Application needs an empty vessel (an empty database) to r
 
 ### Support
 
-Send me a millon bitcoins.
+Send me a million bitcoins.
