@@ -1,37 +1,45 @@
-## Welcome to GitHub Pages
+## Welcome to Airport Automation project page
 
-You can use the [editor on GitHub](https://github.com/jangofett4/AirportAutomation/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Releases will be available as soon as master is stable. You can still pull from repository and compile it.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Cloning
 
-### Markdown
+For windows, you need [git-scm](https://git-scm.com/). Download an and install from an installer.
+To check if git is installed type:
+`git --version` to cmd or terminal
+Linux has git by default. However visual studio is not available for linux. You will need to use MonoDevelop to compile instead.
+Linux compilation is not tested, but it should work.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+To clone repository type:
+`git clone https://github.com/jangofett4/AirportAutomation.git` to cmd or terminal.
+This should create a new directory called 'AirportAutomation'. Solution files are inside of 'AirportAutomation > AirportAutomation'.
 
-```markdown
-Syntax highlighted code block
+### Compiling
 
-# Header 1
-## Header 2
-### Header 3
+Open the solution with 
+Newest code changes are in 'dev' branch, so if you don't see single empty form when visual studio opens, you need to switch to 'dev' branch.
+This can be done two ways:
+ Use `git checkout dev` in git directory
+ Use button at bottom right of the visual studio
+ 
+After switching to 'dev' branch use Build menu or Build and Run button to build the application.
+Visual Studio will refresh nuget packages automatically on first build.
 
-- Bulleted
-- List
+### Dependencies
 
-1. Numbered
-2. List
+ [MySql.Data](https://www.nuget.org/packages/MySql.Data/)
+ Also [Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/) which comes with MySql.Data by default.
+ 
+These dependencies are auto-installed upon first build, so there is no need to download manually.
+Also for using application you will need a database server.
+ [MySql Workbench](https://dev.mysql.com/downloads/workbench/)
+ [MySql Server](https://dev.mysql.com/downloads/mysql/)
+ 
+Install both of them. Application needs an empty vessel (an empty database) to run.
+ Skeleton database to run on: TODO: add skeleton database, sorry!
 
-**Bold** and _Italic_ and `Code` text
+After 
 
-[Link](url) and ![Image](src)
-```
+### Support
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jangofett4/AirportAutomation/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Send me a millon bitcoins.
