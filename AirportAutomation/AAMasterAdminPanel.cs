@@ -1085,5 +1085,43 @@ namespace AirportAutomation
                 }
             }
         }
+
+        private void DeleteAirports(object sender, EventArgs e)
+        {
+            var id = int.Parse(txtAirportID.Text);
+            if (MessageBox.Show($"Seçilen havaalanı  silinecek.\nHavalimanına bağlı bütün bilgiler (uçuşlar,yönetici,çalışanlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand($"delete from airports where airportID = { id }", Globals.Connection);
+                cmd.ExecuteNonQuery();
+            }
+
+            foreach (DataGridViewRow r in gridAirports.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    gridAirports.Rows.Remove(r);
+                    return;
+                }
+            }
+        }
+
+        private void DeletePilot(object sender, EventArgs e)
+        {
+            var id = int.Parse(txtPilotID.Text);
+            if (MessageBox.Show($"Seçilen pilot  silinecek.\nPilota bağlı bütün bilgiler (uçuşlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand($"delete from pilots where pilotID = { id }", Globals.Connection);
+                cmd.ExecuteNonQuery();
+            }
+
+            foreach (DataGridViewRow r in gridPilots.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    gridPilots.Rows.Remove(r);
+                    return;
+                }
+            }
+        }
     }
 }

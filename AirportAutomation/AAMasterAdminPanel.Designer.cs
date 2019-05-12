@@ -164,7 +164,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.txtPlaneModelTypeID = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtPlaneModelName = new System.Windows.Forms.TextBox();
             this.txtPlaneModelID = new System.Windows.Forms.TextBox();
@@ -1153,6 +1152,7 @@
             this.button18.TabIndex = 1;
             this.button18.Text = "Sil";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.DeletePilot);
             // 
             // button19
             // 
@@ -1403,6 +1403,7 @@
             this.button22.TabIndex = 1;
             this.button22.Text = "Sil";
             this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.DeleteAirports);
             // 
             // button23
             // 
@@ -1493,7 +1494,7 @@
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(798, 497);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.Text = "Uçaklar";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // splitContainer2
@@ -1612,13 +1613,6 @@
             this.label13.Size = new System.Drawing.Size(57, 13);
             this.label13.TabIndex = 4;
             this.label13.Text = "Model İsmi";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(6, 116);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(330, 20);
-            this.textBox2.TabIndex = 3;
             // 
             // label14
             // 
