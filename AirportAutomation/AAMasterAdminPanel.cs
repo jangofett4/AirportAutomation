@@ -1123,5 +1123,24 @@ namespace AirportAutomation
                 }
             }
         }
+
+        private void DeleteAdmin(object sender, EventArgs e)
+        {
+            var id = int.Parse(txtAAdminID.Text);
+            if (MessageBox.Show($"Seçilen havayolu yöneticisi  silinecek.\nHavayolu yöneticisine bağlı bütün bilgiler (havalimanları vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand($"delete from airport_admins where adminID = { id }", Globals.Connection);
+                cmd.ExecuteNonQuery();
+            }
+
+            foreach (DataGridViewRow r in gridAirportAdmins.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    gridAirportAdmins.Rows.Remove(r);
+                    return;
+                }
+            }
+        }
     }
 }

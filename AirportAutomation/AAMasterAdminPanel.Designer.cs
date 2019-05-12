@@ -767,6 +767,7 @@
             this.button10.TabIndex = 1;
             this.button10.Text = "Sil";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.DeleteAdmin);
             // 
             // button11
             // 
