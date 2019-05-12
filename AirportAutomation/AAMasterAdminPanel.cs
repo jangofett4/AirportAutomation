@@ -1069,16 +1069,16 @@ namespace AirportAutomation
 
         private void DeletePlane(object sender, EventArgs e)
         {
-            var id = int.Parse(txtPlaneID.Text);
+            var id = (txtPlaneID.Text);
             if (MessageBox.Show($"Seçilen uçak  silinecek.\nUçağa bağlı bütün bilgiler (uçuşlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                MySqlCommand cmd = new MySqlCommand($"delete from planes where planeID = { id }", Globals.Connection);
+                MySqlCommand cmd = new MySqlCommand($"delete from planes where planeID = '{ id }'", Globals.Connection);
                 cmd.ExecuteNonQuery();
             }
 
             foreach (DataGridViewRow r in gridPlanes.Rows)
             {
-                if ((int)r.Cells[0].Value == id)
+                if ((string)r.Cells[0].Value == id)
                 {
                     gridPlanes.Rows.Remove(r);
                     return;
@@ -1138,6 +1138,41 @@ namespace AirportAutomation
                 if ((int)r.Cells[0].Value == id)
                 {
                     gridAirportAdmins.Rows.Remove(r);
+                    return;
+                }
+            }
+        }
+
+        private void UpdatePilot(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPilotID.Text))
+            {
+                MessageBox.Show("Düzenlenecek pilotu seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var id = int.Parse(txtPilotID.Text);
+
+            MySqlCommand cmd = new MySqlCommand($"update pilots set name = '{ txtPilotName.Text }',surname ='{ txtPilotSurname.Text}',tc='{txtPilotTC.Text}',airlineID=={txtPilotAirlineID.Text} where pilotID = { id }", Globals.Connection);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Aynı tc sahip başka bir pilot daha mevcut. { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (DataGridViewRow r in gridPilots.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    r.Cells[1].Value = txtPilotName.Text;
+                    r.Cells[2].Value = txtPilotSurname.Text;
+                    r.Cells[3].Value = txtPilotTC.Text;
+                    r.Cells[4].Value = txtPilotAirlineID.Text;
+                    RefreshPilots();
                     return;
                 }
             }

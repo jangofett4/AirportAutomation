@@ -1164,6 +1164,7 @@
             this.button19.TabIndex = 1;
             this.button19.Text = "Düzenle";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.UpdatePilot);
             // 
             // button20
             // 
