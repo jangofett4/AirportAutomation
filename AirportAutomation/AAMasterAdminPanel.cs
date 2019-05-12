@@ -786,5 +786,62 @@ namespace AirportAutomation
             else if (src == gridPlanes) r_planes();
             else if (src == gridPlaneModels) r_models();
         }
+
+        private void DeleteModel(object sender, EventArgs e)
+        {
+            var id = int.Parse(txtPlaneModelID.Text);
+            if (MessageBox.Show($"Seçilen uçak modeli silinecek.\nUçak modeline bağlı bütün bilgiler (uçaklar, uçuşlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand($"delete from models where modelID = { id }", Globals.Connection);
+                cmd.ExecuteNonQuery();
+            }
+
+            foreach (DataGridViewRow r in gridPlaneModels.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    gridPlaneModels.Rows.Remove(r);
+                    return;
+                }
+            }
+        }
+
+        private void DeletePlaneTypes(object sender, EventArgs e)
+        {
+            var id = int.Parse(txtPlaneTypeID.Text);
+            if (MessageBox.Show($"Seçilen uçak tipi silinecek.\nUçak tipine bağlı bütün bilgiler (uçak modelleri, uçuşlar, uçaklar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand($"delete from types where typeID = { id }", Globals.Connection);
+                cmd.ExecuteNonQuery();
+            }
+
+            foreach (DataGridViewRow r in gridPlaneTypes.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    gridPlaneTypes.Rows.Remove(r);
+                    return;
+                }
+            }
+        }
+
+        private void DeletePlane(object sender, EventArgs e)
+        {
+            var id = int.Parse(txtPlaneID.Text);
+            if (MessageBox.Show($"Seçilen uçak  silinecek.\nUçağa bağlı bütün bilgiler (uçuşlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand($"delete from planes where planeID = { id }", Globals.Connection);
+                cmd.ExecuteNonQuery();
+            }
+
+            foreach (DataGridViewRow r in gridPlanes.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    gridPlanes.Rows.Remove(r);
+                    return;
+                }
+            }
+        }
     }
 }

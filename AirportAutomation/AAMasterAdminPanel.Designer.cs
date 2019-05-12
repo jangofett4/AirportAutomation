@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.contextRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -155,7 +157,13 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtPlaneModelName = new System.Windows.Forms.TextBox();
             this.txtPlaneModelID = new System.Windows.Forms.TextBox();
@@ -164,6 +172,11 @@
             this.button27 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.gridPlaneModels = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnModelCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnModelType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnModelTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -175,8 +188,12 @@
             this.button31 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
             this.gridPlaneTypes = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.txtPlaneModelID2 = new System.Windows.Forms.TextBox();
             this.txtPlaneID = new System.Windows.Forms.TextBox();
@@ -185,26 +202,10 @@
             this.button35 = new System.Windows.Forms.Button();
             this.button36 = new System.Windows.Forms.Button();
             this.gridPlanes = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.contextRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnModelCapacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnModelType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnModelTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
+            this.contextRefresh.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -241,7 +242,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridPlaneTypes)).BeginInit();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanes)).BeginInit();
-            this.contextRefresh.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -259,6 +259,20 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(806, 523);
             this.tabControl1.TabIndex = 0;
+            // 
+            // contextRefresh
+            // 
+            this.contextRefresh.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem6});
+            this.contextRefresh.Name = "contextCountryCity";
+            this.contextRefresh.Size = new System.Drawing.Size(173, 26);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(172, 22);
+            this.toolStripMenuItem6.Text = "Veriyi Getir / Yenile";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.RefreshData);
             // 
             // tabPage1
             // 
@@ -1521,6 +1535,49 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Modeller";
             // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(178, 139);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(61, 13);
+            this.label38.TabIndex = 4;
+            this.label38.Text = "Model Türü";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(6, 139);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(75, 13);
+            this.label37.TabIndex = 4;
+            this.label37.Text = "Model Türü ID";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(178, 155);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(158, 20);
+            this.textBox4.TabIndex = 3;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(6, 100);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(87, 13);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "Model Kapasitesi";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(6, 155);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(166, 20);
+            this.textBox3.TabIndex = 3;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -1529,6 +1586,13 @@
             this.label13.Size = new System.Drawing.Size(57, 13);
             this.label13.TabIndex = 4;
             this.label13.Text = "Model İsmi";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(6, 116);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(330, 20);
+            this.textBox2.TabIndex = 3;
             // 
             // label14
             // 
@@ -1573,6 +1637,7 @@
             this.button26.TabIndex = 1;
             this.button26.Text = "Sil";
             this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.DeleteModel);
             // 
             // button27
             // 
@@ -1613,6 +1678,38 @@
             this.gridPlaneModels.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPlaneModels.Size = new System.Drawing.Size(444, 185);
             this.gridPlaneModels.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "İsim";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // columnModelCapacity
+            // 
+            this.columnModelCapacity.HeaderText = "Kapasite";
+            this.columnModelCapacity.Name = "columnModelCapacity";
+            this.columnModelCapacity.ReadOnly = true;
+            // 
+            // columnModelType
+            // 
+            this.columnModelType.HeaderText = "Model Türü";
+            this.columnModelType.Name = "columnModelType";
+            this.columnModelType.ReadOnly = true;
+            // 
+            // columnModelTypeID
+            // 
+            this.columnModelTypeID.HeaderText = "Model Türü ID";
+            this.columnModelTypeID.Name = "columnModelTypeID";
+            this.columnModelTypeID.ReadOnly = true;
+            this.columnModelTypeID.Visible = false;
             // 
             // splitContainer3
             // 
@@ -1703,6 +1800,7 @@
             this.button30.TabIndex = 7;
             this.button30.Text = "Sil";
             this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.DeletePlaneTypes);
             // 
             // button31
             // 
@@ -1742,6 +1840,19 @@
             this.gridPlaneTypes.TabIndex = 5;
             this.gridPlaneTypes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPlaneType);
             // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "Tür";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.label15);
@@ -1763,6 +1874,15 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Uçaklar";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 55);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(57, 13);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "Model İsmi";
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
@@ -1771,6 +1891,14 @@
             this.label35.Size = new System.Drawing.Size(50, 13);
             this.label35.TabIndex = 13;
             this.label35.Text = "Model ID";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 71);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(167, 20);
+            this.textBox1.TabIndex = 10;
             // 
             // label36
             // 
@@ -1815,6 +1943,7 @@
             this.button34.TabIndex = 7;
             this.button34.Text = "Sil";
             this.button34.UseVisualStyleBackColor = true;
+            this.button34.Click += new System.EventHandler(this.DeletePlane);
             // 
             // button35
             // 
@@ -1853,19 +1982,6 @@
             this.gridPlanes.Size = new System.Drawing.Size(214, 252);
             this.gridPlanes.TabIndex = 5;
             // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Tür";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.HeaderText = "ID";
@@ -1879,119 +1995,6 @@
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(167, 20);
-            this.textBox1.TabIndex = 10;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 55);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 13);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "Model İsmi";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(6, 116);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(330, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(6, 100);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(87, 13);
-            this.label29.TabIndex = 4;
-            this.label29.Text = "Model Kapasitesi";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(6, 155);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(166, 20);
-            this.textBox3.TabIndex = 3;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(6, 139);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(75, 13);
-            this.label37.TabIndex = 4;
-            this.label37.Text = "Model Türü ID";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(178, 155);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(158, 20);
-            this.textBox4.TabIndex = 3;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(178, 139);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(61, 13);
-            this.label38.TabIndex = 4;
-            this.label38.Text = "Model Türü";
-            // 
-            // contextRefresh
-            // 
-            this.contextRefresh.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem6});
-            this.contextRefresh.Name = "contextCountryCity";
-            this.contextRefresh.Size = new System.Drawing.Size(173, 26);
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(172, 22);
-            this.toolStripMenuItem6.Text = "Veriyi Getir / Yenile";
-            this.toolStripMenuItem6.Click += new System.EventHandler(this.RefreshData);
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "İsim";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // columnModelCapacity
-            // 
-            this.columnModelCapacity.HeaderText = "Kapasite";
-            this.columnModelCapacity.Name = "columnModelCapacity";
-            this.columnModelCapacity.ReadOnly = true;
-            // 
-            // columnModelType
-            // 
-            this.columnModelType.HeaderText = "Model Türü";
-            this.columnModelType.Name = "columnModelType";
-            this.columnModelType.ReadOnly = true;
-            // 
-            // columnModelTypeID
-            // 
-            this.columnModelTypeID.HeaderText = "Model Türü ID";
-            this.columnModelTypeID.Name = "columnModelTypeID";
-            this.columnModelTypeID.ReadOnly = true;
-            this.columnModelTypeID.Visible = false;
-            // 
             // AAMasterAdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2003,6 +2006,7 @@
             this.Text = "Admin Paneli";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControl1.ResumeLayout(false);
+            this.contextRefresh.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -2048,7 +2052,6 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanes)).EndInit();
-            this.contextRefresh.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
