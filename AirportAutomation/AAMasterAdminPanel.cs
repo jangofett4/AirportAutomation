@@ -24,7 +24,7 @@ namespace AirportAutomation
 
         #region "Zıkkım"
 
-        public void r_countries()
+        public void RefreshCountries()
         {
             gridCountries.Rows.Clear();
 
@@ -43,7 +43,7 @@ namespace AirportAutomation
             result.Close();
         }
 
-        public void r_airportAdmins()
+        public void RefreshAirportAdmins()
         {
             gridAirportAdmins.Rows.Clear();
 
@@ -65,9 +65,9 @@ namespace AirportAutomation
             result.Close();
         }
 
-        public void r_cities()
+        public void RefreshCities()
         {
-            r_countries();
+            RefreshCountries();
 
             gridCities.Rows.Clear();
 
@@ -93,7 +93,7 @@ namespace AirportAutomation
             result.Close();
         }
 
-        public void r_airlines()
+        public void RefreshAirlines()
         {
             gridAirlines.Rows.Clear();
 
@@ -112,9 +112,9 @@ namespace AirportAutomation
             result.Close();
         }
 
-        public void r_pilots()
+        public void RefreshPilots()
         {
-            r_airlines();
+            RefreshAirlines();
 
             gridPilots.Rows.Clear();
 
@@ -137,7 +137,7 @@ namespace AirportAutomation
             result.Close();
         }
 
-        public void r_airports()
+        public void RefreshAirports()
         {
             gridAirports.Rows.Clear();
 
@@ -159,7 +159,7 @@ namespace AirportAutomation
             result.Close();
         }
 
-        public void r_types()
+        public void RefreshPlaneTypes()
         {
             gridPlaneTypes.Rows.Clear();
 
@@ -177,7 +177,7 @@ namespace AirportAutomation
             result.Close();
         }
 
-        public void r_models()
+        public void RefreshPlaneModels()
         {
             gridPlaneModels.Rows.Clear();
 
@@ -199,7 +199,7 @@ namespace AirportAutomation
             result.Close();
         }
 
-        public void r_planes()
+        public void RefreshPlanes()
         {
             gridPlanes.Rows.Clear();
 
@@ -299,7 +299,7 @@ namespace AirportAutomation
                 if ((int)r.Cells[0].Value == id)
                 {
                     r.Cells[1].Value = txtCountryName.Text;
-                    r_cities();
+                    RefreshCities();
                     return;
                 }
             }
@@ -319,7 +319,7 @@ namespace AirportAutomation
                 if ((int)r.Cells[0].Value == id)
                 {
                     gridCountries.Rows.Remove(r);
-                    r_cities();
+                    RefreshCities();
                     return;
                 }
             }
@@ -733,6 +733,39 @@ namespace AirportAutomation
             gridAirports.Rows.Add(id, name, txtAirportCityName.Text, txtAirportAdminName.Text, admin, city);
         }
 
+        private void UpdateAirport(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAirportID.Text) || string.IsNullOrWhiteSpace(txtAirportCityID.Text) || string.IsNullOrWhiteSpace(txtAirportAdminID.Text))
+            {
+                MessageBox.Show("Düzenlenecek havalimanını seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"update airports set name = '{ txtAirportName.Text }', cityID = '{ txtAirportCityID.Text }', adminID = '{ txtAirportAdminID.Text }' where countryID = { txtAirportID.Text }", Globals.Connection);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Aynı isme sahip başka bir havalimanı daha mevcut. { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (DataGridViewRow r in gridAirports.Rows)
+            {
+                if (r.Cells[0].Value.ToString() == txtAirportID.Text)
+                {
+                    r.Cells[1].Value = txtAirportName.Text;
+                    r.Cells[2].Value = txtAirportCityName.Text;
+                    r.Cells[3].Value = txtAirportAdminName.Text;
+                    r.Cells[4].Value = txtAirportAdminID.Text;
+                    r.Cells[5].Value = txtAirportCityID.Text;
+                    return;
+                }
+            }
+        }
+
         #endregion
 
         private void AddPlaneType(object sender, EventArgs e)
@@ -769,22 +802,231 @@ namespace AirportAutomation
 
         private void SelectPlaneType(object sender, DataGridViewCellEventArgs e)
         {
+            var row = e.RowIndex;
+            if (row < 0) return;
+            var r = gridPlaneTypes.Rows[row];
+            if (row >= gridPlaneTypes.RowCount - 1) return;
 
+            var idstr = r.Cells[0].Value.ToString();
+            var type = r.Cells[1].Value.ToString();
+
+            txtPlaneTypeID.Text = idstr;
+            txtPlaneTypeName.Text = type;
+
+            txtPlaneModelTypeID.Text = idstr;
+            txtPlaneModelTypeName.Text = type;
         }
 
         private void RefreshData(object sender, EventArgs e)
         {
             var src = contextRefresh.SourceControl;
 
-            if (src == gridCountries) r_countries();
-            else if (src == gridAirportAdmins) r_airportAdmins();
-            else if (src == gridCities) r_cities();
-            else if (src == gridAirlines) r_airlines();
-            else if (src == gridPilots) r_pilots();
-            else if (src == gridAirports) r_airports();
-            else if (src == gridPlaneTypes) r_types();
-            else if (src == gridPlanes) r_planes();
-            else if (src == gridPlaneModels) r_models();
+            if (src == gridCountries) RefreshCountries();
+            else if (src == gridAirportAdmins) RefreshAirportAdmins();
+            else if (src == gridCities) RefreshCities();
+            else if (src == gridAirlines) RefreshAirlines();
+            else if (src == gridPilots) RefreshPilots();
+            else if (src == gridAirports) RefreshAirports();
+            else if (src == gridPlaneTypes) RefreshPlaneTypes();
+            else if (src == gridPlanes) RefreshPlanes();
+            else if (src == gridPlaneModels) RefreshPlaneModels();
+        }
+
+        private void AddPlaneModel(object sender, EventArgs e)
+        {
+            string name = txtPlaneModelName.Text.Trim();
+            string typeid = txtPlaneModelTypeID.Text;
+            int cap = (int)txtPlaneModelCap.Value;
+
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(typeid))
+            {
+                MessageBox.Show("İsim veya tür alanı boş bırakılamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"insert into models (modelName, passengerCapacity, type) values ('{ name }', '{ cap }', '{ typeid }')", Globals.Connection);
+            try
+            {
+                int rows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Model ({ name }) zaten sistemde kayıtlı! { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            cmd = new MySqlCommand("select max(modelID) from models", Globals.Connection);
+            var rd = cmd.ExecuteReader();
+            rd.Read();
+            var id = rd.GetInt32(0);
+            txtPlaneModelID.Text = id.ToString();
+
+            rd.Close();
+
+            MessageBox.Show($"Model ({ name }) eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            gridPlaneModels.Rows.Add(id, name, cap, txtPlaneModelTypeName.Text, typeid);
+        }
+
+        private void SelectPlaneModel(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = e.RowIndex;
+            if (row < 0) return;
+            var r = gridPlaneModels.Rows[row];
+            if (row >= gridPlaneModels.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            var name = r.Cells[1].Value.ToString();
+            var cap = r.Cells[2].Value.ToString();
+            var typename = r.Cells[3].Value.ToString();
+            var type = r.Cells[4].Value.ToString();
+
+            txtPlaneModelID.Text = idstr;
+            txtPlaneModelName.Text = name;
+            txtPlaneModelTypeID.Text = type;
+            txtPlaneModelTypeName.Text = typename;
+            txtPlaneModelCap.Value = int.Parse(cap);
+
+            txtPlaneModelID2.Text = idstr;
+            txtPlaneModelName2.Text = name;
+        }
+
+        private void AddPlane(object sender, EventArgs e)
+        {
+            string planeid = txtPlaneID.Text.Trim();
+            string modelid = txtPlaneModelID2.Text;
+            if (string.IsNullOrWhiteSpace(planeid) || string.IsNullOrWhiteSpace(modelid))
+            {
+                MessageBox.Show("Uçak ID veya Model alanı boş bırakılamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"insert into planes (planeID, modelID) values ('{ planeid }', '{ modelid }')", Globals.Connection);
+            try
+            { 
+                int rows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Uçak ({ planeid }) zaten sistemde kayıtlı! { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+
+            MessageBox.Show($"Uçak ({ planeid }) eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            gridPlanes.Rows.Add(planeid, txtPlaneModelName2.Text);
+        }
+
+        private string SelectedPlaneID = "";
+        private void SelectPlane(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = e.RowIndex;
+            if (row < 0) return;
+            var r = gridPlanes.Rows[row];
+            if (row >= gridPlanes.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            var modelname = r.Cells[1].Value.ToString();
+            var modelid = r.Cells[2].Value.ToString();
+
+            SelectedPlaneID = idstr;
+            txtPlaneID.Text = idstr;
+            txtPlaneModelID2.Text = modelid;
+            txtPlaneModelName2.Text = modelname;
+        }
+
+        private void UpdatePlane(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(SelectedPlaneID))
+            {
+                MessageBox.Show("Düzenlenecek uçağı seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"update planes set planeID = '{ txtPlaneID.Text }' where planeID = '{ SelectedPlaneID }'", Globals.Connection);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Aynı isme sahip başka bir uçak daha mevcut. { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (DataGridViewRow r in gridPlanes.Rows)
+            {
+                if (r.Cells[0].Value.ToString() == SelectedPlaneID)
+                {
+                    r.Cells[0].Value = txtPlaneID.Text;
+                    return;
+                }
+            }
+        }
+
+        private void UpdatePlaneModel(object sender, EventArgs e)
+        {
+            string modelname = txtPlaneModelName.Text;
+            int modelcap = (int)txtPlaneModelCap.Value;
+
+            if (string.IsNullOrWhiteSpace(modelname) ||string.IsNullOrWhiteSpace(txtPlaneModelID.Text))
+            {
+                MessageBox.Show("Düzenlenecek modeli seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"update models set modelName = '{ modelname }', passengerCapacity = { modelcap } where modelID = '{ txtPlaneModelID.Text }'", Globals.Connection);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Aynı isme sahip başka bir model daha mevcut. { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (DataGridViewRow r in gridPlaneModels.Rows)
+            {
+                if (r.Cells[0].Value.ToString() == txtPlaneModelID.Text)
+                {
+                    r.Cells[1].Value = modelname;
+                    r.Cells[2].Value = modelcap;
+                    RefreshPlanes();
+                    return;
+                }
+            }
+        }
+
+        private void UpdatePlaneType(object sender, EventArgs e)
+        {
+            string typename = txtPlaneTypeName.Text;
+
+            if (string.IsNullOrWhiteSpace(typename) || string.IsNullOrWhiteSpace(txtPlaneTypeID.Text))
+            {
+                MessageBox.Show("Düzenlenecek türü seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"update types set name = '{ typename }' where typeID = '{ txtPlaneTypeID.Text }'", Globals.Connection);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Aynı tür sistemde zaten mevcut. { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (DataGridViewRow r in gridPlaneTypes.Rows)
+            {
+                if (r.Cells[0].Value.ToString() == txtPlaneTypeID.Text)
+                {
+                    r.Cells[1].Value = typename;
+                    RefreshPlaneModels();
+                    return;
+                }
+            }
         }
 
         private void DeleteModel(object sender, EventArgs e)

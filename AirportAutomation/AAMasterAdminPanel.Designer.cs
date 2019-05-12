@@ -157,11 +157,12 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.txtPlaneModelCap = new System.Windows.Forms.NumericUpDown();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPlaneModelTypeName = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPlaneModelTypeID = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -193,7 +194,7 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPlaneModelName2 = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.txtPlaneModelID2 = new System.Windows.Forms.TextBox();
             this.txtPlaneID = new System.Windows.Forms.TextBox();
@@ -202,8 +203,9 @@
             this.button35 = new System.Windows.Forms.Button();
             this.button36 = new System.Windows.Forms.Button();
             this.gridPlanes = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.contextRefresh.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -233,6 +235,7 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlaneModelCap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlaneModels)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -1410,6 +1413,7 @@
             this.button23.TabIndex = 1;
             this.button23.Text = "Düzenle";
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.UpdateAirport);
             // 
             // button24
             // 
@@ -1512,13 +1516,13 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.txtPlaneModelCap);
             this.groupBox7.Controls.Add(this.label38);
             this.groupBox7.Controls.Add(this.label37);
-            this.groupBox7.Controls.Add(this.textBox4);
+            this.groupBox7.Controls.Add(this.txtPlaneModelTypeName);
             this.groupBox7.Controls.Add(this.label29);
-            this.groupBox7.Controls.Add(this.textBox3);
+            this.groupBox7.Controls.Add(this.txtPlaneModelTypeID);
             this.groupBox7.Controls.Add(this.label13);
-            this.groupBox7.Controls.Add(this.textBox2);
             this.groupBox7.Controls.Add(this.label14);
             this.groupBox7.Controls.Add(this.txtPlaneModelName);
             this.groupBox7.Controls.Add(this.txtPlaneModelID);
@@ -1534,6 +1538,28 @@
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Modeller";
+            // 
+            // txtPlaneModelCap
+            // 
+            this.txtPlaneModelCap.Increment = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.txtPlaneModelCap.Location = new System.Drawing.Point(6, 116);
+            this.txtPlaneModelCap.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtPlaneModelCap.Name = "txtPlaneModelCap";
+            this.txtPlaneModelCap.Size = new System.Drawing.Size(330, 20);
+            this.txtPlaneModelCap.TabIndex = 5;
+            this.txtPlaneModelCap.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // label38
             // 
@@ -1553,13 +1579,13 @@
             this.label37.TabIndex = 4;
             this.label37.Text = "Model Türü ID";
             // 
-            // textBox4
+            // txtPlaneModelTypeName
             // 
-            this.textBox4.Location = new System.Drawing.Point(178, 155);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(158, 20);
-            this.textBox4.TabIndex = 3;
+            this.txtPlaneModelTypeName.Location = new System.Drawing.Point(178, 155);
+            this.txtPlaneModelTypeName.Name = "txtPlaneModelTypeName";
+            this.txtPlaneModelTypeName.ReadOnly = true;
+            this.txtPlaneModelTypeName.Size = new System.Drawing.Size(158, 20);
+            this.txtPlaneModelTypeName.TabIndex = 3;
             // 
             // label29
             // 
@@ -1570,13 +1596,13 @@
             this.label29.TabIndex = 4;
             this.label29.Text = "Model Kapasitesi";
             // 
-            // textBox3
+            // txtPlaneModelTypeID
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 155);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(166, 20);
-            this.textBox3.TabIndex = 3;
+            this.txtPlaneModelTypeID.Location = new System.Drawing.Point(6, 155);
+            this.txtPlaneModelTypeID.Name = "txtPlaneModelTypeID";
+            this.txtPlaneModelTypeID.ReadOnly = true;
+            this.txtPlaneModelTypeID.Size = new System.Drawing.Size(166, 20);
+            this.txtPlaneModelTypeID.TabIndex = 3;
             // 
             // label13
             // 
@@ -1627,6 +1653,7 @@
             this.button25.TabIndex = 1;
             this.button25.Text = "Ekle";
             this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.AddPlaneModel);
             // 
             // button26
             // 
@@ -1648,6 +1675,7 @@
             this.button27.TabIndex = 1;
             this.button27.Text = "Düzenle";
             this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.UpdatePlaneModel);
             // 
             // button28
             // 
@@ -1678,6 +1706,7 @@
             this.gridPlaneModels.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPlaneModels.Size = new System.Drawing.Size(444, 185);
             this.gridPlaneModels.TabIndex = 0;
+            this.gridPlaneModels.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPlaneModel);
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -1811,6 +1840,7 @@
             this.button31.TabIndex = 8;
             this.button31.Text = "Düzenle";
             this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.UpdatePlaneType);
             // 
             // button32
             // 
@@ -1857,7 +1887,7 @@
             // 
             this.groupBox9.Controls.Add(this.label15);
             this.groupBox9.Controls.Add(this.label35);
-            this.groupBox9.Controls.Add(this.textBox1);
+            this.groupBox9.Controls.Add(this.txtPlaneModelName2);
             this.groupBox9.Controls.Add(this.label36);
             this.groupBox9.Controls.Add(this.txtPlaneModelID2);
             this.groupBox9.Controls.Add(this.txtPlaneID);
@@ -1892,13 +1922,13 @@
             this.label35.TabIndex = 13;
             this.label35.Text = "Model ID";
             // 
-            // textBox1
+            // txtPlaneModelName2
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(167, 20);
-            this.textBox1.TabIndex = 10;
+            this.txtPlaneModelName2.Location = new System.Drawing.Point(6, 71);
+            this.txtPlaneModelName2.Name = "txtPlaneModelName2";
+            this.txtPlaneModelName2.ReadOnly = true;
+            this.txtPlaneModelName2.Size = new System.Drawing.Size(167, 20);
+            this.txtPlaneModelName2.TabIndex = 10;
             // 
             // label36
             // 
@@ -1933,6 +1963,7 @@
             this.button33.TabIndex = 6;
             this.button33.Text = "Ekle";
             this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.AddPlane);
             // 
             // button34
             // 
@@ -1954,6 +1985,7 @@
             this.button35.TabIndex = 8;
             this.button35.Text = "Düzenle";
             this.button35.UseVisualStyleBackColor = true;
+            this.button35.Click += new System.EventHandler(this.UpdatePlane);
             // 
             // button36
             // 
@@ -1972,8 +2004,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16});
+            this.dataGridViewTextBoxColumn16,
+            this.Column1,
+            this.Column2});
             this.gridPlanes.ContextMenuStrip = this.contextRefresh;
             this.gridPlanes.Location = new System.Drawing.Point(178, 19);
             this.gridPlanes.Name = "gridPlanes";
@@ -1981,19 +2014,26 @@
             this.gridPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPlanes.Size = new System.Drawing.Size(214, 252);
             this.gridPlanes.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 50;
+            this.gridPlanes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPlane);
             // 
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.HeaderText = "Uçak İsmi";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Model";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Model ID";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
             // 
             // AAMasterAdminPanel
             // 
@@ -2041,6 +2081,7 @@
             this.splitContainer2.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlaneModelCap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlaneModels)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -2216,16 +2257,13 @@
         private System.Windows.Forms.Button button35;
         private System.Windows.Forms.Button button36;
         private System.Windows.Forms.DataGridView gridPlanes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPlaneModelName2;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPlaneModelTypeName;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPlaneModelTypeID;
         private System.Windows.Forms.ContextMenuStrip contextRefresh;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
@@ -2233,5 +2271,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnModelCapacity;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnModelType;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnModelTypeID;
+        private System.Windows.Forms.NumericUpDown txtPlaneModelCap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
