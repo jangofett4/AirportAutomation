@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -254,6 +255,40 @@ namespace AirportAutomation
                     string airportName = result.GetString(7);
 
                     gridStaff.Rows.Add(id, tc, name, surname, airportName, airport, username, password);
+                }
+            }
+            result.Close();
+        }
+
+        public void RefreshFlights()
+        {
+            gridFlights.Rows.Clear();
+
+            MySqlCommand cmd = new MySqlCommand("select * from flightGridView", Globals.Connection);
+            var result = cmd.ExecuteReader();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    object[] objs = {
+                        result.GetInt32(0),
+                        result.GetInt32(1),
+                        result.GetString(2),
+                        result.GetInt32(3),
+                        result.GetInt32(4),
+                        result.GetString(5),
+                        result.GetInt32(6),
+                        result.GetInt32(7),
+                        result.GetString(8),
+                        result.GetInt32(9),
+                        result.GetString(10),
+                        result.GetInt32(11),
+                        result.GetString(12),
+                        result.GetInt32(13),
+                        result.GetDateTime(14)
+                    };
+                    
+                    gridFlights.Rows.Add(objs);
                 }
             }
             result.Close();
@@ -573,6 +608,9 @@ namespace AirportAutomation
 
             txtPilotAirlineID.Text = idstr;
             txtPilotAirlineName.Text = namestr;
+
+            txtFlightAirlineID.Text = idstr;
+            txtFlightAirlineName.Text = namestr;
         }
 
         private void UpdateAirline(object sender, EventArgs e)
@@ -661,6 +699,47 @@ namespace AirportAutomation
             gridPilots.Rows.Add(id, tc, name, surname, txtPilotAirlineName.Text, aidstr);
         }
 
+        private void SelectPilot(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = e.RowIndex;
+            if (row < 0) return;
+            var r = gridPilots.Rows[row];
+            if (row >= gridPilots.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            var namestr = r.Cells[2].Value.ToString() + " " + r.Cells[3].Value.ToString();
+
+            if (SwitchCopilot)
+            {
+                txtFlightCopilotID.Text = idstr;
+                txtFlightCopilotName.Text = namestr;
+            }
+            else
+            {
+                txtFlightPilotID.Text = idstr;
+                txtFlightPilotName.Text = namestr;
+            }
+        }
+
+        private void DeletePilot(object sender, EventArgs e)
+        {
+            var id = int.Parse(txtPilotID.Text);
+            if (MessageBox.Show($"Seçilen pilot  silinecek.\nPilota bağlı bütün bilgiler (uçuşlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand($"delete from pilots where pilotID = { id }", Globals.Connection);
+                cmd.ExecuteNonQuery();
+            }
+
+            foreach (DataGridViewRow r in gridPilots.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    gridPilots.Rows.Remove(r);
+                    return;
+                }
+            }
+        }
+
         #endregion
         #region "Adminler"
 
@@ -734,6 +813,25 @@ namespace AirportAutomation
             txtAirportAdminName.Text = name + " " + surname;
         }
 
+        private void DeleteAdmin(object sender, EventArgs e)
+        {
+            var id = int.Parse(txtAAdminID.Text);
+            if (MessageBox.Show($"Seçilen havayolu yöneticisi  silinecek.\nHavayolu yöneticisine bağlı bütün bilgiler (havalimanları vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand($"delete from airport_admins where adminID = { id }", Globals.Connection);
+                cmd.ExecuteNonQuery();
+            }
+
+            foreach (DataGridViewRow r in gridAirportAdmins.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    gridAirportAdmins.Rows.Remove(r);
+                    return;
+                }
+            }
+        }
+
         #endregion
         #region "Havalimanları"
 
@@ -802,6 +900,62 @@ namespace AirportAutomation
                     r.Cells[3].Value = txtAirportAdminName.Text;
                     r.Cells[4].Value = txtAirportAdminID.Text;
                     r.Cells[5].Value = txtAirportCityID.Text;
+                    return;
+                }
+            }
+        }
+
+        private void SelectAirport(object sender, DataGridViewCellEventArgs e)
+    
+    {
+            var row = e.RowIndex;
+            if (row < 0) return;
+            var r = gridAirports.Rows[row];
+            if (row >= gridAirports.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            var name = r.Cells[1].Value.ToString();
+            var city = r.Cells[2].Value.ToString();
+            var admin = r.Cells[3].Value.ToString();
+            var adminid = r.Cells[4].Value.ToString();
+            var cityid = r.Cells[5].Value.ToString();
+
+            txtAirportID.Text = idstr;
+            txtAirportName.Text = name;
+            txtAirportCityID.Text = cityid;
+            txtAirportCityName.Text = city;
+            txtAirportAdminID.Text = adminid;
+            txtAirportAdminName.Text = admin;
+
+            txtStaffAirportID.Text = idstr;
+            txtStaffAirportName.Text = name;
+
+            if (SwitchLanding)
+            {
+                txtFlightLandingAirportID.Text = idstr;
+                txtFlightLandingAirportName.Text = name;
+            }
+            else
+            {
+                txtFlightTakeoffAirportID.Text = idstr;
+                txtFlightTakeoffAirportName.Text = name;
+            }
+        }
+
+        private void DeleteAirports(object sender, EventArgs e)
+        {
+            var id = int.Parse(txtAirportID.Text);
+            if (MessageBox.Show($"Seçilen havaalanı  silinecek.\nHavalimanına bağlı bütün bilgiler (uçuşlar,yönetici,çalışanlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand($"delete from airports where airportID = { id }", Globals.Connection);
+                cmd.ExecuteNonQuery();
+            }
+
+            foreach (DataGridViewRow r in gridAirports.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    gridAirports.Rows.Remove(r);
                     return;
                 }
             }
@@ -939,7 +1093,7 @@ namespace AirportAutomation
 
 
             MessageBox.Show($"Uçak ({ planeid }) eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            gridPlanes.Rows.Add(planeid, txtPlaneModelName2.Text);
+            gridPlanes.Rows.Add(planeid, txtPlaneModelName2.Text, modelid);
         }
 
         private string SelectedPlaneID = "";
@@ -958,6 +1112,8 @@ namespace AirportAutomation
             txtPlaneID.Text = idstr;
             txtPlaneModelID2.Text = modelid;
             txtPlaneModelName2.Text = modelname;
+
+            txtFlightPlane.Text = idstr;
         }
 
         private void UpdatePlane(object sender, EventArgs e)
@@ -1095,56 +1251,18 @@ namespace AirportAutomation
 
         private void DeletePlane(object sender, EventArgs e)
         {
-            var id = int.Parse(txtPlaneID.Text);
+            var id = (txtPlaneID.Text);
             if (MessageBox.Show($"Seçilen uçak  silinecek.\nUçağa bağlı bütün bilgiler (uçuşlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                MySqlCommand cmd = new MySqlCommand($"delete from planes where planeID = { id }", Globals.Connection);
+                MySqlCommand cmd = new MySqlCommand($"delete from planes where planeID = '{ id }'", Globals.Connection);
                 cmd.ExecuteNonQuery();
             }
 
             foreach (DataGridViewRow r in gridPlanes.Rows)
             {
-                if ((int)r.Cells[0].Value == id)
+                if ((string)r.Cells[0].Value == id)
                 {
                     gridPlanes.Rows.Remove(r);
-                    return;
-                }
-            }
-        }
-
-        private void DeleteAirports(object sender, EventArgs e)
-        {
-            var id = int.Parse(txtAirportID.Text);
-            if (MessageBox.Show($"Seçilen havaalanı  silinecek.\nHavalimanına bağlı bütün bilgiler (uçuşlar,yönetici,çalışanlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            {
-                MySqlCommand cmd = new MySqlCommand($"delete from airports where airportID = { id }", Globals.Connection);
-                cmd.ExecuteNonQuery();
-            }
-
-            foreach (DataGridViewRow r in gridAirports.Rows)
-            {
-                if ((int)r.Cells[0].Value == id)
-                {
-                    gridAirports.Rows.Remove(r);
-                    return;
-                }
-            }
-        }
-
-        private void DeletePilot(object sender, EventArgs e)
-        {
-            var id = int.Parse(txtPilotID.Text);
-            if (MessageBox.Show($"Seçilen pilot  silinecek.\nPilota bağlı bütün bilgiler (uçuşlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            {
-                MySqlCommand cmd = new MySqlCommand($"delete from pilots where pilotID = { id }", Globals.Connection);
-                cmd.ExecuteNonQuery();
-            }
-
-            foreach (DataGridViewRow r in gridPilots.Rows)
-            {
-                if ((int)r.Cells[0].Value == id)
-                {
-                    gridPilots.Rows.Remove(r);
                     return;
                 }
             }
@@ -1200,31 +1318,6 @@ namespace AirportAutomation
             gridStaff.Rows.Add(id, tc, name, surname, txtStaffAirportName.Text, airport, username, password);
         }
 
-        private void SelectAirport(object sender, DataGridViewCellEventArgs e)
-        {
-            var row = e.RowIndex;
-            if (row < 0) return;
-            var r = gridAirports.Rows[row];
-            if (row >= gridAirports.RowCount - 1) return;
-
-            var idstr = r.Cells[0].Value.ToString();
-            var name = r.Cells[1].Value.ToString();
-            var city = r.Cells[2].Value.ToString();
-            var admin = r.Cells[3].Value.ToString();
-            var adminid = r.Cells[4].Value.ToString();
-            var cityid = r.Cells[5].Value.ToString();
-
-            txtAirportID.Text = idstr;
-            txtAirportName.Text = name;
-            txtAirportCityID.Text = cityid;
-            txtAirportCityName.Text = city;
-            txtAirportAdminID.Text = adminid;
-            txtAirportAdminName.Text = admin;
-
-            txtStaffAirportID.Text = idstr;
-            txtStaffAirportName.Text = name;
-        }
-
         private void SelectStaff(object sender, DataGridViewCellEventArgs e)
         {
             var row = e.RowIndex;
@@ -1249,6 +1342,95 @@ namespace AirportAutomation
             txtStaffAirportName.Text = airport;
             txtStaffUsername.Text = username;
             txtStaffPassword.Text = password;
+        }
+
+        private void UpdatePilot(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPilotID.Text))
+            {
+                MessageBox.Show("Düzenlenecek pilotu seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var id = int.Parse(txtPilotID.Text);
+
+            MySqlCommand cmd = new MySqlCommand($"update pilots set name = '{ txtPilotName.Text }',surname ='{ txtPilotSurname.Text}',tc='{txtPilotTC.Text}',airlineID=={txtPilotAirlineID.Text} where pilotID = { id }", Globals.Connection);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Aynı tc sahip başka bir pilot daha mevcut. { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (DataGridViewRow r in gridPilots.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    r.Cells[1].Value = txtPilotName.Text;
+                    r.Cells[2].Value = txtPilotSurname.Text;
+                    r.Cells[3].Value = txtPilotTC.Text;
+                    r.Cells[4].Value = txtPilotAirlineID.Text;
+                    RefreshPilots();
+                    return;
+                }
+            }
+        }
+
+        private void AddFlight(object sender, EventArgs e)
+        {
+            string takeoffid = txtFlightTakeoffAirportID.Text;
+            string landingid = txtFlightLandingAirportID.Text;
+            string airlineid = txtFlightAirlineID.Text;
+            string planeid = txtFlightPlane.Text;
+            string pilotid = txtFlightPilotID.Text;
+            string copilotid = txtFlightCopilotID.Text;
+            DateTime takeoffDate = dateFlightTakeoff.Value;
+
+        }
+
+        private bool SwitchLanding = false;
+        private void SwitchSelectTakeoff(object sender, EventArgs e)
+        {
+            txtFlightLandingAirportID.BackColor = SystemColors.Control;
+            txtFlightLandingAirportName.BackColor = SystemColors.Control;
+            SwitchLanding = false;
+
+            txtFlightTakeoffAirportID.BackColor = Color.LightGreen;
+            txtFlightTakeoffAirportName.BackColor = Color.LightGreen;
+        }
+
+        private void SwitchSelectLanding(object sender, EventArgs e)
+        {
+            txtFlightLandingAirportID.BackColor = Color.LightGreen;
+            txtFlightLandingAirportName.BackColor = Color.LightGreen;
+            SwitchLanding = true;
+
+            txtFlightTakeoffAirportID.BackColor = SystemColors.Control;
+            txtFlightTakeoffAirportName.BackColor = SystemColors.Control;
+        }
+
+        private bool SwitchCopilot = false;
+        private void SwitchSelectPilot(object sender, EventArgs e)
+        {
+            txtFlightPilotID.BackColor = Color.LightGreen;
+            txtFlightPilotName.BackColor = Color.LightGreen;
+            SwitchCopilot = false;
+
+            txtFlightCopilotID.BackColor = SystemColors.Control;
+            txtFlightCopilotName.BackColor = SystemColors.Control;
+        }
+
+        private void SwitchSelectCopilot(object sender, EventArgs e)
+        {
+            txtFlightPilotID.BackColor = SystemColors.Control;
+            txtFlightPilotName.BackColor = SystemColors.Control;
+            SwitchCopilot = true;
+
+            txtFlightCopilotID.BackColor = Color.LightGreen;
+            txtFlightCopilotName.BackColor = Color.LightGreen;
         }
     }
 }
