@@ -205,6 +205,38 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.txtStaffAirportName = new System.Windows.Forms.TextBox();
+            this.txtStaffAirportID = new System.Windows.Forms.TextBox();
+            this.txtStaffTC = new System.Windows.Forms.TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.txtStaffSurname = new System.Windows.Forms.TextBox();
+            this.txtStaffName = new System.Windows.Forms.TextBox();
+            this.txtStaffID = new System.Windows.Forms.TextBox();
+            this.button37 = new System.Windows.Forms.Button();
+            this.button38 = new System.Windows.Forms.Button();
+            this.button39 = new System.Windows.Forms.Button();
+            this.button40 = new System.Windows.Forms.Button();
+            this.gridStaff = new System.Windows.Forms.DataGridView();
+            this.txtStaffUsername = new System.Windows.Forms.TextBox();
+            this.txtStaffPassword = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.contextRefresh.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -244,6 +276,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridPlaneTypes)).BeginInit();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanes)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridStaff)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -255,6 +290,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -1446,6 +1482,7 @@
             this.gridAirports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAirports.Size = new System.Drawing.Size(444, 466);
             this.gridAirports.TabIndex = 0;
+            this.gridAirports.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectAirport);
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -2029,6 +2066,307 @@
             this.Column2.ReadOnly = true;
             this.Column2.Visible = false;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.groupBox10);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(798, 497);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Çalışanlar";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.label39);
+            this.groupBox10.Controls.Add(this.label40);
+            this.groupBox10.Controls.Add(this.label41);
+            this.groupBox10.Controls.Add(this.label42);
+            this.groupBox10.Controls.Add(this.label47);
+            this.groupBox10.Controls.Add(this.label43);
+            this.groupBox10.Controls.Add(this.txtStaffAirportName);
+            this.groupBox10.Controls.Add(this.txtStaffAirportID);
+            this.groupBox10.Controls.Add(this.txtStaffTC);
+            this.groupBox10.Controls.Add(this.label46);
+            this.groupBox10.Controls.Add(this.label44);
+            this.groupBox10.Controls.Add(this.txtStaffPassword);
+            this.groupBox10.Controls.Add(this.label45);
+            this.groupBox10.Controls.Add(this.txtStaffUsername);
+            this.groupBox10.Controls.Add(this.txtStaffSurname);
+            this.groupBox10.Controls.Add(this.txtStaffName);
+            this.groupBox10.Controls.Add(this.txtStaffID);
+            this.groupBox10.Controls.Add(this.button37);
+            this.groupBox10.Controls.Add(this.button38);
+            this.groupBox10.Controls.Add(this.button39);
+            this.groupBox10.Controls.Add(this.button40);
+            this.groupBox10.Controls.Add(this.gridStaff);
+            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox10.Location = new System.Drawing.Point(3, 3);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(792, 491);
+            this.groupBox10.TabIndex = 5;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Eleman Yönetimi";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(178, 256);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(59, 13);
+            this.label39.TabIndex = 4;
+            this.label39.Text = "Havalimanı";
+            // 
+            // label40
+            // 
+            this.label40.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label40.Location = new System.Drawing.Point(3, 295);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(333, 31);
+            this.label40.TabIndex = 4;
+            this.label40.Text = "Havayolu alanını düzenlemek için \'Havayolları\' sekmesinden bir veri seçin.";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(6, 256);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(73, 13);
+            this.label41.TabIndex = 4;
+            this.label41.Text = "Havalimanı ID";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(6, 217);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(98, 13);
+            this.label42.TabIndex = 4;
+            this.label42.Text = "TC Kimlik Numarası";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(6, 100);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(46, 13);
+            this.label43.TabIndex = 4;
+            this.label43.Text = "Soy İsim";
+            // 
+            // txtStaffAirportName
+            // 
+            this.txtStaffAirportName.Location = new System.Drawing.Point(178, 272);
+            this.txtStaffAirportName.Name = "txtStaffAirportName";
+            this.txtStaffAirportName.ReadOnly = true;
+            this.txtStaffAirportName.Size = new System.Drawing.Size(158, 20);
+            this.txtStaffAirportName.TabIndex = 3;
+            // 
+            // txtStaffAirportID
+            // 
+            this.txtStaffAirportID.Location = new System.Drawing.Point(6, 272);
+            this.txtStaffAirportID.Name = "txtStaffAirportID";
+            this.txtStaffAirportID.ReadOnly = true;
+            this.txtStaffAirportID.Size = new System.Drawing.Size(158, 20);
+            this.txtStaffAirportID.TabIndex = 3;
+            // 
+            // txtStaffTC
+            // 
+            this.txtStaffTC.Location = new System.Drawing.Point(6, 233);
+            this.txtStaffTC.MaxLength = 11;
+            this.txtStaffTC.Name = "txtStaffTC";
+            this.txtStaffTC.Size = new System.Drawing.Size(330, 20);
+            this.txtStaffTC.TabIndex = 3;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(6, 61);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(25, 13);
+            this.label44.TabIndex = 4;
+            this.label44.Text = "İsim";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(6, 22);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(18, 13);
+            this.label45.TabIndex = 4;
+            this.label45.Text = "ID";
+            // 
+            // txtStaffSurname
+            // 
+            this.txtStaffSurname.Location = new System.Drawing.Point(6, 116);
+            this.txtStaffSurname.Name = "txtStaffSurname";
+            this.txtStaffSurname.Size = new System.Drawing.Size(330, 20);
+            this.txtStaffSurname.TabIndex = 3;
+            // 
+            // txtStaffName
+            // 
+            this.txtStaffName.Location = new System.Drawing.Point(6, 77);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(330, 20);
+            this.txtStaffName.TabIndex = 3;
+            // 
+            // txtStaffID
+            // 
+            this.txtStaffID.Location = new System.Drawing.Point(6, 38);
+            this.txtStaffID.Name = "txtStaffID";
+            this.txtStaffID.ReadOnly = true;
+            this.txtStaffID.Size = new System.Drawing.Size(330, 20);
+            this.txtStaffID.TabIndex = 2;
+            // 
+            // button37
+            // 
+            this.button37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button37.Location = new System.Drawing.Point(6, 462);
+            this.button37.Name = "button37";
+            this.button37.Size = new System.Drawing.Size(80, 23);
+            this.button37.TabIndex = 1;
+            this.button37.Text = "Ekle";
+            this.button37.UseVisualStyleBackColor = true;
+            this.button37.Click += new System.EventHandler(this.AddStaff);
+            // 
+            // button38
+            // 
+            this.button38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button38.Location = new System.Drawing.Point(92, 462);
+            this.button38.Name = "button38";
+            this.button38.Size = new System.Drawing.Size(80, 23);
+            this.button38.TabIndex = 1;
+            this.button38.Text = "Sil";
+            this.button38.UseVisualStyleBackColor = true;
+            // 
+            // button39
+            // 
+            this.button39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button39.Location = new System.Drawing.Point(264, 462);
+            this.button39.Name = "button39";
+            this.button39.Size = new System.Drawing.Size(72, 23);
+            this.button39.TabIndex = 1;
+            this.button39.Text = "Düzenle";
+            this.button39.UseVisualStyleBackColor = true;
+            // 
+            // button40
+            // 
+            this.button40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button40.Location = new System.Drawing.Point(178, 462);
+            this.button40.Name = "button40";
+            this.button40.Size = new System.Drawing.Size(80, 23);
+            this.button40.TabIndex = 1;
+            this.button40.Text = "Temizle";
+            this.button40.UseVisualStyleBackColor = true;
+            // 
+            // gridStaff
+            // 
+            this.gridStaff.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.Column3,
+            this.Column4});
+            this.gridStaff.ContextMenuStrip = this.contextRefresh;
+            this.gridStaff.Location = new System.Drawing.Point(342, 19);
+            this.gridStaff.Name = "gridStaff";
+            this.gridStaff.ReadOnly = true;
+            this.gridStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridStaff.Size = new System.Drawing.Size(444, 466);
+            this.gridStaff.TabIndex = 0;
+            this.gridStaff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectStaff);
+            // 
+            // txtStaffUsername
+            // 
+            this.txtStaffUsername.Location = new System.Drawing.Point(6, 155);
+            this.txtStaffUsername.Name = "txtStaffUsername";
+            this.txtStaffUsername.Size = new System.Drawing.Size(330, 20);
+            this.txtStaffUsername.TabIndex = 3;
+            // 
+            // txtStaffPassword
+            // 
+            this.txtStaffPassword.Location = new System.Drawing.Point(6, 194);
+            this.txtStaffPassword.Name = "txtStaffPassword";
+            this.txtStaffPassword.Size = new System.Drawing.Size(330, 20);
+            this.txtStaffPassword.TabIndex = 3;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(6, 139);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(64, 13);
+            this.label46.TabIndex = 4;
+            this.label46.Text = "Kullanıcı Adı";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(6, 178);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(28, 13);
+            this.label47.TabIndex = 4;
+            this.label47.Text = "Şifre";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "TC Kimlik Numarası";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "İsim";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Soy İsim";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Havalimanı";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.HeaderText = "Havalimanı ID";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Kullanıcı Adı";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Şifre";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            // 
             // AAMasterAdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2087,6 +2425,10 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanes)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridStaff)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2269,5 +2611,37 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox txtStaffAirportName;
+        private System.Windows.Forms.TextBox txtStaffAirportID;
+        private System.Windows.Forms.TextBox txtStaffTC;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox txtStaffPassword;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox txtStaffUsername;
+        private System.Windows.Forms.TextBox txtStaffSurname;
+        private System.Windows.Forms.TextBox txtStaffName;
+        private System.Windows.Forms.TextBox txtStaffID;
+        private System.Windows.Forms.Button button37;
+        private System.Windows.Forms.Button button38;
+        private System.Windows.Forms.Button button39;
+        private System.Windows.Forms.Button button40;
+        private System.Windows.Forms.DataGridView gridStaff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

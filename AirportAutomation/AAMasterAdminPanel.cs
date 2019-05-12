@@ -22,6 +22,22 @@ namespace AirportAutomation
             InitializeComponent();
         }
 
+        private void RefreshData(object sender, EventArgs e)
+        {
+            var src = contextRefresh.SourceControl;
+
+            if (src == gridCountries) RefreshCountries();
+            else if (src == gridAirportAdmins) RefreshAirportAdmins();
+            else if (src == gridCities) RefreshCities();
+            else if (src == gridAirlines) RefreshAirlines();
+            else if (src == gridPilots) RefreshPilots();
+            else if (src == gridAirports) RefreshAirports();
+            else if (src == gridPlaneTypes) RefreshPlaneTypes();
+            else if (src == gridPlanes) RefreshPlanes();
+            else if (src == gridPlaneModels) RefreshPlaneModels();
+            else if (src == gridStaff) RefreshStaff();
+        }
+
         #region "Zıkkım"
 
         public void RefreshCountries()
@@ -213,6 +229,31 @@ namespace AirportAutomation
                     string modelName = result.GetString(1);
                     int model = result.GetInt32(2);
                     gridPlanes.Rows.Add(id, modelName, model);
+                }
+            }
+            result.Close();
+        }
+
+        public void RefreshStaff()
+        {
+            gridStaff.Rows.Clear();
+
+            MySqlCommand cmd = new MySqlCommand("select * from staffGridView", Globals.Connection);
+            var result = cmd.ExecuteReader();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    int id = result.GetInt32(0);
+                    string name = result.GetString(1);
+                    string surname = result.GetString(2);
+                    string username = result.GetString(3);
+                    string password = result.GetString(4);
+                    string tc = result.GetString(5);
+                    int airport = result.GetInt32(6);
+                    string airportName = result.GetString(7);
+
+                    gridStaff.Rows.Add(id, tc, name, surname, airportName, airport, username, password);
                 }
             }
             result.Close();
@@ -817,21 +858,6 @@ namespace AirportAutomation
             txtPlaneModelTypeName.Text = type;
         }
 
-        private void RefreshData(object sender, EventArgs e)
-        {
-            var src = contextRefresh.SourceControl;
-
-            if (src == gridCountries) RefreshCountries();
-            else if (src == gridAirportAdmins) RefreshAirportAdmins();
-            else if (src == gridCities) RefreshCities();
-            else if (src == gridAirlines) RefreshAirlines();
-            else if (src == gridPilots) RefreshPilots();
-            else if (src == gridAirports) RefreshAirports();
-            else if (src == gridPlaneTypes) RefreshPlaneTypes();
-            else if (src == gridPlanes) RefreshPlanes();
-            else if (src == gridPlaneModels) RefreshPlaneModels();
-        }
-
         private void AddPlaneModel(object sender, EventArgs e)
         {
             string name = txtPlaneModelName.Text.Trim();
@@ -1122,6 +1148,107 @@ namespace AirportAutomation
                     return;
                 }
             }
+        }
+
+        private void AddStaff(object sender, EventArgs e)
+        {
+            string name = txtStaffName.Text.Trim();
+            string surname = txtStaffSurname.Text.Trim();
+            string username = txtStaffUsername.Text.Trim();
+            string password = txtStaffPassword.Text.Trim();
+            string tc = txtStaffTC.Text.Trim();
+            string airport = txtStaffAirportID.Text;
+
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname) || string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("İsim / Soy isim / Kullanıcı adı / Şifre alanları boş bırakılamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(airport))
+            {
+                MessageBox.Show("Havalimanı alanı boş bırakılamaz! İlgili sekmeden havalimanı seçin!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (!tc.IsTCValid())
+            {
+                MessageBox.Show("TC Kimlik numarası alanı 11 karakter ve sadece sayılardan oluşmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"insert into staff (name, surname, username, password, tc, airportID) values ('{ name }', '{ surname }', '{ username }', '{ password }', '{ tc }', { airport })", Globals.Connection);
+            try
+            {
+                int rows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Bu TC kimlik numarasına ya da kullanıcı adına sahip başka bir çalışan zaten sistemde kayıtlı! { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            cmd = new MySqlCommand("select max(staffID) from staff", Globals.Connection);
+            var rd = cmd.ExecuteReader();
+            rd.Read();
+            var id = rd.GetInt32(0);
+            txtStaffID.Text = id.ToString();
+
+            rd.Close();
+
+            MessageBox.Show($"Çalışan ({ name + " " + surname }) eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            gridStaff.Rows.Add(id, tc, name, surname, txtStaffAirportName.Text, airport, username, password);
+        }
+
+        private void SelectAirport(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = e.RowIndex;
+            if (row < 0) return;
+            var r = gridAirports.Rows[row];
+            if (row >= gridAirports.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            var name = r.Cells[1].Value.ToString();
+            var city = r.Cells[2].Value.ToString();
+            var admin = r.Cells[3].Value.ToString();
+            var adminid = r.Cells[4].Value.ToString();
+            var cityid = r.Cells[5].Value.ToString();
+
+            txtAirportID.Text = idstr;
+            txtAirportName.Text = name;
+            txtAirportCityID.Text = cityid;
+            txtAirportCityName.Text = city;
+            txtAirportAdminID.Text = adminid;
+            txtAirportAdminName.Text = admin;
+
+            txtStaffAirportID.Text = idstr;
+            txtStaffAirportName.Text = name;
+        }
+
+        private void SelectStaff(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = e.RowIndex;
+            if (row < 0) return;
+            var r = gridStaff.Rows[row];
+            if (row >= gridStaff.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            var tc = r.Cells[1].Value.ToString();
+            var name = r.Cells[2].Value.ToString();
+            var surname = r.Cells[3].Value.ToString();
+            var airport = r.Cells[4].Value.ToString();
+            var airportid = r.Cells[5].Value.ToString();
+            var username = r.Cells[6].Value.ToString();
+            var password = r.Cells[7].Value.ToString();
+
+            txtStaffID.Text = idstr;
+            txtStaffTC.Text = tc;
+            txtStaffName.Text = name;
+            txtStaffSurname.Text = surname;
+            txtStaffAirportID.Text = airportid;
+            txtStaffAirportName.Text = airport;
+            txtStaffUsername.Text = username;
+            txtStaffPassword.Text = password;
         }
     }
 }
