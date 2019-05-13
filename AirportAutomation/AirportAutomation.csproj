@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AAAirportAdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AAAirportAdminPanel.Designer.cs">
+      <DependentUpon>AAAirportAdminPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="AADefs.cs" />
     <Compile Include="AALoginForm.cs">
       <SubType>Form</SubType>
@@ -76,6 +82,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />
+    <EmbeddedResource Include="AAAirportAdminPanel.resx">
+      <DependentUpon>AAAirportAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AALoginForm.resx">
       <DependentUpon>AALoginForm.cs</DependentUpon>
     </EmbeddedResource>
