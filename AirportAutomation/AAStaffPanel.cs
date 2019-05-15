@@ -184,6 +184,47 @@ namespace AirportAutomation
             // else if (src == gridStaff) RefreshStaff();
             else if (src == gridFlights) RefreshFlights();
         }
+        public void AddPasenger()
+        {
+            string tc = txtPassengerTc.Text.Trim();
+            string name = txtPassengerName.Text.Trim();
+            string surname = txtPassengerSurname.Text.Trim();
+            string flightID = txtPassengerFlightID.Text;
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname))
+            {
+                MessageBox.Show("İsim / Soy isim alanları boş bırakılamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (!tc.IsTCValid())
+            {
+                MessageBox.Show("TC Kimlik numarası alanı 11 karakter ve sadece sayılardan oluşmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            MySqlCommand cmd = new MySqlCommand($"insert into passengers(name,surname,tc,flightID) values ('{ name }', '{ surname }' , '{ tc }',{ flightID }) ",Globals.Connection);
+            try
+            {
+                int rows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Aynı TC Kimlik numarasına ya da kullanıcı adına sahip başka bir yönetici zaten sistemde kayıtlı! { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            cmd = new MySqlCommand("select max(airportID) from airports", Globals.Connection);
+
+            var rd = cmd.ExecuteReader();
+            rd.Read();
+
+            var id = rd.GetInt32(0);
+            txtPassengerID.Text = id.ToString();
+
+            rd.Close();
+
+            MessageBox.Show($"Yolcu ({ name }) eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            gridPassengers.Rows.Add(id , tc, name, surname, flightID);
+        }
 
         private void AddPlane(object sender, EventArgs e)
         {
@@ -218,6 +259,17 @@ namespace AirportAutomation
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void selectFlight(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = e.RowIndex;
+            if (row < 0) return;
+            var r = gridPassengers.Rows[row];
+            if (row >= gridPassengers.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            txtPassengerFlightID.Text = idstr;
         }
     }
 }
