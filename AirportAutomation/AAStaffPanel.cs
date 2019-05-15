@@ -22,6 +22,7 @@ namespace AirportAutomation
         {
 
         }
+
         private bool SwitchLanding = false;
         private void SwitchSelectTakeoff(object sender, EventArgs e)
         {
@@ -63,9 +64,11 @@ namespace AirportAutomation
             txtFlightCopilotID.BackColor = Color.LightGreen;
             txtFlightCopilotName.BackColor = Color.LightGreen;
         }
-        private void SelectPlane(object sender, DataGridViewCellEventArgs e)
+
+        private void SelectPlane(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridPlanes.SelectedRows.Count < 1) return;
+            var row = gridPlanes.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridPlanes.Rows[row];
             if (row >= gridPlanes.RowCount - 1) return;
@@ -73,6 +76,7 @@ namespace AirportAutomation
             var idstr = r.Cells[0].Value.ToString();
             txtFlightPlane.Text = idstr;
         }
+
         public void RefreshPlanes()
         {
             gridPlanes.Rows.Clear();
@@ -91,6 +95,7 @@ namespace AirportAutomation
             }
             result.Close();
         }
+
         public void RefreshAirports()
         {
             gridAirports.Rows.Clear();
@@ -110,10 +115,11 @@ namespace AirportAutomation
                 }
             }
         }
-        private void SelectAirport(object sender, DataGridViewCellEventArgs e)
-    
-    {
-            var row = e.RowIndex;
+
+        private void SelectAirport(object sender, EventArgs e)
+        {
+            if (gridAirports.SelectedRows.Count < 1) return;
+            var row = gridAirports.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridAirports.Rows[row];
             if (row >= gridAirports.RowCount - 1) return;
@@ -132,12 +138,14 @@ namespace AirportAutomation
                 txtFlightTakeoffAirportName.Text = name;
             }
         }
+
         private void AAStaffPanel_Load(object sender, EventArgs e)
         {
             RefreshPlanes();
             RefreshAirports();
             RefreshFlights();
         }
+
         public void RefreshFlights()
         {
             gridFlights.Rows.Clear();
@@ -169,6 +177,7 @@ namespace AirportAutomation
             }
             result.Close();
         }
+
         private void RefreshData(object sender, EventArgs e)
         {
             var src = contextRefresh.SourceControl;
@@ -218,6 +227,11 @@ namespace AirportAutomation
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void ApplicationExit(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

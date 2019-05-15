@@ -332,9 +332,10 @@ namespace AirportAutomation
             gridCountries.Rows.Add(id, country);
         }
 
-        private void SelectCountry(object sender, DataGridViewCellEventArgs e)
+        private void SelectCountry(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridCountries.SelectedRows.Count < 1) return;
+            var row = gridCountries.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridCountries.Rows[row];
             if (row >= gridCountries.RowCount - 1) return;
@@ -486,9 +487,10 @@ namespace AirportAutomation
             }
         }
 
-        private void SelectCity(object sender, DataGridViewCellEventArgs e)
+        private void SelectCity(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridCities.SelectedRows.Count < 1) return;
+            var row = gridCities.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridCities.Rows[row];
             if (row >= gridCities.RowCount - 1) return;
@@ -590,9 +592,10 @@ namespace AirportAutomation
             }
         }
 
-        private void SelectAirline(object sender, DataGridViewCellEventArgs e)
+        private void SelectAirline(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridAirlines.SelectedRows.Count < 1) return;
+            var row = gridAirlines.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridAirlines.Rows[row];
             if (row >= gridAirlines.RowCount - 1) return;
@@ -696,15 +699,28 @@ namespace AirportAutomation
             gridPilots.Rows.Add(id, tc, name, surname, txtPilotAirlineName.Text, aidstr);
         }
 
-        private void SelectPilot(object sender, DataGridViewCellEventArgs e)
+        private void SelectPilot(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridPilots.SelectedRows.Count < 1) return;
+            var row = gridPilots.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridPilots.Rows[row];
             if (row >= gridPilots.RowCount - 1) return;
 
             var idstr = r.Cells[0].Value.ToString();
-            var namestr = r.Cells[2].Value.ToString() + " " + r.Cells[3].Value.ToString();
+            var tc = r.Cells[1].Value.ToString();
+            var name = r.Cells[2].Value.ToString();
+            var surname = r.Cells[3].Value.ToString();
+            var airline = r.Cells[4].Value.ToString();
+            var airlineid = r.Cells[5].Value.ToString();
+            var namestr = name + " " + surname;
+
+            txtPilotID.Text = idstr;
+            txtPilotName.Text = name;
+            txtPilotSurname.Text = surname;
+            txtPilotTC.Text = tc;
+            txtPilotAirlineID.Text = airlineid;
+            txtPilotAirlineName.Text = airline;
 
             if (SwitchCopilot)
             {
@@ -784,9 +800,10 @@ namespace AirportAutomation
             gridAirportAdmins.Rows.Add(id, tc, name, surname, username, password);
         }
 
-        private void SelectAirportAdmin(object sender, DataGridViewCellEventArgs e)
+        private void SelectAirportAdmin(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridAirportAdmins.SelectedRows.Count < 1) return;
+            var row = gridAirportAdmins.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridAirportAdmins.Rows[row];
             if (row >= gridAirportAdmins.RowCount - 1) return;
@@ -901,9 +918,10 @@ namespace AirportAutomation
             }
         }
 
-        private void SelectAirport(object sender, DataGridViewCellEventArgs e)
+        private void SelectAirport(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridAirports.SelectedRows.Count < 1) return;
+            var row = gridAirports.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridAirports.Rows[row];
             if (row >= gridAirports.RowCount - 1) return;
@@ -989,9 +1007,10 @@ namespace AirportAutomation
             gridPlaneTypes.Rows.Add(id, type);
         }
 
-        private void SelectPlaneType(object sender, DataGridViewCellEventArgs e)
+        private void SelectPlaneType(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridPlaneTypes.SelectedRows.Count < 1) return;
+            var row = gridPlaneTypes.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridPlaneTypes.Rows[row];
             if (row >= gridPlaneTypes.RowCount - 1) return;
@@ -1041,9 +1060,10 @@ namespace AirportAutomation
             gridPlaneModels.Rows.Add(id, name, cap, txtPlaneModelTypeName.Text, typeid);
         }
 
-        private void SelectPlaneModel(object sender, DataGridViewCellEventArgs e)
+        private void SelectPlaneModel(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridPlaneModels.SelectedRows.Count < 1) return;
+            var row = gridPlaneModels.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridPlaneModels.Rows[row];
             if (row >= gridPlaneModels.RowCount - 1) return;
@@ -1091,9 +1111,10 @@ namespace AirportAutomation
         }
 
         private string SelectedPlaneID = "";
-        private void SelectPlane(object sender, DataGridViewCellEventArgs e)
+        private void SelectPlane(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridPlanes.SelectedRows.Count < 1) return;
+            var row = gridPlanes.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridPlanes.Rows[row];
             if (row >= gridPlanes.RowCount - 1) return;
@@ -1309,9 +1330,10 @@ namespace AirportAutomation
             gridStaff.Rows.Add(id, tc, name, surname, txtStaffAirportName.Text, airport, username, password);
         }
 
-        private void SelectStaff(object sender, DataGridViewCellEventArgs e)
+        private void SelectStaff(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridStaff.SelectedRows.Count < 1) return;
+            var row = gridStaff.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridStaff.Rows[row];
             if (row >= gridStaff.RowCount - 1) return;
@@ -1387,6 +1409,12 @@ namespace AirportAutomation
             string copilotid = txtFlightCopilotID.Text;
             DateTime takeoffDate = dateFlightTakeoff.Value;
             DateTime landingDate = dateFlightLanding.Value;
+
+            if (landingDate <= takeoffDate)
+            {
+                MessageBox.Show("İniş tarihi kalkış tarihinden büyük olmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             if (landingDate <= takeoffDate)
             {
@@ -1630,6 +1658,11 @@ namespace AirportAutomation
                 btnUpdateFlight.Enabled = true;
                 //tooltipGeneral.Active = false;
             }
+        }
+
+        private void ApplicationExit(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
