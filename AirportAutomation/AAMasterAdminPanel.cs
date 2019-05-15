@@ -26,7 +26,6 @@ namespace AirportAutomation
         private void RefreshData(object sender, EventArgs e)
         {
             var src = contextRefresh.SourceControl;
-
             if (src == gridCountries) RefreshCountries();
             else if (src == gridAirportAdmins) RefreshAirportAdmins();
             else if (src == gridCities) RefreshCities();
@@ -308,6 +307,7 @@ namespace AirportAutomation
             }
 
             MySqlCommand cmd = new MySqlCommand($"insert into countries (name) values ('{ country }')", Globals.Connection);
+
             try
             {
                 int rows = cmd.ExecuteNonQuery();
@@ -1381,14 +1381,18 @@ namespace AirportAutomation
 
         private void AddFlight(object sender, EventArgs e)
         {
+            if (txtFlightLandingAirportID == txtFlightTakeoffAirportID)
+            {
+                MessageBox.Show("Kalkış ve iniş aynı havaalanında gerçekliştirelemez.");
+                return;
+            }
             string takeoffid = txtFlightTakeoffAirportID.Text;
             string landingid = txtFlightLandingAirportID.Text;
             string airlineid = txtFlightAirlineID.Text;
             string planeid = txtFlightPlane.Text;
             string pilotid = txtFlightPilotID.Text;
             string copilotid = txtFlightCopilotID.Text;
-            DateTime takeoffDate = dateFlightTakeoff.Value;
-
+            DateTime takeoffDate = dateFlightTakeoff.Value;  
         }
 
         private bool SwitchLanding = false;
