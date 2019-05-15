@@ -740,5 +740,10 @@ namespace AirportAutomation
         {
 
         }
+
+        private void ApplicationExit(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
  }

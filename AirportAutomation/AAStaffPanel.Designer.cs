@@ -50,15 +50,19 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.gridPassengers = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.txtPassengerSurname = new System.Windows.Forms.TextBox();
-            this.txtPassengerName = new System.Windows.Forms.TextBox();
-            this.txtPassengerTc = new System.Windows.Forms.TextBox();
-            this.txtPassengerID = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -125,18 +129,6 @@
             this.columnAirportAdminID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnAirportCityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtPassengerFlightID = new System.Windows.Forms.TextBox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ucusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.gridAirlines = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnAirlineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -148,7 +140,7 @@
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextRefresh.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPassengers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanes)).BeginInit();
@@ -157,8 +149,6 @@
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAirports)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridAirlines)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -184,16 +174,14 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.txtPassengerFlightID);
-            this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.button4);
-            this.splitContainer1.Panel2.Controls.Add(this.txtPassengerSurname);
-            this.splitContainer1.Panel2.Controls.Add(this.txtPassengerName);
-            this.splitContainer1.Panel2.Controls.Add(this.txtPassengerTc);
-            this.splitContainer1.Panel2.Controls.Add(this.txtPassengerID);
+            this.splitContainer1.Panel2.Controls.Add(this.textBox4);
+            this.splitContainer1.Panel2.Controls.Add(this.textBox3);
+            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
@@ -217,7 +205,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.gridPassengers);
+            this.splitContainer2.Panel2.Controls.Add(this.dataGridView2);
             this.splitContainer2.Size = new System.Drawing.Size(847, 606);
             this.splitContainer2.SplitterDistance = 293;
             this.splitContainer2.TabIndex = 0;
@@ -249,7 +237,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(847, 293);
             this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectFlight);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -362,21 +349,40 @@
             this.toolStripMenuItem6.Text = "Veriyi Getir / Yenile";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.RefreshData);
             // 
-            // gridPassengers
+            // dataGridView2
             // 
-            this.gridPassengers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPassengers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tc,
             this.adi,
             this.soyadi,
             this.ucusID});
-            this.gridPassengers.ContextMenuStrip = this.contextRefresh;
-            this.gridPassengers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridPassengers.Location = new System.Drawing.Point(0, 0);
-            this.gridPassengers.Name = "gridPassengers";
-            this.gridPassengers.Size = new System.Drawing.Size(847, 309);
-            this.gridPassengers.TabIndex = 0;
+            this.dataGridView2.ContextMenuStrip = this.contextRefresh;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(847, 309);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // tc
+            // 
+            this.tc.HeaderText = "T.C.";
+            this.tc.Name = "tc";
+            // 
+            // adi
+            // 
+            this.adi.HeaderText = "İsim";
+            this.adi.Name = "adi";
+            // 
+            // soyadi
+            // 
+            this.soyadi.HeaderText = "Soyisim";
+            this.soyadi.Name = "soyadi";
+            // 
+            // ucusID
+            // 
+            this.ucusID.HeaderText = "Uçuş ID";
+            this.ucusID.Name = "ucusID";
             // 
             // button1
             // 
@@ -418,38 +424,38 @@
             this.button4.Text = "Temizle";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // txtPassengerSurname
+            // textBox4
             // 
-            this.txtPassengerSurname.Location = new System.Drawing.Point(3, 182);
-            this.txtPassengerSurname.Name = "txtPassengerSurname";
-            this.txtPassengerSurname.Size = new System.Drawing.Size(336, 20);
-            this.txtPassengerSurname.TabIndex = 7;
+            this.textBox4.Location = new System.Drawing.Point(9, 147);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(330, 20);
+            this.textBox4.TabIndex = 7;
             // 
-            // txtPassengerName
+            // textBox3
             // 
-            this.txtPassengerName.Location = new System.Drawing.Point(2, 143);
-            this.txtPassengerName.Name = "txtPassengerName";
-            this.txtPassengerName.Size = new System.Drawing.Size(336, 20);
-            this.txtPassengerName.TabIndex = 6;
+            this.textBox3.Location = new System.Drawing.Point(9, 108);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(330, 20);
+            this.textBox3.TabIndex = 6;
             // 
-            // txtPassengerTc
+            // textBox2
             // 
-            this.txtPassengerTc.Location = new System.Drawing.Point(2, 104);
-            this.txtPassengerTc.Name = "txtPassengerTc";
-            this.txtPassengerTc.Size = new System.Drawing.Size(336, 20);
-            this.txtPassengerTc.TabIndex = 5;
+            this.textBox2.Location = new System.Drawing.Point(9, 69);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(330, 20);
+            this.textBox2.TabIndex = 5;
             // 
-            // txtPassengerID
+            // textBox1
             // 
-            this.txtPassengerID.Location = new System.Drawing.Point(3, 65);
-            this.txtPassengerID.Name = "txtPassengerID";
-            this.txtPassengerID.Size = new System.Drawing.Size(336, 20);
-            this.txtPassengerID.TabIndex = 4;
+            this.textBox1.Location = new System.Drawing.Point(9, 30);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(330, 20);
+            this.textBox1.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 166);
+            this.label4.Location = new System.Drawing.Point(6, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 3;
@@ -458,7 +464,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 127);
+            this.label3.Location = new System.Drawing.Point(6, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 13);
             this.label3.TabIndex = 2;
@@ -467,7 +473,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 88);
+            this.label2.Location = new System.Drawing.Point(6, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 1;
@@ -476,7 +482,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 49);
+            this.label1.Location = new System.Drawing.Point(6, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 0;
@@ -551,6 +557,7 @@
             this.gridPlanes.Size = new System.Drawing.Size(330, 234);
             this.gridPlanes.TabIndex = 7;
             this.gridPlanes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPlane);
+            this.gridPlanes.SelectionChanged += new System.EventHandler(this.SelectPlane);
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -1023,7 +1030,7 @@
             this.gridAirports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAirports.Size = new System.Drawing.Size(1189, 587);
             this.gridAirports.TabIndex = 0;
-            this.gridAirports.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectAirport);
+            this.gridAirports.SelectionChanged += new System.EventHandler(this.SelectAirport);
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -1079,96 +1086,6 @@
             this.tabControl1.Size = new System.Drawing.Size(1209, 638);
             this.tabControl1.TabIndex = 0;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Ucus ID";
-            // 
-            // txtPassengerFlightID
-            // 
-            this.txtPassengerFlightID.Location = new System.Drawing.Point(2, 26);
-            this.txtPassengerFlightID.Name = "txtPassengerFlightID";
-            this.txtPassengerFlightID.Size = new System.Drawing.Size(336, 20);
-            this.txtPassengerFlightID.TabIndex = 13;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            // 
-            // tc
-            // 
-            this.tc.HeaderText = "T.C.";
-            this.tc.Name = "tc";
-            // 
-            // adi
-            // 
-            this.adi.HeaderText = "İsim";
-            this.adi.Name = "adi";
-            // 
-            // soyadi
-            // 
-            this.soyadi.HeaderText = "Soyisim";
-            this.soyadi.Name = "soyadi";
-            // 
-            // ucusID
-            // 
-            this.ucusID.HeaderText = "Uçuş ID";
-            this.ucusID.Name = "ucusID";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.gridAirlines);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1201, 612);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Havayolu";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1201, 612);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Pilot";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // gridAirlines
-            // 
-            this.gridAirlines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridAirlines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn18,
-            this.columnAirlineName});
-            this.gridAirlines.ContextMenuStrip = this.contextRefresh;
-            this.gridAirlines.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridAirlines.Location = new System.Drawing.Point(3, 3);
-            this.gridAirlines.Name = "gridAirlines";
-            this.gridAirlines.ReadOnly = true;
-            this.gridAirlines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridAirlines.Size = new System.Drawing.Size(1195, 606);
-            this.gridAirlines.TabIndex = 6;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // columnAirlineName
-            // 
-            this.columnAirlineName.HeaderText = "Havayolu İsmi";
-            this.columnAirlineName.Name = "columnAirlineName";
-            this.columnAirlineName.ReadOnly = true;
-            this.columnAirlineName.Width = 200;
-            // 
             // AAStaffPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1177,6 +1094,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "AAStaffPanel";
             this.Text = "AAStaffPanel";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ApplicationExit);
             this.Load += new System.EventHandler(this.AAStaffPanel_Load);
             this.tabPage2.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1190,7 +1108,7 @@
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextRefresh.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridPassengers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
@@ -1200,8 +1118,6 @@
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridAirports)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridAirlines)).EndInit();
             this.ResumeLayout(false);
 
         }
