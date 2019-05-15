@@ -36,6 +36,7 @@ namespace AirportAutomation
             else if (src == gridPlanes) RefreshPlanes();
             else if (src == gridPlaneModels) RefreshPlaneModels();
             else if (src == gridStaff) RefreshStaff();
+            else if (src == gridFlights) RefreshFlights();
         }
 
         #region "Zıkkım"
@@ -274,17 +275,15 @@ namespace AirportAutomation
                         result.GetInt32(0),
                         result.GetInt32(1),
                         result.GetString(2),
-                        result.GetInt32(3),
                         result.GetInt32(4),
                         result.GetString(5),
-                        result.GetInt32(6),
                         result.GetInt32(7),
                         result.GetString(8),
                         result.GetInt32(9),
                         result.GetString(10),
                         result.GetInt32(11),
                         result.GetString(12),
-                        result.GetInt32(13),
+                        result.GetString(13),
                         result.GetDateTime(14)
                     };
                     
@@ -1393,7 +1392,54 @@ namespace AirportAutomation
             string planeid = txtFlightPlane.Text;
             string pilotid = txtFlightPilotID.Text;
             string copilotid = txtFlightCopilotID.Text;
-            DateTime takeoffDate = dateFlightTakeoff.Value;  
+            DateTime takeoffDate = dateFlightTakeoff.Value;
+
+            if (string.IsNullOrWhiteSpace(takeoffid) || string.IsNullOrWhiteSpace(landingid))
+            {
+                MessageBox.Show("Kalkış ve varış noktalarını ilgili sekmeden seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(airlineid))
+            {
+                MessageBox.Show("Havayolu şirketini ilgili sekmeden seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(planeid))
+            {
+                MessageBox.Show("Uçağı ilgili sekmeden seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(pilotid) || string.IsNullOrWhiteSpace(copilotid))
+            {
+                MessageBox.Show("Pilot ve yardımcı pilotu ilgili seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"insert into flights (airlineID, takeoff, landing, takeoffDate, planeID, pilotID, coPilotID) values ({ airlineid }, { takeoffid }, { landingid }, @date, '{ planeid }', { pilotid }, { copilotid })", Globals.Connection);
+            cmd.Parameters.Add("@date", MySqlDbType.DateTime).Value = takeoffDate;
+            try
+            {
+                int rows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Sistem iç hatası, yandaki metni geliştiricilere bildirin: { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            cmd = new MySqlCommand("select max(flightID) from flights", Globals.Connection);
+            var rd = cmd.ExecuteReader();
+            rd.Read();
+            var id = rd.GetInt32(0);
+            txtStaffID.Text = id.ToString();
+
+            rd.Close();
+
+            MessageBox.Show($"Uçuş (<{ id }>) eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            gridFlights.Rows.Add(id, takeoffid, txtFlightTakeoffAirportName.Text, landingid, txtFlightLandingAirportName.Text, airlineid, txtFlightAirlineName.Text, pilotid, txtFlightPilotName.Text, copilotid, txtFlightCopilotName.Text, planeid, dateFlightTakeoff);
         }
 
         private bool SwitchLanding = false;
