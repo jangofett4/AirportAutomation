@@ -2238,6 +2238,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "AAAirportAdminPanel";
             this.Text = "AAAirportAdminPanel";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ApplicationExit);
             this.Load += new System.EventHandler(this.AAAirportAdminPanel_Load);
             this.tabPage5.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);

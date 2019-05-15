@@ -76,10 +76,10 @@
             // btnEmployeeLogin
             // 
             this.btnEmployeeLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEmployeeLogin.Location = new System.Drawing.Point(182, 81);
+            this.btnEmployeeLogin.Location = new System.Drawing.Point(182, 80);
             this.btnEmployeeLogin.Name = "btnEmployeeLogin";
             this.btnEmployeeLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnEmployeeLogin.TabIndex = 3;
+            this.btnEmployeeLogin.TabIndex = 9;
             this.btnEmployeeLogin.Text = "Giriş";
             this.btnEmployeeLogin.UseVisualStyleBackColor = true;
             this.btnEmployeeLogin.Click += new System.EventHandler(this.btnEmployeeLogin_Click);
@@ -87,7 +87,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 36);
+            this.label3.Location = new System.Drawing.Point(8, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 8;
@@ -96,7 +96,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 10);
+            this.label4.Location = new System.Drawing.Point(8, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 7;
@@ -106,10 +106,10 @@
             // 
             this.txtEmployeePassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmployeePassword.Location = new System.Drawing.Point(75, 33);
+            this.txtEmployeePassword.Location = new System.Drawing.Point(75, 32);
             this.txtEmployeePassword.Name = "txtEmployeePassword";
             this.txtEmployeePassword.Size = new System.Drawing.Size(182, 20);
-            this.txtEmployeePassword.TabIndex = 2;
+            this.txtEmployeePassword.TabIndex = 6;
             this.txtEmployeePassword.Text = "admin";
             this.txtEmployeePassword.UseSystemPasswordChar = true;
             // 
@@ -117,10 +117,10 @@
             // 
             this.txtEmployeeUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmployeeUsername.Location = new System.Drawing.Point(75, 7);
+            this.txtEmployeeUsername.Location = new System.Drawing.Point(75, 6);
             this.txtEmployeeUsername.Name = "txtEmployeeUsername";
             this.txtEmployeeUsername.Size = new System.Drawing.Size(182, 20);
-            this.txtEmployeeUsername.TabIndex = 1;
+            this.txtEmployeeUsername.TabIndex = 5;
             this.txtEmployeeUsername.Text = "admin1";
             // 
             // tabPage2
@@ -194,8 +194,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(273, 137);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AALoginForm";
-            this.Text = "Form1";
+            this.Text = "Havalimanı Otomasyon Sistemi";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

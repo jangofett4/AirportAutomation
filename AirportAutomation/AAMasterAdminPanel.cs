@@ -9,7 +9,7 @@ namespace AirportAutomation
     {
         public AAMasterAdminPanel()
         {
-            MySqlCommand cmd = new MySqlCommand($"select * from admins where username = '{ Globals.ConnectedAdminUsername }' and password = '{ Globals.ConnectedAdminPassword }';", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"select * from admins where username = '{ Globals.ConnectedAdminUsername }' and password = '{ Globals. ConnectedAdminPassword }';", Globals.Connection);
             var result = cmd.ExecuteReader();
             if (!result.HasRows)
             {
@@ -39,7 +39,7 @@ namespace AirportAutomation
             else if (src == gridFlights) RefreshFlights();
         }
 
-        #region "Yenile Fonksiyonları"
+        #region "Zıkkım"
 
         public void RefreshCountries()
         {
@@ -234,6 +234,7 @@ namespace AirportAutomation
             }
             result.Close();
         }
+        
 
         public void RefreshStaff()
         {
@@ -286,7 +287,7 @@ namespace AirportAutomation
                         result.GetDateTime(14),
                         result.GetDateTime(15)
                     };
-
+                    
                     gridFlights.Rows.Add(objs);
                 }
             }
@@ -332,9 +333,10 @@ namespace AirportAutomation
             gridCountries.Rows.Add(id, country);
         }
 
-        private void SelectCountry(object sender, DataGridViewCellEventArgs e)
+        private void SelectCountry(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridCountries.SelectedRows.Count < 1) return;
+            var row = gridCountries.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridCountries.Rows[row];
             if (row >= gridCountries.RowCount - 1) return;
@@ -385,17 +387,18 @@ namespace AirportAutomation
         {
             var id = int.Parse(txtCountryID.Text);
             if (MessageBox.Show($"Seçilen ülke silinecek.\nÜlkeya bağlı bütün bilgiler (havalimanı, uçuşlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            {
+            {                
                 MySqlCommand cmd = new MySqlCommand($"delete from countries where countryID = { id }", Globals.Connection);
                 cmd.ExecuteNonQuery();
-                foreach (DataGridViewRow r in gridCountries.Rows)
+            }
+
+            foreach (DataGridViewRow r in gridCountries.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
                 {
-                    if ((int)r.Cells[0].Value == id)
-                    {
-                        gridCountries.Rows.Remove(r);
-                        RefreshCities();
-                        return;
-                    }
+                    gridCountries.Rows.Remove(r);
+                    RefreshCities();
+                    return;
                 }
             }
         }
@@ -441,7 +444,7 @@ namespace AirportAutomation
             gridCities.Rows.Add(id, city, txtCityCountryName.Text, txtCityCountryID.Text);
         }
 
-        private void UpdateCity(object sender, EventArgs e)
+        private void CityUpdate(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtCityID.Text))
             {
@@ -486,9 +489,10 @@ namespace AirportAutomation
             }
         }
 
-        private void SelectCity(object sender, DataGridViewCellEventArgs e)
+        private void SelectCity(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridCities.SelectedRows.Count < 1) return;
+            var row = gridCities.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridCities.Rows[row];
             if (row >= gridCities.RowCount - 1) return;
@@ -522,13 +526,14 @@ namespace AirportAutomation
             {
                 MySqlCommand cmd = new MySqlCommand($"delete from cities where cityID = { id }", Globals.Connection);
                 cmd.ExecuteNonQuery();
-                foreach (DataGridViewRow r in gridCities.Rows)
+            }
+
+            foreach (DataGridViewRow r in gridCities.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
                 {
-                    if ((int)r.Cells[0].Value == id)
-                    {
-                        gridCities.Rows.Remove(r);
-                        return;
-                    }
+                    gridCities.Rows.Remove(r);
+                    return;
                 }
             }
         }
@@ -578,21 +583,23 @@ namespace AirportAutomation
             {
                 MySqlCommand cmd = new MySqlCommand($"delete from airlines where airlineID = { id }", Globals.Connection);
                 cmd.ExecuteNonQuery();
-                foreach (DataGridViewRow r in gridAirlines.Rows)
+            }
+
+            foreach (DataGridViewRow r in gridAirlines.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
                 {
-                    if ((int)r.Cells[0].Value == id)
-                    {
-                        gridAirlines.Rows.Remove(r);
-                        txtAirlineID.Text = "";
-                        return;
-                    }
+                    gridAirlines.Rows.Remove(r);
+                    txtAirlineID.Text = "";
+                    return;
                 }
             }
         }
 
-        private void SelectAirline(object sender, DataGridViewCellEventArgs e)
+        private void SelectAirline(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridAirlines.SelectedRows.Count < 1) return;
+            var row = gridAirlines.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridAirlines.Rows[row];
             if (row >= gridAirlines.RowCount - 1) return;
@@ -696,15 +703,28 @@ namespace AirportAutomation
             gridPilots.Rows.Add(id, tc, name, surname, txtPilotAirlineName.Text, aidstr);
         }
 
-        private void SelectPilot(object sender, DataGridViewCellEventArgs e)
+        private void SelectPilot(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridPilots.SelectedRows.Count < 1) return;
+            var row = gridPilots.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridPilots.Rows[row];
             if (row >= gridPilots.RowCount - 1) return;
 
             var idstr = r.Cells[0].Value.ToString();
-            var namestr = r.Cells[2].Value.ToString() + " " + r.Cells[3].Value.ToString();
+            var tc = r.Cells[1].Value.ToString();
+            var name = r.Cells[2].Value.ToString();
+            var surname = r.Cells[3].Value.ToString();
+            var airline = r.Cells[4].Value.ToString();
+            var airlineid = r.Cells[5].Value.ToString();
+            var namestr = name + " " + surname;
+
+            txtPilotID.Text = idstr;
+            txtPilotName.Text = name;
+            txtPilotSurname.Text = surname;
+            txtPilotTC.Text = tc;
+            txtPilotAirlineID.Text = airlineid;
+            txtPilotAirlineName.Text = airline;
 
             if (SwitchCopilot)
             {
@@ -725,13 +745,14 @@ namespace AirportAutomation
             {
                 MySqlCommand cmd = new MySqlCommand($"delete from pilots where pilotID = { id }", Globals.Connection);
                 cmd.ExecuteNonQuery();
-                foreach (DataGridViewRow r in gridPilots.Rows)
+            }
+
+            foreach (DataGridViewRow r in gridPilots.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
                 {
-                    if ((int)r.Cells[0].Value == id)
-                    {
-                        gridPilots.Rows.Remove(r);
-                        return;
-                    }
+                    gridPilots.Rows.Remove(r);
+                    return;
                 }
             }
         }
@@ -784,9 +805,10 @@ namespace AirportAutomation
             gridAirportAdmins.Rows.Add(id, tc, name, surname, username, password);
         }
 
-        private void SelectAirportAdmin(object sender, DataGridViewCellEventArgs e)
+        private void SelectAirportAdmin(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridAirportAdmins.SelectedRows.Count < 1) return;
+            var row = gridAirportAdmins.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridAirportAdmins.Rows[row];
             if (row >= gridAirportAdmins.RowCount - 1) return;
@@ -901,9 +923,10 @@ namespace AirportAutomation
             }
         }
 
-        private void SelectAirport(object sender, DataGridViewCellEventArgs e)
+        private void SelectAirport(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridAirports.SelectedRows.Count < 1) return;
+            var row = gridAirports.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridAirports.Rows[row];
             if (row >= gridAirports.RowCount - 1) return;
@@ -944,13 +967,14 @@ namespace AirportAutomation
             {
                 MySqlCommand cmd = new MySqlCommand($"delete from airports where airportID = { id }", Globals.Connection);
                 cmd.ExecuteNonQuery();
-                foreach (DataGridViewRow r in gridAirports.Rows)
+            }
+
+            foreach (DataGridViewRow r in gridAirports.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
                 {
-                    if ((int)r.Cells[0].Value == id)
-                    {
-                        gridAirports.Rows.Remove(r);
-                        return;
-                    }
+                    gridAirports.Rows.Remove(r);
+                    return;
                 }
             }
         }
@@ -973,7 +997,7 @@ namespace AirportAutomation
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Uçak türü ({ type }) zaten sistemde kayıtlı! { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Uçak türü ({ type }) zaten sistemde kayıtlı! { ex.Message }" , "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -989,9 +1013,10 @@ namespace AirportAutomation
             gridPlaneTypes.Rows.Add(id, type);
         }
 
-        private void SelectPlaneType(object sender, DataGridViewCellEventArgs e)
+        private void SelectPlaneType(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridPlaneTypes.SelectedRows.Count < 1) return;
+            var row = gridPlaneTypes.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridPlaneTypes.Rows[row];
             if (row >= gridPlaneTypes.RowCount - 1) return;
@@ -1041,9 +1066,10 @@ namespace AirportAutomation
             gridPlaneModels.Rows.Add(id, name, cap, txtPlaneModelTypeName.Text, typeid);
         }
 
-        private void SelectPlaneModel(object sender, DataGridViewCellEventArgs e)
+        private void SelectPlaneModel(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridPlaneModels.SelectedRows.Count < 1) return;
+            var row = gridPlaneModels.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridPlaneModels.Rows[row];
             if (row >= gridPlaneModels.RowCount - 1) return;
@@ -1076,7 +1102,7 @@ namespace AirportAutomation
 
             MySqlCommand cmd = new MySqlCommand($"insert into planes (planeID, modelID) values ('{ planeid }', '{ modelid }')", Globals.Connection);
             try
-            {
+            { 
                 int rows = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -1091,9 +1117,10 @@ namespace AirportAutomation
         }
 
         private string SelectedPlaneID = "";
-        private void SelectPlane(object sender, DataGridViewCellEventArgs e)
+        private void SelectPlane(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridPlanes.SelectedRows.Count < 1) return;
+            var row = gridPlanes.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridPlanes.Rows[row];
             if (row >= gridPlanes.RowCount - 1) return;
@@ -1144,7 +1171,7 @@ namespace AirportAutomation
             string modelname = txtPlaneModelName.Text;
             int modelcap = (int)txtPlaneModelCap.Value;
 
-            if (string.IsNullOrWhiteSpace(modelname) || string.IsNullOrWhiteSpace(txtPlaneModelID.Text))
+            if (string.IsNullOrWhiteSpace(modelname) ||string.IsNullOrWhiteSpace(txtPlaneModelID.Text))
             {
                 MessageBox.Show("Düzenlenecek modeli seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -1212,13 +1239,14 @@ namespace AirportAutomation
             {
                 MySqlCommand cmd = new MySqlCommand($"delete from models where modelID = { id }", Globals.Connection);
                 cmd.ExecuteNonQuery();
-                foreach (DataGridViewRow r in gridPlaneModels.Rows)
+            }
+
+            foreach (DataGridViewRow r in gridPlaneModels.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
                 {
-                    if ((int)r.Cells[0].Value == id)
-                    {
-                        gridPlaneModels.Rows.Remove(r);
-                        return;
-                    }
+                    gridPlaneModels.Rows.Remove(r);
+                    return;
                 }
             }
         }
@@ -1230,13 +1258,14 @@ namespace AirportAutomation
             {
                 MySqlCommand cmd = new MySqlCommand($"delete from types where typeID = { id }", Globals.Connection);
                 cmd.ExecuteNonQuery();
-                foreach (DataGridViewRow r in gridPlaneTypes.Rows)
+            }
+
+            foreach (DataGridViewRow r in gridPlaneTypes.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
                 {
-                    if ((int)r.Cells[0].Value == id)
-                    {
-                        gridPlaneTypes.Rows.Remove(r);
-                        return;
-                    }
+                    gridPlaneTypes.Rows.Remove(r);
+                    return;
                 }
             }
         }
@@ -1248,13 +1277,14 @@ namespace AirportAutomation
             {
                 MySqlCommand cmd = new MySqlCommand($"delete from planes where planeID = '{ id }'", Globals.Connection);
                 cmd.ExecuteNonQuery();
-                foreach (DataGridViewRow r in gridPlanes.Rows)
+            }
+
+            foreach (DataGridViewRow r in gridPlanes.Rows)
+            {
+                if ((string)r.Cells[0].Value == id)
                 {
-                    if ((string)r.Cells[0].Value == id)
-                    {
-                        gridPlanes.Rows.Remove(r);
-                        return;
-                    }
+                    gridPlanes.Rows.Remove(r);
+                    return;
                 }
             }
         }
@@ -1309,9 +1339,10 @@ namespace AirportAutomation
             gridStaff.Rows.Add(id, tc, name, surname, txtStaffAirportName.Text, airport, username, password);
         }
 
-        private void SelectStaff(object sender, DataGridViewCellEventArgs e)
+        private void SelectStaff(object sender, EventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridStaff.SelectedRows.Count < 1) return;
+            var row = gridStaff.SelectedRows[0].Index;
             if (row < 0) return;
             var r = gridStaff.Rows[row];
             if (row >= gridStaff.RowCount - 1) return;
@@ -1387,12 +1418,6 @@ namespace AirportAutomation
             string copilotid = txtFlightCopilotID.Text;
             DateTime takeoffDate = dateFlightTakeoff.Value;
             DateTime landingDate = dateFlightLanding.Value;
-
-            if (landingDate <= takeoffDate)
-            {
-                MessageBox.Show("İniş tarihi kalkış tarihinden büyük olmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
 
             if (landingDate <= takeoffDate)
             {
@@ -1501,84 +1526,9 @@ namespace AirportAutomation
 
         }
 
-        private void UpdateFlight(object sender, EventArgs e)
+        private void SelectFlight(object sender, DataGridViewCellEventArgs e)
         {
-            string flightid = txtFlightID.Text;
-
-            if (string.IsNullOrWhiteSpace(flightid))
-            {
-                MessageBox.Show("Listeden bir kayıt seçin!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            string takeoffid = txtFlightTakeoffAirportID.Text;
-            string landingid = txtFlightLandingAirportID.Text;
-
-            if (takeoffid == landingid)
-            {
-                MessageBox.Show("Kalkış ve iniş aynı havaalanında gerçekliştirelemez!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            string airlineid = txtFlightAirlineID.Text;
-            string planeid = txtFlightPlane.Text;
-            string pilotid = txtFlightPilotID.Text;
-            string copilotid = txtFlightCopilotID.Text;
-            DateTime takeoffDate = dateFlightTakeoff.Value;
-            DateTime landingDate = dateFlightLanding.Value;
-
-            if (landingDate <= takeoffDate)
-            {
-                MessageBox.Show("İniş tarihi kalkış tarihinden büyük olmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            MySqlCommand cmd = new MySqlCommand($"update flights set airlineID = { airlineid }, takeoff = { takeoffid }, landing = { landingid }, takeoffDate = @date, planeID = '{ planeid }', pilotID = { pilotid }, copilotID = { copilotid }, landingDate = @date2 where flightID = { flightid }", Globals.Connection);
-            cmd.Parameters.Add("@date", MySqlDbType.DateTime).Value = takeoffDate;
-            cmd.Parameters.Add("@date2", MySqlDbType.DateTime).Value = landingDate;
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show($"Düzenleme başarısız! Sistem iç hatası: { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            foreach (DataGridViewRow r in gridFlights.Rows)
-            {
-                if (r.Cells[0].Value.ToString() == flightid)
-                {
-                    r.SetValues(new object[] { flightid, takeoffid, txtFlightTakeoffAirportName.Text, landingid, txtFlightLandingAirportName.Text, airlineid, txtFlightAirlineName.Text, pilotid, txtFlightPilotName.Text, copilotid, txtFlightCopilotName.Text, planeid, takeoffDate, landingDate });
-                    return;
-                }
-            }
-        }
-
-        private void DeleteFlight(object sender, EventArgs e)
-        {
-            var id = txtFlightID.Text;
-            if (MessageBox.Show($"Seçilen uçuş silinecek.\nUçuşa bağlı bütün bilgiler (yolcular) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            {
-                MySqlCommand cmd = new MySqlCommand($"delete from flights where flightID = '{ id }'", Globals.Connection);
-                cmd.ExecuteNonQuery();
-
-                foreach (DataGridViewRow r in gridFlights.Rows)
-                {
-                    if ((int)r.Cells[0].Value == int.Parse(id))
-                    {
-                        gridFlights.Rows.Remove(r);
-                        return;
-                    }
-                }
-            }
-        }
-
-        private void SelectFlight(object sender, EventArgs e)
-        {
-            if (gridFlights.SelectedRows.Count < 1) return;
-            var row = gridFlights.SelectedRows[0].Index;
+            var row = e.RowIndex;
             if (row < 0) return;
             var r = gridFlights.Rows[row];
             if (row >= gridFlights.RowCount - 1) return;
@@ -1635,6 +1585,66 @@ namespace AirportAutomation
             {
                 btnUpdateFlight.Enabled = true;
                 //tooltipGeneral.Active = false;
+            }
+        }
+
+        private void ApplicationExit(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void UpdateFlight(object sender, EventArgs e)
+        {
+            string flightid = txtFlightID.Text;
+
+            if (string.IsNullOrWhiteSpace(flightid))
+            {
+                MessageBox.Show("Listeden bir kayıt seçin!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            string takeoffid = txtFlightTakeoffAirportID.Text;
+            string landingid = txtFlightLandingAirportID.Text;
+
+            if (takeoffid == landingid)
+            {
+                MessageBox.Show("Kalkış ve iniş aynı havaalanında gerçekliştirelemez!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            string airlineid = txtFlightAirlineID.Text;
+            string planeid = txtFlightPlane.Text;
+            string pilotid = txtFlightPilotID.Text;
+            string copilotid = txtFlightCopilotID.Text;
+            DateTime takeoffDate = dateFlightTakeoff.Value;
+            DateTime landingDate = dateFlightLanding.Value;
+
+            if (landingDate <= takeoffDate)
+            {
+                MessageBox.Show("İniş tarihi kalkış tarihinden büyük olmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"update flights set airlineID = { airlineid }, takeoff = { takeoffid }, landing = { landingid }, takeoffDate = @date, planeID = '{ planeid }', pilotID = { pilotid }, copilotID = { copilotid }, landingDate = @date2 where flightID = { flightid }", Globals.Connection);
+            cmd.Parameters.Add("@date", MySqlDbType.DateTime).Value = takeoffDate;
+            cmd.Parameters.Add("@date2", MySqlDbType.DateTime).Value = landingDate;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Sistem iç hatası: { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (DataGridViewRow r in gridFlights.Rows)
+            {
+                if (r.Cells[0].Value.ToString() == flightid)
+                {
+                    r.SetValues(new object[] { flightid, takeoffid, txtFlightTakeoffAirportName.Text, landingid, txtFlightLandingAirportName.Text, airlineid, txtFlightAirlineName.Text, pilotid, txtFlightPilotName.Text, copilotid, txtFlightCopilotName.Text, planeid, takeoffDate, landingDate });
+                    return;
+                }
             }
         }
     }
