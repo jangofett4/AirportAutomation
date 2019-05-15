@@ -284,7 +284,8 @@ namespace AirportAutomation
                         result.GetInt32(11),
                         result.GetString(12),
                         result.GetString(13),
-                        result.GetDateTime(14)
+                        result.GetDateTime(14),
+                        result.GetDateTime(15)
                     };
                     
                     gridFlights.Rows.Add(objs);
@@ -1381,18 +1382,27 @@ namespace AirportAutomation
 
         private void AddFlight(object sender, EventArgs e)
         {
-            if (txtFlightLandingAirportID == txtFlightTakeoffAirportID)
+            string takeoffid = txtFlightTakeoffAirportID.Text;
+            string landingid = txtFlightLandingAirportID.Text;
+
+            if (takeoffid == landingid)
             {
                 MessageBox.Show("Kalkış ve iniş aynı havaalanında gerçekliştirelemez.");
                 return;
             }
-            string takeoffid = txtFlightTakeoffAirportID.Text;
-            string landingid = txtFlightLandingAirportID.Text;
+
             string airlineid = txtFlightAirlineID.Text;
             string planeid = txtFlightPlane.Text;
             string pilotid = txtFlightPilotID.Text;
             string copilotid = txtFlightCopilotID.Text;
             DateTime takeoffDate = dateFlightTakeoff.Value;
+            DateTime landingDate = dateFlightLanding.Value;
+
+            if (landingDate <= takeoffDate)
+            {
+                MessageBox.Show("İniş tarihi kalkış tarihinden büyük olmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             if (string.IsNullOrWhiteSpace(takeoffid) || string.IsNullOrWhiteSpace(landingid))
             {
@@ -1418,8 +1428,9 @@ namespace AirportAutomation
                 return;
             }
 
-            MySqlCommand cmd = new MySqlCommand($"insert into flights (airlineID, takeoff, landing, takeoffDate, planeID, pilotID, coPilotID) values ({ airlineid }, { takeoffid }, { landingid }, @date, '{ planeid }', { pilotid }, { copilotid })", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"insert into flights (airlineID, takeoff, landing, takeoffDate, planeID, pilotID, coPilotID, landingDate) values ({ airlineid }, { takeoffid }, { landingid }, @date, '{ planeid }', { pilotid }, { copilotid }, @date2)", Globals.Connection);
             cmd.Parameters.Add("@date", MySqlDbType.DateTime).Value = takeoffDate;
+            cmd.Parameters.Add("@date2", MySqlDbType.DateTime).Value = landingDate;
             try
             {
                 int rows = cmd.ExecuteNonQuery();
@@ -1439,7 +1450,7 @@ namespace AirportAutomation
             rd.Close();
 
             MessageBox.Show($"Uçuş (<{ id }>) eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            gridFlights.Rows.Add(id, takeoffid, txtFlightTakeoffAirportName.Text, landingid, txtFlightLandingAirportName.Text, airlineid, txtFlightAirlineName.Text, pilotid, txtFlightPilotName.Text, copilotid, txtFlightCopilotName.Text, planeid, dateFlightTakeoff);
+            gridFlights.Rows.Add(id, takeoffid, txtFlightTakeoffAirportName.Text, landingid, txtFlightLandingAirportName.Text, airlineid, txtFlightAirlineName.Text, pilotid, txtFlightPilotName.Text, copilotid, txtFlightCopilotName.Text, planeid, takeoffDate, landingDate);
         }
 
         private bool SwitchLanding = false;
@@ -1492,6 +1503,123 @@ namespace AirportAutomation
         private void UpdateStaff(object sender, EventArgs e)
         {
 
+        }
+
+        private void SelectFlight(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = e.RowIndex;
+            if (row < 0) return;
+            var r = gridFlights.Rows[row];
+            if (row >= gridFlights.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            var takeoffid = r.Cells[1].Value.ToString();
+            var takeoffaip = r.Cells[2].Value.ToString();
+            var landingid = r.Cells[3].Value.ToString();
+            var landingaip = r.Cells[4].Value.ToString();
+            var airlineid = r.Cells[5].Value.ToString();
+            var airline = r.Cells[6].Value.ToString();
+            var pilotid = r.Cells[7].Value.ToString();
+            var pilot = r.Cells[8].Value.ToString();
+            var copilotid = r.Cells[9].Value.ToString();
+            var copilot = r.Cells[10].Value.ToString();
+            var planeid = r.Cells[11].Value.ToString();
+            var takeoffDateStr = r.Cells[12].Value.ToString();
+            var landingDateStr = r.Cells[13].Value.ToString();
+
+            txtFlightID.Text = idstr;
+            txtFlightTakeoffAirportID.Text = takeoffid;
+            txtFlightTakeoffAirportName.Text = takeoffaip;
+            txtFlightLandingAirportID.Text = landingid;
+            txtFlightLandingAirportName.Text = landingaip;
+            txtFlightAirlineID.Text = airlineid;
+            txtFlightAirlineName.Text = airline;
+            txtFlightPilotID.Text = pilotid;
+            txtFlightPilotName.Text = pilot;
+            txtFlightCopilotID.Text = copilotid;
+            txtFlightCopilotName.Text = copilot;
+            txtFlightPlane.Text = planeid;
+            var takeoffDate = DateTime.Parse(takeoffDateStr);
+            dateFlightTakeoff.Value = takeoffDate;
+            var landingDate = DateTime.Parse(landingDateStr);
+            dateFlightLanding.Value = landingDate;
+
+            if (takeoffDate < DateTime.Now && DateTime.Now < landingDate)
+            {
+                btnDeleteFlight.Enabled = false;
+                //tooltipGeneral.Active = true;
+            }
+            else
+            {
+                btnDeleteFlight.Enabled = true;
+                //tooltipGeneral.Active = false;
+            }
+
+            if (DateTime.Now > takeoffDate)
+            {
+                btnUpdateFlight.Enabled = false;
+                //tooltipGeneral.Active = true;
+            }
+            else
+            {
+                btnUpdateFlight.Enabled = true;
+                //tooltipGeneral.Active = false;
+            }
+        }
+
+        private void UpdateFlight(object sender, EventArgs e)
+        {
+            string flightid = txtFlightID.Text;
+
+            if (string.IsNullOrWhiteSpace(flightid))
+            {
+                MessageBox.Show("Listeden bir kayıt seçin!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            string takeoffid = txtFlightTakeoffAirportID.Text;
+            string landingid = txtFlightLandingAirportID.Text;
+
+            if (takeoffid == landingid)
+            {
+                MessageBox.Show("Kalkış ve iniş aynı havaalanında gerçekliştirelemez!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            string airlineid = txtFlightAirlineID.Text;
+            string planeid = txtFlightPlane.Text;
+            string pilotid = txtFlightPilotID.Text;
+            string copilotid = txtFlightCopilotID.Text;
+            DateTime takeoffDate = dateFlightTakeoff.Value;
+            DateTime landingDate = dateFlightLanding.Value;
+
+            if (landingDate <= takeoffDate)
+            {
+                MessageBox.Show("İniş tarihi kalkış tarihinden büyük olmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"update flights set airlineID = { airlineid }, takeoff = { takeoffid }, landing = { landingid }, takeoffDate = @date, planeID = '{ planeid }', pilotID = { pilotid }, copilotID = { copilotid }, landingDate = @date2 where flightID = { flightid }", Globals.Connection);
+            cmd.Parameters.Add("@date", MySqlDbType.DateTime).Value = takeoffDate;
+            cmd.Parameters.Add("@date2", MySqlDbType.DateTime).Value = landingDate;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Sistem iç hatası: { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (DataGridViewRow r in gridFlights.Rows)
+            {
+                if (r.Cells[0].Value.ToString() == flightid)
+                {
+                    r.SetValues(new object[] { flightid, takeoffid, txtFlightTakeoffAirportName.Text, landingid, txtFlightLandingAirportName.Text, airlineid, txtFlightAirlineName.Text, pilotid, txtFlightPilotName.Text, copilotid, txtFlightCopilotName.Text, planeid, takeoffDate, landingDate });
+                    return;
+                }
+            }
         }
     }
 }
