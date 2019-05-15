@@ -351,6 +351,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(806, 523);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.TabStop = false;
             // 
             // contextRefresh
             // 
@@ -394,6 +395,7 @@
             this.splitContainer1.Size = new System.Drawing.Size(792, 491);
             this.splitContainer1.SplitterDistance = 210;
             this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -437,7 +439,7 @@
             this.txtCountryName.Location = new System.Drawing.Point(6, 77);
             this.txtCountryName.Name = "txtCountryName";
             this.txtCountryName.Size = new System.Drawing.Size(330, 20);
-            this.txtCountryName.TabIndex = 3;
+            this.txtCountryName.TabIndex = 1;
             // 
             // txtCountryID
             // 
@@ -446,6 +448,7 @@
             this.txtCountryID.ReadOnly = true;
             this.txtCountryID.Size = new System.Drawing.Size(330, 20);
             this.txtCountryID.TabIndex = 2;
+            this.txtCountryID.TabStop = false;
             // 
             // button4
             // 
@@ -453,7 +456,7 @@
             this.button4.Location = new System.Drawing.Point(6, 181);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(80, 23);
-            this.button4.TabIndex = 1;
+            this.button4.TabIndex = 2;
             this.button4.Text = "Ekle";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.AddCountry);
@@ -464,7 +467,7 @@
             this.button3.Location = new System.Drawing.Point(92, 181);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(80, 23);
-            this.button3.TabIndex = 1;
+            this.button3.TabIndex = 4;
             this.button3.Text = "Sil";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.DeleteCountry);
@@ -475,7 +478,7 @@
             this.button2.Location = new System.Drawing.Point(264, 181);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(72, 23);
-            this.button2.TabIndex = 1;
+            this.button2.TabIndex = 3;
             this.button2.Text = "Düzenle";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.UpdateCountry);
@@ -486,7 +489,8 @@
             this.button1.Location = new System.Drawing.Point(178, 181);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 23);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 5;
+            this.button1.TabStop = false;
             this.button1.Text = "Temizle";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ClearFormCountry);
@@ -507,6 +511,7 @@
             this.gridCountries.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCountries.Size = new System.Drawing.Size(444, 185);
             this.gridCountries.TabIndex = 0;
+            this.gridCountries.TabStop = false;
             this.gridCountries.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectCountry);
             // 
             // colID
@@ -586,7 +591,7 @@
             this.txtCityName.Location = new System.Drawing.Point(6, 110);
             this.txtCityName.Name = "txtCityName";
             this.txtCityName.Size = new System.Drawing.Size(330, 20);
-            this.txtCityName.TabIndex = 11;
+            this.txtCityName.TabIndex = 6;
             // 
             // txtCityCountryName
             // 
@@ -595,6 +600,7 @@
             this.txtCityCountryName.ReadOnly = true;
             this.txtCityCountryName.Size = new System.Drawing.Size(158, 20);
             this.txtCityCountryName.TabIndex = 10;
+            this.txtCityCountryName.TabStop = false;
             // 
             // txtCityCountryID
             // 
@@ -603,6 +609,7 @@
             this.txtCityCountryID.ReadOnly = true;
             this.txtCityCountryID.Size = new System.Drawing.Size(158, 20);
             this.txtCityCountryID.TabIndex = 10;
+            this.txtCityCountryID.TabStop = false;
             // 
             // txtCityID
             // 
@@ -611,6 +618,7 @@
             this.txtCityID.ReadOnly = true;
             this.txtCityID.Size = new System.Drawing.Size(330, 20);
             this.txtCityID.TabIndex = 10;
+            this.txtCityID.TabStop = false;
             // 
             // button5
             // 
@@ -618,7 +626,7 @@
             this.button5.Location = new System.Drawing.Point(6, 248);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(80, 23);
-            this.button5.TabIndex = 6;
+            this.button5.TabIndex = 7;
             this.button5.Text = "Ekle";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.AddCity);
@@ -629,7 +637,7 @@
             this.button6.Location = new System.Drawing.Point(92, 248);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(80, 23);
-            this.button6.TabIndex = 7;
+            this.button6.TabIndex = 9;
             this.button6.Text = "Sil";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.DeleteCity);
@@ -651,7 +659,8 @@
             this.button8.Location = new System.Drawing.Point(178, 248);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(80, 23);
-            this.button8.TabIndex = 9;
+            this.button8.TabIndex = 10;
+            this.button8.TabStop = false;
             this.button8.Text = "Temizle";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.CityFormClear);
@@ -674,6 +683,7 @@
             this.gridCities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCities.Size = new System.Drawing.Size(444, 252);
             this.gridCities.TabIndex = 5;
+            this.gridCities.TabStop = false;
             this.gridCities.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectCity);
             // 
             // dataGridViewTextBoxColumn1
@@ -781,7 +791,7 @@
             this.txtAAdminTC.MaxLength = 11;
             this.txtAAdminTC.Name = "txtAAdminTC";
             this.txtAAdminTC.Size = new System.Drawing.Size(330, 20);
-            this.txtAAdminTC.TabIndex = 3;
+            this.txtAAdminTC.TabIndex = 5;
             // 
             // label7
             // 
@@ -797,7 +807,7 @@
             this.txtAAdminPassword.Location = new System.Drawing.Point(6, 194);
             this.txtAAdminPassword.Name = "txtAAdminPassword";
             this.txtAAdminPassword.Size = new System.Drawing.Size(330, 20);
-            this.txtAAdminPassword.TabIndex = 3;
+            this.txtAAdminPassword.TabIndex = 4;
             // 
             // label8
             // 
@@ -820,14 +830,14 @@
             this.txtAAdminSurname.Location = new System.Drawing.Point(6, 116);
             this.txtAAdminSurname.Name = "txtAAdminSurname";
             this.txtAAdminSurname.Size = new System.Drawing.Size(330, 20);
-            this.txtAAdminSurname.TabIndex = 3;
+            this.txtAAdminSurname.TabIndex = 2;
             // 
             // txtAAdminName
             // 
             this.txtAAdminName.Location = new System.Drawing.Point(6, 77);
             this.txtAAdminName.Name = "txtAAdminName";
             this.txtAAdminName.Size = new System.Drawing.Size(330, 20);
-            this.txtAAdminName.TabIndex = 3;
+            this.txtAAdminName.TabIndex = 1;
             // 
             // txtAAdminID
             // 
@@ -836,6 +846,7 @@
             this.txtAAdminID.ReadOnly = true;
             this.txtAAdminID.Size = new System.Drawing.Size(330, 20);
             this.txtAAdminID.TabIndex = 2;
+            this.txtAAdminID.TabStop = false;
             // 
             // button9
             // 
@@ -843,7 +854,7 @@
             this.button9.Location = new System.Drawing.Point(6, 462);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(80, 23);
-            this.button9.TabIndex = 1;
+            this.button9.TabIndex = 6;
             this.button9.Text = "Ekle";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.AddAirportAdmin);
@@ -854,7 +865,7 @@
             this.button10.Location = new System.Drawing.Point(92, 462);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(80, 23);
-            this.button10.TabIndex = 1;
+            this.button10.TabIndex = 7;
             this.button10.Text = "Sil";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.DeleteAdmin);
@@ -865,7 +876,7 @@
             this.button11.Location = new System.Drawing.Point(264, 462);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(72, 23);
-            this.button11.TabIndex = 1;
+            this.button11.TabIndex = 8;
             this.button11.Text = "Düzenle";
             this.button11.UseVisualStyleBackColor = true;
             // 
@@ -875,7 +886,8 @@
             this.button12.Location = new System.Drawing.Point(178, 462);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(80, 23);
-            this.button12.TabIndex = 1;
+            this.button12.TabIndex = 9;
+            this.button12.TabStop = false;
             this.button12.Text = "Temizle";
             this.button12.UseVisualStyleBackColor = true;
             // 
@@ -899,6 +911,7 @@
             this.gridAirportAdmins.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAirportAdmins.Size = new System.Drawing.Size(444, 466);
             this.gridAirportAdmins.TabIndex = 0;
+            this.gridAirportAdmins.TabStop = false;
             this.gridAirportAdmins.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectAirportAdmin);
             // 
             // columnID
@@ -985,6 +998,7 @@
             this.gridAirlines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAirlines.Size = new System.Drawing.Size(444, 466);
             this.gridAirlines.TabIndex = 5;
+            this.gridAirlines.TabStop = false;
             this.gridAirlines.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectAirline);
             // 
             // dataGridViewTextBoxColumn3
@@ -1023,7 +1037,7 @@
             this.txtAirlineName.Location = new System.Drawing.Point(6, 77);
             this.txtAirlineName.Name = "txtAirlineName";
             this.txtAirlineName.Size = new System.Drawing.Size(330, 20);
-            this.txtAirlineName.TabIndex = 3;
+            this.txtAirlineName.TabIndex = 1;
             // 
             // txtAirlineID
             // 
@@ -1032,6 +1046,7 @@
             this.txtAirlineID.ReadOnly = true;
             this.txtAirlineID.Size = new System.Drawing.Size(330, 20);
             this.txtAirlineID.TabIndex = 2;
+            this.txtAirlineID.TabStop = false;
             // 
             // button13
             // 
@@ -1039,7 +1054,7 @@
             this.button13.Location = new System.Drawing.Point(6, 462);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(80, 23);
-            this.button13.TabIndex = 1;
+            this.button13.TabIndex = 2;
             this.button13.Text = "Ekle";
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.AddAirline);
@@ -1050,7 +1065,7 @@
             this.button14.Location = new System.Drawing.Point(92, 462);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(80, 23);
-            this.button14.TabIndex = 1;
+            this.button14.TabIndex = 3;
             this.button14.Text = "Sil";
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.DeleteAirline);
@@ -1061,7 +1076,7 @@
             this.button15.Location = new System.Drawing.Point(264, 462);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(72, 23);
-            this.button15.TabIndex = 1;
+            this.button15.TabIndex = 4;
             this.button15.Text = "Düzenle";
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.UpdateAirline);
@@ -1072,7 +1087,8 @@
             this.button16.Location = new System.Drawing.Point(178, 462);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(80, 23);
-            this.button16.TabIndex = 1;
+            this.button16.TabIndex = 5;
+            this.button16.TabStop = false;
             this.button16.Text = "Temizle";
             this.button16.UseVisualStyleBackColor = true;
             // 
@@ -1167,6 +1183,7 @@
             this.txtPilotAirlineName.ReadOnly = true;
             this.txtPilotAirlineName.Size = new System.Drawing.Size(158, 20);
             this.txtPilotAirlineName.TabIndex = 3;
+            this.txtPilotAirlineName.TabStop = false;
             // 
             // txtPilotAirlineID
             // 
@@ -1175,6 +1192,7 @@
             this.txtPilotAirlineID.ReadOnly = true;
             this.txtPilotAirlineID.Size = new System.Drawing.Size(158, 20);
             this.txtPilotAirlineID.TabIndex = 3;
+            this.txtPilotAirlineID.TabStop = false;
             // 
             // txtPilotTC
             // 
@@ -1207,14 +1225,14 @@
             this.txtPilotSurname.Location = new System.Drawing.Point(6, 116);
             this.txtPilotSurname.Name = "txtPilotSurname";
             this.txtPilotSurname.Size = new System.Drawing.Size(330, 20);
-            this.txtPilotSurname.TabIndex = 3;
+            this.txtPilotSurname.TabIndex = 2;
             // 
             // txtPilotName
             // 
             this.txtPilotName.Location = new System.Drawing.Point(6, 77);
             this.txtPilotName.Name = "txtPilotName";
             this.txtPilotName.Size = new System.Drawing.Size(330, 20);
-            this.txtPilotName.TabIndex = 3;
+            this.txtPilotName.TabIndex = 1;
             // 
             // txtPilotID
             // 
@@ -1223,6 +1241,7 @@
             this.txtPilotID.ReadOnly = true;
             this.txtPilotID.Size = new System.Drawing.Size(330, 20);
             this.txtPilotID.TabIndex = 2;
+            this.txtPilotID.TabStop = false;
             // 
             // button17
             // 
@@ -1230,7 +1249,7 @@
             this.button17.Location = new System.Drawing.Point(6, 462);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(80, 23);
-            this.button17.TabIndex = 1;
+            this.button17.TabIndex = 4;
             this.button17.Text = "Ekle";
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.AddPilot);
@@ -1241,7 +1260,7 @@
             this.button18.Location = new System.Drawing.Point(92, 462);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(80, 23);
-            this.button18.TabIndex = 1;
+            this.button18.TabIndex = 5;
             this.button18.Text = "Sil";
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.DeletePilot);
@@ -1252,7 +1271,7 @@
             this.button19.Location = new System.Drawing.Point(264, 462);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(72, 23);
-            this.button19.TabIndex = 1;
+            this.button19.TabIndex = 6;
             this.button19.Text = "Düzenle";
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.UpdatePilot);
@@ -1263,7 +1282,8 @@
             this.button20.Location = new System.Drawing.Point(178, 462);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(80, 23);
-            this.button20.TabIndex = 1;
+            this.button20.TabIndex = 7;
+            this.button20.TabStop = false;
             this.button20.Text = "Temizle";
             this.button20.UseVisualStyleBackColor = true;
             // 
@@ -1287,6 +1307,7 @@
             this.gridPilots.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPilots.Size = new System.Drawing.Size(444, 466);
             this.gridPilots.TabIndex = 0;
+            this.gridPilots.TabStop = false;
             this.gridPilots.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPilot);
             // 
             // dataGridViewTextBoxColumn4
@@ -1419,6 +1440,7 @@
             this.txtAirportCityName.ReadOnly = true;
             this.txtAirportCityName.Size = new System.Drawing.Size(158, 20);
             this.txtAirportCityName.TabIndex = 3;
+            this.txtAirportCityName.TabStop = false;
             // 
             // txtAirportCityID
             // 
@@ -1427,6 +1449,7 @@
             this.txtAirportCityID.ReadOnly = true;
             this.txtAirportCityID.Size = new System.Drawing.Size(158, 20);
             this.txtAirportCityID.TabIndex = 3;
+            this.txtAirportCityID.TabStop = false;
             // 
             // txtAirportAdminName
             // 
@@ -1435,6 +1458,7 @@
             this.txtAirportAdminName.ReadOnly = true;
             this.txtAirportAdminName.Size = new System.Drawing.Size(158, 20);
             this.txtAirportAdminName.TabIndex = 3;
+            this.txtAirportAdminName.TabStop = false;
             // 
             // txtAirportAdminID
             // 
@@ -1443,6 +1467,7 @@
             this.txtAirportAdminID.ReadOnly = true;
             this.txtAirportAdminID.Size = new System.Drawing.Size(158, 20);
             this.txtAirportAdminID.TabIndex = 3;
+            this.txtAirportAdminID.TabStop = false;
             // 
             // label30
             // 
@@ -1467,7 +1492,7 @@
             this.txtAirportName.Location = new System.Drawing.Point(6, 77);
             this.txtAirportName.Name = "txtAirportName";
             this.txtAirportName.Size = new System.Drawing.Size(330, 20);
-            this.txtAirportName.TabIndex = 3;
+            this.txtAirportName.TabIndex = 1;
             // 
             // txtAirportID
             // 
@@ -1476,6 +1501,7 @@
             this.txtAirportID.ReadOnly = true;
             this.txtAirportID.Size = new System.Drawing.Size(330, 20);
             this.txtAirportID.TabIndex = 2;
+            this.txtAirportID.TabStop = false;
             // 
             // button21
             // 
@@ -1483,7 +1509,7 @@
             this.button21.Location = new System.Drawing.Point(6, 462);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(80, 23);
-            this.button21.TabIndex = 1;
+            this.button21.TabIndex = 2;
             this.button21.Text = "Ekle";
             this.button21.UseVisualStyleBackColor = true;
             this.button21.Click += new System.EventHandler(this.AddAirport);
@@ -1494,7 +1520,7 @@
             this.button22.Location = new System.Drawing.Point(92, 462);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(80, 23);
-            this.button22.TabIndex = 1;
+            this.button22.TabIndex = 3;
             this.button22.Text = "Sil";
             this.button22.UseVisualStyleBackColor = true;
             this.button22.Click += new System.EventHandler(this.DeleteAirports);
@@ -1505,7 +1531,7 @@
             this.button23.Location = new System.Drawing.Point(264, 462);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(72, 23);
-            this.button23.TabIndex = 1;
+            this.button23.TabIndex = 4;
             this.button23.Text = "Düzenle";
             this.button23.UseVisualStyleBackColor = true;
             this.button23.Click += new System.EventHandler(this.UpdateAirport);
@@ -1516,7 +1542,8 @@
             this.button24.Location = new System.Drawing.Point(178, 462);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(80, 23);
-            this.button24.TabIndex = 1;
+            this.button24.TabIndex = 5;
+            this.button24.TabStop = false;
             this.button24.Text = "Temizle";
             this.button24.UseVisualStyleBackColor = true;
             // 
@@ -1540,6 +1567,7 @@
             this.gridAirports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAirports.Size = new System.Drawing.Size(444, 466);
             this.gridAirports.TabIndex = 0;
+            this.gridAirports.TabStop = false;
             this.gridAirports.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectAirport);
             // 
             // dataGridViewTextBoxColumn8
@@ -1609,6 +1637,7 @@
             this.splitContainer2.Size = new System.Drawing.Size(792, 491);
             this.splitContainer2.SplitterDistance = 210;
             this.splitContainer2.TabIndex = 1;
+            this.splitContainer2.TabStop = false;
             // 
             // groupBox7
             // 
@@ -1650,7 +1679,7 @@
             0});
             this.txtPlaneModelCap.Name = "txtPlaneModelCap";
             this.txtPlaneModelCap.Size = new System.Drawing.Size(330, 20);
-            this.txtPlaneModelCap.TabIndex = 5;
+            this.txtPlaneModelCap.TabIndex = 2;
             this.txtPlaneModelCap.Value = new decimal(new int[] {
             100,
             0,
@@ -1682,6 +1711,7 @@
             this.txtPlaneModelTypeName.ReadOnly = true;
             this.txtPlaneModelTypeName.Size = new System.Drawing.Size(158, 20);
             this.txtPlaneModelTypeName.TabIndex = 3;
+            this.txtPlaneModelTypeName.TabStop = false;
             // 
             // label29
             // 
@@ -1699,6 +1729,7 @@
             this.txtPlaneModelTypeID.ReadOnly = true;
             this.txtPlaneModelTypeID.Size = new System.Drawing.Size(166, 20);
             this.txtPlaneModelTypeID.TabIndex = 3;
+            this.txtPlaneModelTypeID.TabStop = false;
             // 
             // label13
             // 
@@ -1723,7 +1754,7 @@
             this.txtPlaneModelName.Location = new System.Drawing.Point(6, 77);
             this.txtPlaneModelName.Name = "txtPlaneModelName";
             this.txtPlaneModelName.Size = new System.Drawing.Size(330, 20);
-            this.txtPlaneModelName.TabIndex = 3;
+            this.txtPlaneModelName.TabIndex = 1;
             // 
             // txtPlaneModelID
             // 
@@ -1732,6 +1763,7 @@
             this.txtPlaneModelID.ReadOnly = true;
             this.txtPlaneModelID.Size = new System.Drawing.Size(330, 20);
             this.txtPlaneModelID.TabIndex = 2;
+            this.txtPlaneModelID.TabStop = false;
             // 
             // button25
             // 
@@ -1739,7 +1771,7 @@
             this.button25.Location = new System.Drawing.Point(6, 181);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(80, 23);
-            this.button25.TabIndex = 1;
+            this.button25.TabIndex = 3;
             this.button25.Text = "Ekle";
             this.button25.UseVisualStyleBackColor = true;
             this.button25.Click += new System.EventHandler(this.AddPlaneModel);
@@ -1750,7 +1782,7 @@
             this.button26.Location = new System.Drawing.Point(92, 181);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(80, 23);
-            this.button26.TabIndex = 1;
+            this.button26.TabIndex = 4;
             this.button26.Text = "Sil";
             this.button26.UseVisualStyleBackColor = true;
             this.button26.Click += new System.EventHandler(this.DeletePlaneModel);
@@ -1761,7 +1793,7 @@
             this.button27.Location = new System.Drawing.Point(264, 181);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(72, 23);
-            this.button27.TabIndex = 1;
+            this.button27.TabIndex = 5;
             this.button27.Text = "Düzenle";
             this.button27.UseVisualStyleBackColor = true;
             this.button27.Click += new System.EventHandler(this.UpdatePlaneModel);
@@ -1773,6 +1805,7 @@
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(80, 23);
             this.button28.TabIndex = 1;
+            this.button28.TabStop = false;
             this.button28.Text = "Temizle";
             this.button28.UseVisualStyleBackColor = true;
             // 
@@ -1795,6 +1828,7 @@
             this.gridPlaneModels.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPlaneModels.Size = new System.Drawing.Size(444, 185);
             this.gridPlaneModels.TabIndex = 0;
+            this.gridPlaneModels.TabStop = false;
             this.gridPlaneModels.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPlaneModel);
             // 
             // dataGridViewTextBoxColumn9
@@ -1845,6 +1879,7 @@
             this.splitContainer3.Size = new System.Drawing.Size(792, 277);
             this.splitContainer3.SplitterDistance = 390;
             this.splitContainer3.TabIndex = 0;
+            this.splitContainer3.TabStop = false;
             // 
             // groupBox8
             // 
@@ -1888,7 +1923,7 @@
             this.txtPlaneTypeName.Location = new System.Drawing.Point(5, 71);
             this.txtPlaneTypeName.Name = "txtPlaneTypeName";
             this.txtPlaneTypeName.Size = new System.Drawing.Size(167, 20);
-            this.txtPlaneTypeName.TabIndex = 10;
+            this.txtPlaneTypeName.TabIndex = 6;
             // 
             // txtPlaneTypeID
             // 
@@ -1897,6 +1932,7 @@
             this.txtPlaneTypeID.ReadOnly = true;
             this.txtPlaneTypeID.Size = new System.Drawing.Size(166, 20);
             this.txtPlaneTypeID.TabIndex = 10;
+            this.txtPlaneTypeID.TabStop = false;
             // 
             // button29
             // 
@@ -1904,7 +1940,7 @@
             this.button29.Location = new System.Drawing.Point(6, 248);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(80, 23);
-            this.button29.TabIndex = 6;
+            this.button29.TabIndex = 7;
             this.button29.Text = "Ekle";
             this.button29.UseVisualStyleBackColor = true;
             this.button29.Click += new System.EventHandler(this.AddPlaneType);
@@ -1915,7 +1951,7 @@
             this.button30.Location = new System.Drawing.Point(92, 248);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(80, 23);
-            this.button30.TabIndex = 7;
+            this.button30.TabIndex = 8;
             this.button30.Text = "Sil";
             this.button30.UseVisualStyleBackColor = true;
             this.button30.Click += new System.EventHandler(this.DeletePlaneTypes);
@@ -1926,7 +1962,7 @@
             this.button31.Location = new System.Drawing.Point(92, 219);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(80, 23);
-            this.button31.TabIndex = 8;
+            this.button31.TabIndex = 9;
             this.button31.Text = "Düzenle";
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.UpdatePlaneType);
@@ -1938,6 +1974,7 @@
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(80, 23);
             this.button32.TabIndex = 9;
+            this.button32.TabStop = false;
             this.button32.Text = "Temizle";
             this.button32.UseVisualStyleBackColor = true;
             // 
@@ -1957,6 +1994,7 @@
             this.gridPlaneTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPlaneTypes.Size = new System.Drawing.Size(206, 252);
             this.gridPlaneTypes.TabIndex = 5;
+            this.gridPlaneTypes.TabStop = false;
             this.gridPlaneTypes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPlaneType);
             // 
             // dataGridViewTextBoxColumn11
@@ -2017,7 +2055,8 @@
             this.txtPlaneModelName2.Name = "txtPlaneModelName2";
             this.txtPlaneModelName2.ReadOnly = true;
             this.txtPlaneModelName2.Size = new System.Drawing.Size(167, 20);
-            this.txtPlaneModelName2.TabIndex = 10;
+            this.txtPlaneModelName2.TabIndex = 11;
+            this.txtPlaneModelName2.TabStop = false;
             // 
             // label36
             // 
@@ -2035,6 +2074,7 @@
             this.txtPlaneModelID2.ReadOnly = true;
             this.txtPlaneModelID2.Size = new System.Drawing.Size(167, 20);
             this.txtPlaneModelID2.TabIndex = 10;
+            this.txtPlaneModelID2.TabStop = false;
             // 
             // txtPlaneID
             // 
@@ -2049,7 +2089,7 @@
             this.button33.Location = new System.Drawing.Point(6, 248);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(80, 23);
-            this.button33.TabIndex = 6;
+            this.button33.TabIndex = 11;
             this.button33.Text = "Ekle";
             this.button33.UseVisualStyleBackColor = true;
             this.button33.Click += new System.EventHandler(this.AddPlane);
@@ -2060,7 +2100,7 @@
             this.button34.Location = new System.Drawing.Point(92, 248);
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(80, 23);
-            this.button34.TabIndex = 7;
+            this.button34.TabIndex = 12;
             this.button34.Text = "Sil";
             this.button34.UseVisualStyleBackColor = true;
             this.button34.Click += new System.EventHandler(this.DeletePlane);
@@ -2071,7 +2111,7 @@
             this.button35.Location = new System.Drawing.Point(92, 219);
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(80, 23);
-            this.button35.TabIndex = 8;
+            this.button35.TabIndex = 13;
             this.button35.Text = "Düzenle";
             this.button35.UseVisualStyleBackColor = true;
             this.button35.Click += new System.EventHandler(this.UpdatePlane);
@@ -2083,6 +2123,7 @@
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(80, 23);
             this.button36.TabIndex = 9;
+            this.button36.TabStop = false;
             this.button36.Text = "Temizle";
             this.button36.UseVisualStyleBackColor = true;
             // 
@@ -2103,6 +2144,7 @@
             this.gridPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPlanes.Size = new System.Drawing.Size(214, 252);
             this.gridPlanes.TabIndex = 5;
+            this.gridPlanes.TabStop = false;
             this.gridPlanes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPlane);
             // 
             // dataGridViewTextBoxColumn16
@@ -2228,6 +2270,7 @@
             this.txtStaffAirportName.ReadOnly = true;
             this.txtStaffAirportName.Size = new System.Drawing.Size(158, 20);
             this.txtStaffAirportName.TabIndex = 3;
+            this.txtStaffAirportName.TabStop = false;
             // 
             // txtStaffAirportID
             // 
@@ -2236,6 +2279,7 @@
             this.txtStaffAirportID.ReadOnly = true;
             this.txtStaffAirportID.Size = new System.Drawing.Size(158, 20);
             this.txtStaffAirportID.TabIndex = 3;
+            this.txtStaffAirportID.TabStop = false;
             // 
             // txtStaffTC
             // 
@@ -2243,7 +2287,7 @@
             this.txtStaffTC.MaxLength = 11;
             this.txtStaffTC.Name = "txtStaffTC";
             this.txtStaffTC.Size = new System.Drawing.Size(330, 20);
-            this.txtStaffTC.TabIndex = 3;
+            this.txtStaffTC.TabIndex = 5;
             // 
             // label46
             // 
@@ -2268,7 +2312,7 @@
             this.txtStaffPassword.Location = new System.Drawing.Point(6, 194);
             this.txtStaffPassword.Name = "txtStaffPassword";
             this.txtStaffPassword.Size = new System.Drawing.Size(330, 20);
-            this.txtStaffPassword.TabIndex = 3;
+            this.txtStaffPassword.TabIndex = 4;
             // 
             // label45
             // 
@@ -2291,14 +2335,14 @@
             this.txtStaffSurname.Location = new System.Drawing.Point(6, 116);
             this.txtStaffSurname.Name = "txtStaffSurname";
             this.txtStaffSurname.Size = new System.Drawing.Size(330, 20);
-            this.txtStaffSurname.TabIndex = 3;
+            this.txtStaffSurname.TabIndex = 2;
             // 
             // txtStaffName
             // 
             this.txtStaffName.Location = new System.Drawing.Point(6, 77);
             this.txtStaffName.Name = "txtStaffName";
             this.txtStaffName.Size = new System.Drawing.Size(330, 20);
-            this.txtStaffName.TabIndex = 3;
+            this.txtStaffName.TabIndex = 1;
             // 
             // txtStaffID
             // 
@@ -2307,6 +2351,7 @@
             this.txtStaffID.ReadOnly = true;
             this.txtStaffID.Size = new System.Drawing.Size(330, 20);
             this.txtStaffID.TabIndex = 2;
+            this.txtStaffID.TabStop = false;
             // 
             // button37
             // 
@@ -2314,7 +2359,7 @@
             this.button37.Location = new System.Drawing.Point(6, 462);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(80, 23);
-            this.button37.TabIndex = 1;
+            this.button37.TabIndex = 6;
             this.button37.Text = "Ekle";
             this.button37.UseVisualStyleBackColor = true;
             this.button37.Click += new System.EventHandler(this.AddStaff);
@@ -2325,7 +2370,7 @@
             this.button38.Location = new System.Drawing.Point(92, 462);
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(80, 23);
-            this.button38.TabIndex = 1;
+            this.button38.TabIndex = 7;
             this.button38.Text = "Sil";
             this.button38.UseVisualStyleBackColor = true;
             this.button38.Click += new System.EventHandler(this.DeleteStaff);
@@ -2336,7 +2381,7 @@
             this.button39.Location = new System.Drawing.Point(264, 462);
             this.button39.Name = "button39";
             this.button39.Size = new System.Drawing.Size(72, 23);
-            this.button39.TabIndex = 1;
+            this.button39.TabIndex = 8;
             this.button39.Text = "Düzenle";
             this.button39.UseVisualStyleBackColor = true;
             this.button39.Click += new System.EventHandler(this.UpdateStaff);
@@ -2348,6 +2393,7 @@
             this.button40.Name = "button40";
             this.button40.Size = new System.Drawing.Size(80, 23);
             this.button40.TabIndex = 1;
+            this.button40.TabStop = false;
             this.button40.Text = "Temizle";
             this.button40.UseVisualStyleBackColor = true;
             // 
@@ -2373,6 +2419,7 @@
             this.gridStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridStaff.Size = new System.Drawing.Size(444, 466);
             this.gridStaff.TabIndex = 0;
+            this.gridStaff.TabStop = false;
             this.gridStaff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectStaff);
             // 
             // dataGridViewTextBoxColumn13
@@ -2488,7 +2535,7 @@
             this.dateFlightLanding.Location = new System.Drawing.Point(5, 350);
             this.dateFlightLanding.Name = "dateFlightLanding";
             this.dateFlightLanding.Size = new System.Drawing.Size(330, 20);
-            this.dateFlightLanding.TabIndex = 6;
+            this.dateFlightLanding.TabIndex = 2;
             // 
             // dateFlightTakeoff
             // 
@@ -2497,7 +2544,7 @@
             this.dateFlightTakeoff.Location = new System.Drawing.Point(6, 311);
             this.dateFlightTakeoff.Name = "dateFlightTakeoff";
             this.dateFlightTakeoff.Size = new System.Drawing.Size(330, 20);
-            this.dateFlightTakeoff.TabIndex = 6;
+            this.dateFlightTakeoff.TabIndex = 1;
             // 
             // gridFlights
             // 
@@ -2527,6 +2574,7 @@
             this.gridFlights.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridFlights.Size = new System.Drawing.Size(444, 466);
             this.gridFlights.TabIndex = 5;
+            this.gridFlights.TabStop = false;
             this.gridFlights.SelectionChanged += new System.EventHandler(this.SelectFlight);
             // 
             // dataGridViewTextBoxColumn20
@@ -2733,6 +2781,7 @@
             this.txtFlightCopilotName.ReadOnly = true;
             this.txtFlightCopilotName.Size = new System.Drawing.Size(158, 20);
             this.txtFlightCopilotName.TabIndex = 3;
+            this.txtFlightCopilotName.TabStop = false;
             this.txtFlightCopilotName.Click += new System.EventHandler(this.SwitchSelectCopilot);
             // 
             // label48
@@ -2752,6 +2801,7 @@
             this.txtFlightPilotName.ReadOnly = true;
             this.txtFlightPilotName.Size = new System.Drawing.Size(158, 20);
             this.txtFlightPilotName.TabIndex = 3;
+            this.txtFlightPilotName.TabStop = false;
             this.txtFlightPilotName.Click += new System.EventHandler(this.SwitchSelectPilot);
             // 
             // label49
@@ -2770,6 +2820,7 @@
             this.txtFlightPlane.ReadOnly = true;
             this.txtFlightPlane.Size = new System.Drawing.Size(330, 20);
             this.txtFlightPlane.TabIndex = 3;
+            this.txtFlightPlane.TabStop = false;
             // 
             // txtFlightAirlineName
             // 
@@ -2778,6 +2829,7 @@
             this.txtFlightAirlineName.ReadOnly = true;
             this.txtFlightAirlineName.Size = new System.Drawing.Size(158, 20);
             this.txtFlightAirlineName.TabIndex = 3;
+            this.txtFlightAirlineName.TabStop = false;
             // 
             // txtFlightCopilotID
             // 
@@ -2786,6 +2838,7 @@
             this.txtFlightCopilotID.ReadOnly = true;
             this.txtFlightCopilotID.Size = new System.Drawing.Size(166, 20);
             this.txtFlightCopilotID.TabIndex = 3;
+            this.txtFlightCopilotID.TabStop = false;
             this.txtFlightCopilotID.Click += new System.EventHandler(this.SwitchSelectCopilot);
             // 
             // txtFlightLandingAirportName
@@ -2795,6 +2848,7 @@
             this.txtFlightLandingAirportName.ReadOnly = true;
             this.txtFlightLandingAirportName.Size = new System.Drawing.Size(158, 20);
             this.txtFlightLandingAirportName.TabIndex = 3;
+            this.txtFlightLandingAirportName.TabStop = false;
             this.txtFlightLandingAirportName.Click += new System.EventHandler(this.SwitchSelectLanding);
             // 
             // txtFlightPilotID
@@ -2805,6 +2859,7 @@
             this.txtFlightPilotID.ReadOnly = true;
             this.txtFlightPilotID.Size = new System.Drawing.Size(166, 20);
             this.txtFlightPilotID.TabIndex = 3;
+            this.txtFlightPilotID.TabStop = false;
             this.txtFlightPilotID.Click += new System.EventHandler(this.SwitchSelectPilot);
             // 
             // txtFlightTakeoffAirportName
@@ -2815,6 +2870,7 @@
             this.txtFlightTakeoffAirportName.ReadOnly = true;
             this.txtFlightTakeoffAirportName.Size = new System.Drawing.Size(158, 20);
             this.txtFlightTakeoffAirportName.TabIndex = 3;
+            this.txtFlightTakeoffAirportName.TabStop = false;
             this.txtFlightTakeoffAirportName.Click += new System.EventHandler(this.SwitchSelectTakeoff);
             // 
             // txtFlightAirlineID
@@ -2824,6 +2880,7 @@
             this.txtFlightAirlineID.ReadOnly = true;
             this.txtFlightAirlineID.Size = new System.Drawing.Size(166, 20);
             this.txtFlightAirlineID.TabIndex = 3;
+            this.txtFlightAirlineID.TabStop = false;
             // 
             // txtFlightLandingAirportID
             // 
@@ -2832,6 +2889,7 @@
             this.txtFlightLandingAirportID.ReadOnly = true;
             this.txtFlightLandingAirportID.Size = new System.Drawing.Size(166, 20);
             this.txtFlightLandingAirportID.TabIndex = 3;
+            this.txtFlightLandingAirportID.TabStop = false;
             this.txtFlightLandingAirportID.Click += new System.EventHandler(this.SwitchSelectLanding);
             // 
             // txtFlightTakeoffAirportID
@@ -2842,6 +2900,7 @@
             this.txtFlightTakeoffAirportID.ReadOnly = true;
             this.txtFlightTakeoffAirportID.Size = new System.Drawing.Size(166, 20);
             this.txtFlightTakeoffAirportID.TabIndex = 3;
+            this.txtFlightTakeoffAirportID.TabStop = false;
             this.txtFlightTakeoffAirportID.Click += new System.EventHandler(this.SwitchSelectTakeoff);
             // 
             // txtFlightID
@@ -2851,6 +2910,7 @@
             this.txtFlightID.ReadOnly = true;
             this.txtFlightID.Size = new System.Drawing.Size(330, 20);
             this.txtFlightID.TabIndex = 2;
+            this.txtFlightID.TabStop = false;
             // 
             // button41
             // 
@@ -2858,7 +2918,7 @@
             this.button41.Location = new System.Drawing.Point(6, 462);
             this.button41.Name = "button41";
             this.button41.Size = new System.Drawing.Size(80, 23);
-            this.button41.TabIndex = 1;
+            this.button41.TabIndex = 3;
             this.button41.Text = "Ekle";
             this.button41.UseVisualStyleBackColor = true;
             this.button41.Click += new System.EventHandler(this.AddFlight);
@@ -2869,7 +2929,7 @@
             this.btnDeleteFlight.Location = new System.Drawing.Point(92, 462);
             this.btnDeleteFlight.Name = "btnDeleteFlight";
             this.btnDeleteFlight.Size = new System.Drawing.Size(80, 23);
-            this.btnDeleteFlight.TabIndex = 1;
+            this.btnDeleteFlight.TabIndex = 4;
             this.btnDeleteFlight.Text = "Sil";
             this.tooltipGeneral.SetToolTip(this.btnDeleteFlight, "Şu anda gerçekleşen uçuşu silmek mümkün değil.");
             this.btnDeleteFlight.UseVisualStyleBackColor = true;
@@ -2881,7 +2941,7 @@
             this.btnUpdateFlight.Location = new System.Drawing.Point(264, 462);
             this.btnUpdateFlight.Name = "btnUpdateFlight";
             this.btnUpdateFlight.Size = new System.Drawing.Size(72, 23);
-            this.btnUpdateFlight.TabIndex = 1;
+            this.btnUpdateFlight.TabIndex = 5;
             this.btnUpdateFlight.Text = "Düzenle";
             this.tooltipGeneral.SetToolTip(this.btnUpdateFlight, "Uçuş tarihi geçtiğinden dolayı seçenek devre dışı bırakıldı.");
             this.btnUpdateFlight.UseVisualStyleBackColor = true;
@@ -2894,6 +2954,7 @@
             this.button44.Name = "button44";
             this.button44.Size = new System.Drawing.Size(80, 23);
             this.button44.TabIndex = 1;
+            this.button44.TabStop = false;
             this.button44.Text = "Temizle";
             this.button44.UseVisualStyleBackColor = true;
             // 
