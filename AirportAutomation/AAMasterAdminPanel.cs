@@ -489,11 +489,7 @@ namespace AirportAutomation
             }
         }
 
-<<<<<<< HEAD
         private void SelectCity(object sender, EventArgs e)
-=======
-        private void CitySelect(object sender, DataGridViewCellEventArgs e)
->>>>>>> parent of e7761fd... Merge branch 'dev' of https://github.com/jangofett4/AirportAutomation into dev
         {
             if (gridCities.SelectedRows.Count < 1) return;
             var row = gridCities.SelectedRows[0].Index;
@@ -927,17 +923,10 @@ namespace AirportAutomation
             }
         }
 
-<<<<<<< HEAD
         private void SelectAirport(object sender, EventArgs e)
         {
             if (gridAirports.SelectedRows.Count < 1) return;
             var row = gridAirports.SelectedRows[0].Index;
-=======
-        private void SelectAirport(object sender, DataGridViewCellEventArgs e)
-    
-    {
-            var row = e.RowIndex;
->>>>>>> parent of e7761fd... Merge branch 'dev' of https://github.com/jangofett4/AirportAutomation into dev
             if (row < 0) return;
             var r = gridAirports.Rows[row];
             if (row >= gridAirports.RowCount - 1) return;
@@ -1599,11 +1588,11 @@ namespace AirportAutomation
             }
         }
 
-<<<<<<< HEAD
         private void ApplicationExit(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-=======
+        }
+
         private void UpdateFlight(object sender, EventArgs e)
         {
             string flightid = txtFlightID.Text;
@@ -1657,7 +1646,6 @@ namespace AirportAutomation
                     return;
                 }
             }
->>>>>>> parent of e7761fd... Merge branch 'dev' of https://github.com/jangofett4/AirportAutomation into dev
         }
     }
 }

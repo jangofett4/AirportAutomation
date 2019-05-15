@@ -674,11 +674,7 @@
             this.gridCities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCities.Size = new System.Drawing.Size(444, 252);
             this.gridCities.TabIndex = 5;
-<<<<<<< HEAD
             this.gridCities.SelectionChanged += new System.EventHandler(this.SelectCity);
-=======
-            this.gridCities.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CitySelect);
->>>>>>> parent of e7761fd... Merge branch 'dev' of https://github.com/jangofett4/AirportAutomation into dev
             // 
             // dataGridViewTextBoxColumn1
             // 
