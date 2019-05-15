@@ -30,11 +30,54 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.dateFlightTakeoff = new System.Windows.Forms.DateTimePicker();
+            this.gridFlights = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.txtFlightCopilotName = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.txtFlightPilotName = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.txtFlightPlane = new System.Windows.Forms.TextBox();
+            this.txtFlightAirlineName = new System.Windows.Forms.TextBox();
+            this.txtFlightCopilotID = new System.Windows.Forms.TextBox();
+            this.txtFlightLandingAirportName = new System.Windows.Forms.TextBox();
+            this.txtFlightPilotID = new System.Windows.Forms.TextBox();
+            this.txtFlightTakeoffAirportName = new System.Windows.Forms.TextBox();
+            this.txtFlightAirlineID = new System.Windows.Forms.TextBox();
+            this.txtFlightLandingAirportID = new System.Windows.Forms.TextBox();
+            this.txtFlightTakeoffAirportID = new System.Windows.Forms.TextBox();
+            this.txtFlightID = new System.Windows.Forms.TextBox();
+            this.button41 = new System.Windows.Forms.Button();
+            this.button42 = new System.Windows.Forms.Button();
+            this.button43 = new System.Windows.Forms.Button();
+            this.button44 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txtPlaneModelCap = new System.Windows.Forms.NumericUpDown();
@@ -85,65 +128,7 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.dateFlightTakeoff = new System.Windows.Forms.DateTimePicker();
-            this.gridFlights = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.txtFlightCopilotName = new System.Windows.Forms.TextBox();
-            this.label48 = new System.Windows.Forms.Label();
-            this.txtFlightPilotName = new System.Windows.Forms.TextBox();
-            this.label49 = new System.Windows.Forms.Label();
-            this.txtFlightPlane = new System.Windows.Forms.TextBox();
-            this.txtFlightAirlineName = new System.Windows.Forms.TextBox();
-            this.txtFlightCopilotID = new System.Windows.Forms.TextBox();
-            this.txtFlightLandingAirportName = new System.Windows.Forms.TextBox();
-            this.txtFlightPilotID = new System.Windows.Forms.TextBox();
-            this.txtFlightTakeoffAirportName = new System.Windows.Forms.TextBox();
-            this.txtFlightAirlineID = new System.Windows.Forms.TextBox();
-            this.txtFlightLandingAirportID = new System.Windows.Forms.TextBox();
-            this.txtFlightTakeoffAirportID = new System.Windows.Forms.TextBox();
-            this.txtFlightID = new System.Windows.Forms.TextBox();
-            this.button41 = new System.Windows.Forms.Button();
-            this.button42 = new System.Windows.Forms.Button();
-            this.button43 = new System.Windows.Forms.Button();
-            this.button44 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.gridAirlines = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnAirlineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtAirlineName = new System.Windows.Forms.TextBox();
-            this.txtAirlineID = new System.Windows.Forms.TextBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -169,6 +154,21 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnPilotAirlineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnPilotAirlineID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gridAirlines = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnAirlineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtAirlineName = new System.Windows.Forms.TextBox();
+            this.txtAirlineID = new System.Windows.Forms.TextBox();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -203,11 +203,9 @@
             this.contextRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage5.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridFlights)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -223,12 +221,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridPlaneTypes)).BeginInit();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanes)).BeginInit();
-            this.groupBox11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridFlights)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridAirlines)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPilots)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAirlines)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridStaff)).BeginInit();
             this.contextRefresh.SuspendLayout();
@@ -240,10 +240,444 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(792, 424);
+            this.tabPage5.Size = new System.Drawing.Size(792, 524);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Uçuşlar";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.dateFlightTakeoff);
+            this.groupBox11.Controls.Add(this.gridFlights);
+            this.groupBox11.Controls.Add(this.label60);
+            this.groupBox11.Controls.Add(this.label58);
+            this.groupBox11.Controls.Add(this.label56);
+            this.groupBox11.Controls.Add(this.label54);
+            this.groupBox11.Controls.Add(this.label52);
+            this.groupBox11.Controls.Add(this.label50);
+            this.groupBox11.Controls.Add(this.label61);
+            this.groupBox11.Controls.Add(this.label59);
+            this.groupBox11.Controls.Add(this.label57);
+            this.groupBox11.Controls.Add(this.label53);
+            this.groupBox11.Controls.Add(this.label51);
+            this.groupBox11.Controls.Add(this.txtFlightCopilotName);
+            this.groupBox11.Controls.Add(this.label48);
+            this.groupBox11.Controls.Add(this.txtFlightPilotName);
+            this.groupBox11.Controls.Add(this.label49);
+            this.groupBox11.Controls.Add(this.txtFlightPlane);
+            this.groupBox11.Controls.Add(this.txtFlightAirlineName);
+            this.groupBox11.Controls.Add(this.txtFlightCopilotID);
+            this.groupBox11.Controls.Add(this.txtFlightLandingAirportName);
+            this.groupBox11.Controls.Add(this.txtFlightPilotID);
+            this.groupBox11.Controls.Add(this.txtFlightTakeoffAirportName);
+            this.groupBox11.Controls.Add(this.txtFlightAirlineID);
+            this.groupBox11.Controls.Add(this.txtFlightLandingAirportID);
+            this.groupBox11.Controls.Add(this.txtFlightTakeoffAirportID);
+            this.groupBox11.Controls.Add(this.txtFlightID);
+            this.groupBox11.Controls.Add(this.button41);
+            this.groupBox11.Controls.Add(this.button42);
+            this.groupBox11.Controls.Add(this.button43);
+            this.groupBox11.Controls.Add(this.button44);
+            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox11.Location = new System.Drawing.Point(3, 3);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(786, 518);
+            this.groupBox11.TabIndex = 5;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Havayolu Yönetimi";
+            // 
+            // dateFlightTakeoff
+            // 
+            this.dateFlightTakeoff.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.dateFlightTakeoff.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateFlightTakeoff.Location = new System.Drawing.Point(6, 311);
+            this.dateFlightTakeoff.Name = "dateFlightTakeoff";
+            this.dateFlightTakeoff.Size = new System.Drawing.Size(330, 20);
+            this.dateFlightTakeoff.TabIndex = 6;
+            // 
+            // gridFlights
+            // 
+            this.gridFlights.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridFlights.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn20,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16,
+            this.Column17,
+            this.Column18});
+            this.gridFlights.Location = new System.Drawing.Point(342, 19);
+            this.gridFlights.Name = "gridFlights";
+            this.gridFlights.ReadOnly = true;
+            this.gridFlights.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridFlights.Size = new System.Drawing.Size(438, 493);
+            this.gridFlights.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "TakeoffID";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Kalkış Havalimanı";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "TakeoffCity";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "LandingID";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "İniş Havalimanı";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "LandingCity";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "AirlineID";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Havayolu";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "FlightPilotID";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Pilot";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "FlightCopilotID";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Yardımcı Pilot";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "Uçak";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "Kalkış Tarihi";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(178, 256);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(70, 13);
+            this.label60.TabIndex = 4;
+            this.label60.Text = "Yardımcı Pilot";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(178, 217);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(27, 13);
+            this.label58.TabIndex = 4;
+            this.label58.Text = "Pilot";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(6, 178);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(33, 13);
+            this.label56.TabIndex = 4;
+            this.label56.Text = "Uçak";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(178, 139);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(87, 13);
+            this.label54.TabIndex = 4;
+            this.label54.Text = "Havayolu Firması";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(178, 100);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(78, 13);
+            this.label52.TabIndex = 4;
+            this.label52.Text = "İniş Havalimanı";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(178, 61);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(90, 13);
+            this.label50.TabIndex = 4;
+            this.label50.Text = "Kalkış Havalimanı";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(6, 295);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(64, 13);
+            this.label61.TabIndex = 4;
+            this.label61.Text = "Kalkış Tarihi";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(6, 256);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(84, 13);
+            this.label59.TabIndex = 4;
+            this.label59.Text = "Yardımcı Pilot ID";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(6, 217);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(41, 13);
+            this.label57.TabIndex = 4;
+            this.label57.Text = "Pilot ID";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(6, 139);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(101, 13);
+            this.label53.TabIndex = 4;
+            this.label53.Text = "Havayolu Firması ID";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(6, 100);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(92, 13);
+            this.label51.TabIndex = 4;
+            this.label51.Text = "İniş Havalimanı ID";
+            // 
+            // txtFlightCopilotName
+            // 
+            this.txtFlightCopilotName.Location = new System.Drawing.Point(178, 272);
+            this.txtFlightCopilotName.Name = "txtFlightCopilotName";
+            this.txtFlightCopilotName.ReadOnly = true;
+            this.txtFlightCopilotName.Size = new System.Drawing.Size(158, 20);
+            this.txtFlightCopilotName.TabIndex = 3;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(6, 61);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(104, 13);
+            this.label48.TabIndex = 4;
+            this.label48.Text = "Kalkış Havalimanı ID";
+            // 
+            // txtFlightPilotName
+            // 
+            this.txtFlightPilotName.BackColor = System.Drawing.Color.LightGreen;
+            this.txtFlightPilotName.Location = new System.Drawing.Point(178, 233);
+            this.txtFlightPilotName.Name = "txtFlightPilotName";
+            this.txtFlightPilotName.ReadOnly = true;
+            this.txtFlightPilotName.Size = new System.Drawing.Size(158, 20);
+            this.txtFlightPilotName.TabIndex = 3;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(6, 22);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(18, 13);
+            this.label49.TabIndex = 4;
+            this.label49.Text = "ID";
+            // 
+            // txtFlightPlane
+            // 
+            this.txtFlightPlane.Location = new System.Drawing.Point(6, 194);
+            this.txtFlightPlane.Name = "txtFlightPlane";
+            this.txtFlightPlane.ReadOnly = true;
+            this.txtFlightPlane.Size = new System.Drawing.Size(330, 20);
+            this.txtFlightPlane.TabIndex = 3;
+            // 
+            // txtFlightAirlineName
+            // 
+            this.txtFlightAirlineName.Location = new System.Drawing.Point(178, 155);
+            this.txtFlightAirlineName.Name = "txtFlightAirlineName";
+            this.txtFlightAirlineName.ReadOnly = true;
+            this.txtFlightAirlineName.Size = new System.Drawing.Size(158, 20);
+            this.txtFlightAirlineName.TabIndex = 3;
+            // 
+            // txtFlightCopilotID
+            // 
+            this.txtFlightCopilotID.Location = new System.Drawing.Point(6, 272);
+            this.txtFlightCopilotID.Name = "txtFlightCopilotID";
+            this.txtFlightCopilotID.ReadOnly = true;
+            this.txtFlightCopilotID.Size = new System.Drawing.Size(166, 20);
+            this.txtFlightCopilotID.TabIndex = 3;
+            // 
+            // txtFlightLandingAirportName
+            // 
+            this.txtFlightLandingAirportName.Location = new System.Drawing.Point(178, 116);
+            this.txtFlightLandingAirportName.Name = "txtFlightLandingAirportName";
+            this.txtFlightLandingAirportName.ReadOnly = true;
+            this.txtFlightLandingAirportName.Size = new System.Drawing.Size(158, 20);
+            this.txtFlightLandingAirportName.TabIndex = 3;
+            // 
+            // txtFlightPilotID
+            // 
+            this.txtFlightPilotID.BackColor = System.Drawing.Color.LightGreen;
+            this.txtFlightPilotID.Location = new System.Drawing.Point(6, 233);
+            this.txtFlightPilotID.Name = "txtFlightPilotID";
+            this.txtFlightPilotID.ReadOnly = true;
+            this.txtFlightPilotID.Size = new System.Drawing.Size(166, 20);
+            this.txtFlightPilotID.TabIndex = 3;
+            // 
+            // txtFlightTakeoffAirportName
+            // 
+            this.txtFlightTakeoffAirportName.BackColor = System.Drawing.Color.LightGreen;
+            this.txtFlightTakeoffAirportName.Location = new System.Drawing.Point(178, 77);
+            this.txtFlightTakeoffAirportName.Name = "txtFlightTakeoffAirportName";
+            this.txtFlightTakeoffAirportName.ReadOnly = true;
+            this.txtFlightTakeoffAirportName.Size = new System.Drawing.Size(158, 20);
+            this.txtFlightTakeoffAirportName.TabIndex = 3;
+            // 
+            // txtFlightAirlineID
+            // 
+            this.txtFlightAirlineID.Location = new System.Drawing.Point(6, 155);
+            this.txtFlightAirlineID.Name = "txtFlightAirlineID";
+            this.txtFlightAirlineID.ReadOnly = true;
+            this.txtFlightAirlineID.Size = new System.Drawing.Size(166, 20);
+            this.txtFlightAirlineID.TabIndex = 3;
+            // 
+            // txtFlightLandingAirportID
+            // 
+            this.txtFlightLandingAirportID.Location = new System.Drawing.Point(6, 116);
+            this.txtFlightLandingAirportID.Name = "txtFlightLandingAirportID";
+            this.txtFlightLandingAirportID.ReadOnly = true;
+            this.txtFlightLandingAirportID.Size = new System.Drawing.Size(166, 20);
+            this.txtFlightLandingAirportID.TabIndex = 3;
+            // 
+            // txtFlightTakeoffAirportID
+            // 
+            this.txtFlightTakeoffAirportID.BackColor = System.Drawing.Color.LightGreen;
+            this.txtFlightTakeoffAirportID.Location = new System.Drawing.Point(6, 77);
+            this.txtFlightTakeoffAirportID.Name = "txtFlightTakeoffAirportID";
+            this.txtFlightTakeoffAirportID.ReadOnly = true;
+            this.txtFlightTakeoffAirportID.Size = new System.Drawing.Size(166, 20);
+            this.txtFlightTakeoffAirportID.TabIndex = 3;
+            // 
+            // txtFlightID
+            // 
+            this.txtFlightID.Location = new System.Drawing.Point(6, 38);
+            this.txtFlightID.Name = "txtFlightID";
+            this.txtFlightID.ReadOnly = true;
+            this.txtFlightID.Size = new System.Drawing.Size(330, 20);
+            this.txtFlightID.TabIndex = 2;
+            this.txtFlightID.TextChanged += new System.EventHandler(this.txtFlightID_TextChanged);
+            // 
+            // button41
+            // 
+            this.button41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button41.Location = new System.Drawing.Point(6, 489);
+            this.button41.Name = "button41";
+            this.button41.Size = new System.Drawing.Size(80, 23);
+            this.button41.TabIndex = 1;
+            this.button41.Text = "Ekle";
+            this.button41.UseVisualStyleBackColor = true;
+            // 
+            // button42
+            // 
+            this.button42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button42.Location = new System.Drawing.Point(92, 489);
+            this.button42.Name = "button42";
+            this.button42.Size = new System.Drawing.Size(80, 23);
+            this.button42.TabIndex = 1;
+            this.button42.Text = "Sil";
+            this.button42.UseVisualStyleBackColor = true;
+            // 
+            // button43
+            // 
+            this.button43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button43.Location = new System.Drawing.Point(264, 489);
+            this.button43.Name = "button43";
+            this.button43.Size = new System.Drawing.Size(72, 23);
+            this.button43.TabIndex = 1;
+            this.button43.Text = "Düzenle";
+            this.button43.UseVisualStyleBackColor = true;
+            // 
+            // button44
+            // 
+            this.button44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button44.Location = new System.Drawing.Point(178, 489);
+            this.button44.Name = "button44";
+            this.button44.Size = new System.Drawing.Size(80, 23);
+            this.button44.TabIndex = 1;
+            this.button44.Text = "Temizle";
+            this.button44.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -255,53 +689,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Uçaklar";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 424);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Pilotlar";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.groupBox4);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 424);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Havayolları";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 550);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.groupBox10);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(792, 424);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Çalışanlar";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // splitContainer2
             // 
@@ -830,562 +1217,16 @@
             this.Column2.ReadOnly = true;
             this.Column2.Visible = false;
             // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.dateFlightTakeoff);
-            this.groupBox11.Controls.Add(this.gridFlights);
-            this.groupBox11.Controls.Add(this.label60);
-            this.groupBox11.Controls.Add(this.label58);
-            this.groupBox11.Controls.Add(this.label56);
-            this.groupBox11.Controls.Add(this.label54);
-            this.groupBox11.Controls.Add(this.label52);
-            this.groupBox11.Controls.Add(this.label50);
-            this.groupBox11.Controls.Add(this.label61);
-            this.groupBox11.Controls.Add(this.label59);
-            this.groupBox11.Controls.Add(this.label57);
-            this.groupBox11.Controls.Add(this.label53);
-            this.groupBox11.Controls.Add(this.label51);
-            this.groupBox11.Controls.Add(this.txtFlightCopilotName);
-            this.groupBox11.Controls.Add(this.label48);
-            this.groupBox11.Controls.Add(this.txtFlightPilotName);
-            this.groupBox11.Controls.Add(this.label49);
-            this.groupBox11.Controls.Add(this.txtFlightPlane);
-            this.groupBox11.Controls.Add(this.txtFlightAirlineName);
-            this.groupBox11.Controls.Add(this.txtFlightCopilotID);
-            this.groupBox11.Controls.Add(this.txtFlightLandingAirportName);
-            this.groupBox11.Controls.Add(this.txtFlightPilotID);
-            this.groupBox11.Controls.Add(this.txtFlightTakeoffAirportName);
-            this.groupBox11.Controls.Add(this.txtFlightAirlineID);
-            this.groupBox11.Controls.Add(this.txtFlightLandingAirportID);
-            this.groupBox11.Controls.Add(this.txtFlightTakeoffAirportID);
-            this.groupBox11.Controls.Add(this.txtFlightID);
-            this.groupBox11.Controls.Add(this.button41);
-            this.groupBox11.Controls.Add(this.button42);
-            this.groupBox11.Controls.Add(this.button43);
-            this.groupBox11.Controls.Add(this.button44);
-            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox11.Location = new System.Drawing.Point(3, 3);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(786, 418);
-            this.groupBox11.TabIndex = 5;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Havayolu Yönetimi";
-            // 
-            // dateFlightTakeoff
-            // 
-            this.dateFlightTakeoff.CustomFormat = "MM/dd/yyyy hh:mm:ss";
-            this.dateFlightTakeoff.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateFlightTakeoff.Location = new System.Drawing.Point(6, 311);
-            this.dateFlightTakeoff.Name = "dateFlightTakeoff";
-            this.dateFlightTakeoff.Size = new System.Drawing.Size(330, 20);
-            this.dateFlightTakeoff.TabIndex = 6;
-            // 
-            // gridFlights
-            // 
-            this.gridFlights.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridFlights.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn20,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12,
-            this.Column13,
-            this.Column14,
-            this.Column15,
-            this.Column16,
-            this.Column17,
-            this.Column18});
-            this.gridFlights.Location = new System.Drawing.Point(342, 19);
-            this.gridFlights.Name = "gridFlights";
-            this.gridFlights.ReadOnly = true;
-            this.gridFlights.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridFlights.Size = new System.Drawing.Size(438, 393);
-            this.gridFlights.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "TakeoffID";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Visible = false;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Kalkış Havalimanı";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "TakeoffCity";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "LandingID";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "İniş Havalimanı";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "LandingCity";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Visible = false;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "AirlineID";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Visible = false;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Havayolu";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "FlightPilotID";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Visible = false;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Pilot";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "FlightCopilotID";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Visible = false;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Yardımcı Pilot";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "Uçak";
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "Kalkış Tarihi";
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(178, 256);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(70, 13);
-            this.label60.TabIndex = 4;
-            this.label60.Text = "Yardımcı Pilot";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(178, 217);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(27, 13);
-            this.label58.TabIndex = 4;
-            this.label58.Text = "Pilot";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(6, 178);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(33, 13);
-            this.label56.TabIndex = 4;
-            this.label56.Text = "Uçak";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(178, 139);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(87, 13);
-            this.label54.TabIndex = 4;
-            this.label54.Text = "Havayolu Firması";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(178, 100);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(78, 13);
-            this.label52.TabIndex = 4;
-            this.label52.Text = "İniş Havalimanı";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(178, 61);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(90, 13);
-            this.label50.TabIndex = 4;
-            this.label50.Text = "Kalkış Havalimanı";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(6, 295);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(64, 13);
-            this.label61.TabIndex = 4;
-            this.label61.Text = "Kalkış Tarihi";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(6, 256);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(84, 13);
-            this.label59.TabIndex = 4;
-            this.label59.Text = "Yardımcı Pilot ID";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(6, 217);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(41, 13);
-            this.label57.TabIndex = 4;
-            this.label57.Text = "Pilot ID";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(6, 139);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(101, 13);
-            this.label53.TabIndex = 4;
-            this.label53.Text = "Havayolu Firması ID";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(6, 100);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(92, 13);
-            this.label51.TabIndex = 4;
-            this.label51.Text = "İniş Havalimanı ID";
-            // 
-            // txtFlightCopilotName
-            // 
-            this.txtFlightCopilotName.Location = new System.Drawing.Point(178, 272);
-            this.txtFlightCopilotName.Name = "txtFlightCopilotName";
-            this.txtFlightCopilotName.ReadOnly = true;
-            this.txtFlightCopilotName.Size = new System.Drawing.Size(158, 20);
-            this.txtFlightCopilotName.TabIndex = 3;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(6, 61);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(104, 13);
-            this.label48.TabIndex = 4;
-            this.label48.Text = "Kalkış Havalimanı ID";
-            // 
-            // txtFlightPilotName
-            // 
-            this.txtFlightPilotName.BackColor = System.Drawing.Color.LightGreen;
-            this.txtFlightPilotName.Location = new System.Drawing.Point(178, 233);
-            this.txtFlightPilotName.Name = "txtFlightPilotName";
-            this.txtFlightPilotName.ReadOnly = true;
-            this.txtFlightPilotName.Size = new System.Drawing.Size(158, 20);
-            this.txtFlightPilotName.TabIndex = 3;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(6, 22);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(18, 13);
-            this.label49.TabIndex = 4;
-            this.label49.Text = "ID";
-            // 
-            // txtFlightPlane
-            // 
-            this.txtFlightPlane.Location = new System.Drawing.Point(6, 194);
-            this.txtFlightPlane.Name = "txtFlightPlane";
-            this.txtFlightPlane.ReadOnly = true;
-            this.txtFlightPlane.Size = new System.Drawing.Size(330, 20);
-            this.txtFlightPlane.TabIndex = 3;
-            // 
-            // txtFlightAirlineName
-            // 
-            this.txtFlightAirlineName.Location = new System.Drawing.Point(178, 155);
-            this.txtFlightAirlineName.Name = "txtFlightAirlineName";
-            this.txtFlightAirlineName.ReadOnly = true;
-            this.txtFlightAirlineName.Size = new System.Drawing.Size(158, 20);
-            this.txtFlightAirlineName.TabIndex = 3;
-            // 
-            // txtFlightCopilotID
-            // 
-            this.txtFlightCopilotID.Location = new System.Drawing.Point(6, 272);
-            this.txtFlightCopilotID.Name = "txtFlightCopilotID";
-            this.txtFlightCopilotID.ReadOnly = true;
-            this.txtFlightCopilotID.Size = new System.Drawing.Size(166, 20);
-            this.txtFlightCopilotID.TabIndex = 3;
-            // 
-            // txtFlightLandingAirportName
-            // 
-            this.txtFlightLandingAirportName.Location = new System.Drawing.Point(178, 116);
-            this.txtFlightLandingAirportName.Name = "txtFlightLandingAirportName";
-            this.txtFlightLandingAirportName.ReadOnly = true;
-            this.txtFlightLandingAirportName.Size = new System.Drawing.Size(158, 20);
-            this.txtFlightLandingAirportName.TabIndex = 3;
-            // 
-            // txtFlightPilotID
-            // 
-            this.txtFlightPilotID.BackColor = System.Drawing.Color.LightGreen;
-            this.txtFlightPilotID.Location = new System.Drawing.Point(6, 233);
-            this.txtFlightPilotID.Name = "txtFlightPilotID";
-            this.txtFlightPilotID.ReadOnly = true;
-            this.txtFlightPilotID.Size = new System.Drawing.Size(166, 20);
-            this.txtFlightPilotID.TabIndex = 3;
-            // 
-            // txtFlightTakeoffAirportName
-            // 
-            this.txtFlightTakeoffAirportName.BackColor = System.Drawing.Color.LightGreen;
-            this.txtFlightTakeoffAirportName.Location = new System.Drawing.Point(178, 77);
-            this.txtFlightTakeoffAirportName.Name = "txtFlightTakeoffAirportName";
-            this.txtFlightTakeoffAirportName.ReadOnly = true;
-            this.txtFlightTakeoffAirportName.Size = new System.Drawing.Size(158, 20);
-            this.txtFlightTakeoffAirportName.TabIndex = 3;
-            // 
-            // txtFlightAirlineID
-            // 
-            this.txtFlightAirlineID.Location = new System.Drawing.Point(6, 155);
-            this.txtFlightAirlineID.Name = "txtFlightAirlineID";
-            this.txtFlightAirlineID.ReadOnly = true;
-            this.txtFlightAirlineID.Size = new System.Drawing.Size(166, 20);
-            this.txtFlightAirlineID.TabIndex = 3;
-            // 
-            // txtFlightLandingAirportID
-            // 
-            this.txtFlightLandingAirportID.Location = new System.Drawing.Point(6, 116);
-            this.txtFlightLandingAirportID.Name = "txtFlightLandingAirportID";
-            this.txtFlightLandingAirportID.ReadOnly = true;
-            this.txtFlightLandingAirportID.Size = new System.Drawing.Size(166, 20);
-            this.txtFlightLandingAirportID.TabIndex = 3;
-            // 
-            // txtFlightTakeoffAirportID
-            // 
-            this.txtFlightTakeoffAirportID.BackColor = System.Drawing.Color.LightGreen;
-            this.txtFlightTakeoffAirportID.Location = new System.Drawing.Point(6, 77);
-            this.txtFlightTakeoffAirportID.Name = "txtFlightTakeoffAirportID";
-            this.txtFlightTakeoffAirportID.ReadOnly = true;
-            this.txtFlightTakeoffAirportID.Size = new System.Drawing.Size(166, 20);
-            this.txtFlightTakeoffAirportID.TabIndex = 3;
-            // 
-            // txtFlightID
-            // 
-            this.txtFlightID.Location = new System.Drawing.Point(6, 38);
-            this.txtFlightID.Name = "txtFlightID";
-            this.txtFlightID.ReadOnly = true;
-            this.txtFlightID.Size = new System.Drawing.Size(330, 20);
-            this.txtFlightID.TabIndex = 2;
-            // 
-            // button41
-            // 
-            this.button41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button41.Location = new System.Drawing.Point(6, 389);
-            this.button41.Name = "button41";
-            this.button41.Size = new System.Drawing.Size(80, 23);
-            this.button41.TabIndex = 1;
-            this.button41.Text = "Ekle";
-            this.button41.UseVisualStyleBackColor = true;
-            // 
-            // button42
-            // 
-            this.button42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button42.Location = new System.Drawing.Point(92, 389);
-            this.button42.Name = "button42";
-            this.button42.Size = new System.Drawing.Size(80, 23);
-            this.button42.TabIndex = 1;
-            this.button42.Text = "Sil";
-            this.button42.UseVisualStyleBackColor = true;
-            // 
-            // button43
-            // 
-            this.button43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button43.Location = new System.Drawing.Point(264, 389);
-            this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(72, 23);
-            this.button43.TabIndex = 1;
-            this.button43.Text = "Düzenle";
-            this.button43.UseVisualStyleBackColor = true;
-            // 
-            // button44
-            // 
-            this.button44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button44.Location = new System.Drawing.Point(178, 389);
-            this.button44.Name = "button44";
-            this.button44.Size = new System.Drawing.Size(80, 23);
-            this.button44.TabIndex = 1;
-            this.button44.Text = "Temizle";
-            this.button44.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.gridAirlines);
-            this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.txtAirlineName);
-            this.groupBox4.Controls.Add(this.txtAirlineID);
-            this.groupBox4.Controls.Add(this.button13);
-            this.groupBox4.Controls.Add(this.button14);
-            this.groupBox4.Controls.Add(this.button15);
-            this.groupBox4.Controls.Add(this.button16);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(3, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(786, 418);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Havayolu Yönetimi";
-            // 
-            // gridAirlines
-            // 
-            this.gridAirlines.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridAirlines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridAirlines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.columnAirlineName});
-            this.gridAirlines.Location = new System.Drawing.Point(342, 19);
-            this.gridAirlines.Name = "gridAirlines";
-            this.gridAirlines.ReadOnly = true;
-            this.gridAirlines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridAirlines.Size = new System.Drawing.Size(438, 393);
-            this.gridAirlines.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // columnAirlineName
-            // 
-            this.columnAirlineName.HeaderText = "Havayolu İsmi";
-            this.columnAirlineName.Name = "columnAirlineName";
-            this.columnAirlineName.ReadOnly = true;
-            this.columnAirlineName.Width = 200;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 61);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(73, 13);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Havayolu İsmi";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 22);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(18, 13);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "ID";
-            // 
-            // txtAirlineName
-            // 
-            this.txtAirlineName.Location = new System.Drawing.Point(6, 77);
-            this.txtAirlineName.Name = "txtAirlineName";
-            this.txtAirlineName.Size = new System.Drawing.Size(330, 20);
-            this.txtAirlineName.TabIndex = 3;
-            // 
-            // txtAirlineID
-            // 
-            this.txtAirlineID.Location = new System.Drawing.Point(6, 38);
-            this.txtAirlineID.Name = "txtAirlineID";
-            this.txtAirlineID.ReadOnly = true;
-            this.txtAirlineID.Size = new System.Drawing.Size(330, 20);
-            this.txtAirlineID.TabIndex = 2;
-            // 
-            // button13
-            // 
-            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button13.Location = new System.Drawing.Point(6, 389);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(80, 23);
-            this.button13.TabIndex = 1;
-            this.button13.Text = "Ekle";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.AddAirline);
-            // 
-            // button14
-            // 
-            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button14.Location = new System.Drawing.Point(92, 389);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(80, 23);
-            this.button14.TabIndex = 1;
-            this.button14.Text = "Sil";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.DeleteAirline);
-            // 
-            // button15
-            // 
-            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button15.Location = new System.Drawing.Point(264, 389);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(72, 23);
-            this.button15.TabIndex = 1;
-            this.button15.Text = "Düzenle";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.UpdateAirline);
-            // 
-            // button16
-            // 
-            this.button16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button16.Location = new System.Drawing.Point(178, 389);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(80, 23);
-            this.button16.TabIndex = 1;
-            this.button16.Text = "Temizle";
-            this.button16.UseVisualStyleBackColor = true;
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(792, 524);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Pilotlar";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -1410,7 +1251,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(786, 418);
+            this.groupBox5.Size = new System.Drawing.Size(786, 518);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Pilot Yönetimi";
@@ -1527,7 +1368,7 @@
             // button17
             // 
             this.button17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button17.Location = new System.Drawing.Point(6, 389);
+            this.button17.Location = new System.Drawing.Point(6, 489);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(80, 23);
             this.button17.TabIndex = 1;
@@ -1538,7 +1379,7 @@
             // button18
             // 
             this.button18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button18.Location = new System.Drawing.Point(92, 389);
+            this.button18.Location = new System.Drawing.Point(92, 489);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(80, 23);
             this.button18.TabIndex = 1;
@@ -1549,7 +1390,7 @@
             // button19
             // 
             this.button19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button19.Location = new System.Drawing.Point(264, 389);
+            this.button19.Location = new System.Drawing.Point(264, 489);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(72, 23);
             this.button19.TabIndex = 1;
@@ -1560,7 +1401,7 @@
             // button20
             // 
             this.button20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button20.Location = new System.Drawing.Point(178, 389);
+            this.button20.Location = new System.Drawing.Point(178, 489);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(80, 23);
             this.button20.TabIndex = 1;
@@ -1584,7 +1425,7 @@
             this.gridPilots.Name = "gridPilots";
             this.gridPilots.ReadOnly = true;
             this.gridPilots.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPilots.Size = new System.Drawing.Size(438, 393);
+            this.gridPilots.Size = new System.Drawing.Size(438, 493);
             this.gridPilots.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn4
@@ -1625,6 +1466,166 @@
             this.columnPilotAirlineID.ReadOnly = true;
             this.columnPilotAirlineID.Visible = false;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(792, 524);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Havayolları";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.gridAirlines);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.txtAirlineName);
+            this.groupBox4.Controls.Add(this.txtAirlineID);
+            this.groupBox4.Controls.Add(this.button13);
+            this.groupBox4.Controls.Add(this.button14);
+            this.groupBox4.Controls.Add(this.button15);
+            this.groupBox4.Controls.Add(this.button16);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(3, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(786, 518);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Havayolu Yönetimi";
+            // 
+            // gridAirlines
+            // 
+            this.gridAirlines.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridAirlines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridAirlines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.columnAirlineName});
+            this.gridAirlines.Location = new System.Drawing.Point(342, 19);
+            this.gridAirlines.Name = "gridAirlines";
+            this.gridAirlines.ReadOnly = true;
+            this.gridAirlines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridAirlines.Size = new System.Drawing.Size(438, 493);
+            this.gridAirlines.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // columnAirlineName
+            // 
+            this.columnAirlineName.HeaderText = "Havayolu İsmi";
+            this.columnAirlineName.Name = "columnAirlineName";
+            this.columnAirlineName.ReadOnly = true;
+            this.columnAirlineName.Width = 200;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 61);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(73, 13);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Havayolu İsmi";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 22);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(18, 13);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "ID";
+            // 
+            // txtAirlineName
+            // 
+            this.txtAirlineName.Location = new System.Drawing.Point(6, 77);
+            this.txtAirlineName.Name = "txtAirlineName";
+            this.txtAirlineName.Size = new System.Drawing.Size(330, 20);
+            this.txtAirlineName.TabIndex = 3;
+            // 
+            // txtAirlineID
+            // 
+            this.txtAirlineID.Location = new System.Drawing.Point(6, 38);
+            this.txtAirlineID.Name = "txtAirlineID";
+            this.txtAirlineID.ReadOnly = true;
+            this.txtAirlineID.Size = new System.Drawing.Size(330, 20);
+            this.txtAirlineID.TabIndex = 2;
+            // 
+            // button13
+            // 
+            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button13.Location = new System.Drawing.Point(6, 489);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(80, 23);
+            this.button13.TabIndex = 1;
+            this.button13.Text = "Ekle";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.AddAirline);
+            // 
+            // button14
+            // 
+            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button14.Location = new System.Drawing.Point(92, 489);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(80, 23);
+            this.button14.TabIndex = 1;
+            this.button14.Text = "Sil";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.DeleteAirline);
+            // 
+            // button15
+            // 
+            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button15.Location = new System.Drawing.Point(264, 489);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(72, 23);
+            this.button15.TabIndex = 1;
+            this.button15.Text = "Düzenle";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.UpdateAirline);
+            // 
+            // button16
+            // 
+            this.button16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button16.Location = new System.Drawing.Point(178, 489);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(80, 23);
+            this.button16.TabIndex = 1;
+            this.button16.Text = "Temizle";
+            this.button16.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(800, 550);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox10);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(792, 524);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Çalışanlar";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.label39);
@@ -1652,7 +1653,7 @@
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox10.Location = new System.Drawing.Point(3, 3);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(786, 418);
+            this.groupBox10.Size = new System.Drawing.Size(786, 518);
             this.groupBox10.TabIndex = 6;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Eleman Yönetimi";
@@ -1801,7 +1802,7 @@
             // button37
             // 
             this.button37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button37.Location = new System.Drawing.Point(6, 389);
+            this.button37.Location = new System.Drawing.Point(6, 489);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(80, 23);
             this.button37.TabIndex = 1;
@@ -1812,7 +1813,7 @@
             // button38
             // 
             this.button38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button38.Location = new System.Drawing.Point(92, 389);
+            this.button38.Location = new System.Drawing.Point(92, 489);
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(80, 23);
             this.button38.TabIndex = 1;
@@ -1823,7 +1824,7 @@
             // button39
             // 
             this.button39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button39.Location = new System.Drawing.Point(264, 389);
+            this.button39.Location = new System.Drawing.Point(264, 489);
             this.button39.Name = "button39";
             this.button39.Size = new System.Drawing.Size(72, 23);
             this.button39.TabIndex = 1;
@@ -1833,7 +1834,7 @@
             // button40
             // 
             this.button40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button40.Location = new System.Drawing.Point(178, 389);
+            this.button40.Location = new System.Drawing.Point(178, 489);
             this.button40.Name = "button40";
             this.button40.Size = new System.Drawing.Size(80, 23);
             this.button40.TabIndex = 1;
@@ -1859,7 +1860,7 @@
             this.gridStaff.Name = "gridStaff";
             this.gridStaff.ReadOnly = true;
             this.gridStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridStaff.Size = new System.Drawing.Size(438, 393);
+            this.gridStaff.Size = new System.Drawing.Size(438, 493);
             this.gridStaff.TabIndex = 0;
             this.gridStaff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectStaff);
             // 
@@ -1925,7 +1926,7 @@
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(172, 22);
             this.toolStripMenuItem6.Text = "Veriyi Getir / Yenile";
             // 
             // AAAirportAdminPanel
@@ -1938,11 +1939,10 @@
             this.Text = "AAAirportAdminPanel";
             this.Load += new System.EventHandler(this.AAAirportAdminPanel_Load);
             this.tabPage5.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridFlights)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -1961,15 +1961,16 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanes)).EndInit();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridFlights)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridAirlines)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPilots)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAirlines)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridStaff)).EndInit();

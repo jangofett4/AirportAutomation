@@ -735,5 +735,10 @@ namespace AirportAutomation
                 }
             }
         }
+
+        private void txtFlightID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
  }

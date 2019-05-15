@@ -60,5 +60,33 @@ namespace AirportAutomation
 
             Hide();
         }
+
+        private void btnEmployeeLogin_Click(object sender, EventArgs e)
+        {
+            string username = txtEmployeeUsername.Text;
+            string password = txtEmployeePassword.Text;
+
+            MySqlCommand cmd = new MySqlCommand($"select * from staff where username = '{username}' and password = '{password}';", Globals.Connection);
+            var result = cmd.ExecuteReader();
+            if (!result.HasRows)
+            {
+                MessageBox.Show("Kullanıcı adı veya şifre hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                result.Close();
+                return;
+            }
+            result.Close();
+
+            AAStaffPanel panel = new AAStaffPanel();
+            if (panel.IsDisposed)
+            {
+                MessageBox.Show("Application internal error, Form is disposed before it is initialized!");
+                Close();
+                return;
+            }
+
+            panel.Show();
+
+            Hide();
+        }
     }
 }

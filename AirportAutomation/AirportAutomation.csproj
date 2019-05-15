@@ -78,6 +78,12 @@
     <Compile Include="AAMasterAdminPanel.Designer.cs">
       <DependentUpon>AAMasterAdminPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="AAStaffPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AAStaffPanel.Designer.cs">
+      <DependentUpon>AAStaffPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="MySqlCredentials.cs" />
     <Compile Include="Program.cs" />
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AAMasterAdminPanel.resx">
       <DependentUpon>AAMasterAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AAStaffPanel.resx">
+      <DependentUpon>AAStaffPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
