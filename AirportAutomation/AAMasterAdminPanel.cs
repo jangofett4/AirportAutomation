@@ -1211,7 +1211,7 @@ namespace AirportAutomation
             }
         }
 
-        private void DeleteModel(object sender, EventArgs e)
+        private void DeletePlaneModel(object sender, EventArgs e)
         {
             var id = int.Parse(txtPlaneModelID.Text);
             if (MessageBox.Show($"Seçilen uçak modeli silinecek.\nUçak modeline bağlı bütün bilgiler (uçaklar, uçuşlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
@@ -1435,6 +1435,16 @@ namespace AirportAutomation
 
             txtFlightCopilotID.BackColor = Color.LightGreen;
             txtFlightCopilotName.BackColor = Color.LightGreen;
+        }
+
+        private void DeleteStaff(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateStaff(object sender, EventArgs e)
+        {
+
         }
     }
 }

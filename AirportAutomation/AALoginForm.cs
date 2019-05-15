@@ -19,7 +19,15 @@ namespace AirportAutomation
         {
             InitializeComponent();
 
-            Globals.Connection.Open();
+            try
+            {
+                Globals.Connection.Open();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Sunucu ile bağlantı kurulamadı! İnternet bağlantınızın olduğuna emin olun ya da başka bir bağlantı deneyin!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Environment.Exit(1);
+            }
         }
 
         private void btnAdminLogin_Click(object sender, EventArgs e)
