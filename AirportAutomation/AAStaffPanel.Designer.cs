@@ -283,6 +283,7 @@
             this.Column16,
             this.Column17,
             this.Column18});
+            this.gridFlights.ContextMenuStrip = this.contextRefresh;
             this.gridFlights.Location = new System.Drawing.Point(342, 19);
             this.gridFlights.Name = "gridFlights";
             this.gridFlights.ReadOnly = true;
@@ -694,6 +695,7 @@
             this.columnAiportAdmin,
             this.columnAirportAdminID,
             this.columnAirportCityID});
+            this.gridAirports.ContextMenuStrip = this.contextRefresh;
             this.gridAirports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridAirports.Location = new System.Drawing.Point(3, 16);
             this.gridAirports.Name = "gridAirports";
@@ -838,6 +840,7 @@
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn17});
+            this.dataGridView1.ContextMenuStrip = this.contextRefresh;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -951,6 +954,7 @@
             this.adi,
             this.soyadi,
             this.ucusID});
+            this.dataGridView2.ContextMenuStrip = this.contextRefresh;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";

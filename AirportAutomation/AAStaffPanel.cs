@@ -136,6 +136,38 @@ namespace AirportAutomation
         {
             RefreshPlanes();
             RefreshAirports();
+            RefreshFlights();
+        }
+        public void RefreshFlights()
+        {
+            gridFlights.Rows.Clear();
+
+            MySqlCommand cmd = new MySqlCommand("select * from flightGridView", Globals.Connection);
+            var result = cmd.ExecuteReader();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    object[] objs = {
+                        result.GetInt32(0),
+                        result.GetInt32(1),
+                        result.GetString(2),
+                        result.GetInt32(4),
+                        result.GetString(5),
+                        result.GetInt32(7),
+                        result.GetString(8),
+                        result.GetInt32(9),
+                        result.GetString(10),
+                        result.GetInt32(11),
+                        result.GetString(12),
+                        result.GetString(13),
+                        result.GetDateTime(14)
+                    };
+
+                    gridFlights.Rows.Add(objs);
+                }
+            }
+            result.Close();
         }
         private void RefreshData(object sender, EventArgs e)
         {
@@ -150,6 +182,7 @@ namespace AirportAutomation
             else if (src == gridPlanes) RefreshPlanes();
             // else if (src == gridPlaneModels) RefreshPlaneModels();
             // else if (src == gridStaff) RefreshStaff();
+            else if (src == gridFlights) RefreshFlights();
         }
 
         private void AddPlane(object sender, EventArgs e)
