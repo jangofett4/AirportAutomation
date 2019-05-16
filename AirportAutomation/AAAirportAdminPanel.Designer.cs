@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.dateFlightLanding = new System.Windows.Forms.DateTimePicker();
+            this.label55 = new System.Windows.Forms.Label();
             this.dateFlightTakeoff = new System.Windows.Forms.DateTimePicker();
             this.gridFlights = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +50,8 @@
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.label60 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
@@ -200,10 +204,6 @@
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateFlightLanding = new System.Windows.Forms.DateTimePicker();
-            this.label55 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -229,6 +229,7 @@
             this.tabPage5.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFlights)).BeginInit();
+            this.contextRefresh.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -255,7 +256,6 @@
             this.tabPage3.SuspendLayout();
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridStaff)).BeginInit();
-            this.contextRefresh.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAirports)).BeginInit();
@@ -314,6 +314,24 @@
             this.groupBox11.TabIndex = 5;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Havayolu Yönetimi";
+            // 
+            // dateFlightLanding
+            // 
+            this.dateFlightLanding.CustomFormat = "MM/dd/yyyy HH:mm:ss";
+            this.dateFlightLanding.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateFlightLanding.Location = new System.Drawing.Point(6, 350);
+            this.dateFlightLanding.Name = "dateFlightLanding";
+            this.dateFlightLanding.Size = new System.Drawing.Size(330, 20);
+            this.dateFlightLanding.TabIndex = 2;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(6, 334);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(52, 13);
+            this.label55.TabIndex = 7;
+            this.label55.Text = "İniş Tarihi";
             // 
             // dateFlightTakeoff
             // 
@@ -451,6 +469,19 @@
             this.Column18.HeaderText = "Kalkış Tarihi";
             this.Column18.Name = "Column18";
             this.Column18.ReadOnly = true;
+            // 
+            // contextRefresh
+            // 
+            this.contextRefresh.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem6});
+            this.contextRefresh.Name = "contextCountryCity";
+            this.contextRefresh.Size = new System.Drawing.Size(173, 26);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(172, 22);
+            this.toolStripMenuItem6.Text = "Veriyi Getir / Yenile";
             // 
             // label60
             // 
@@ -691,6 +722,7 @@
             this.button41.TabIndex = 3;
             this.button41.Text = "Ekle";
             this.button41.UseVisualStyleBackColor = true;
+            this.button41.Click += new System.EventHandler(this.AddFlight);
             // 
             // button42
             // 
@@ -701,6 +733,7 @@
             this.button42.TabIndex = 4;
             this.button42.Text = "Sil";
             this.button42.UseVisualStyleBackColor = true;
+            this.button42.Click += new System.EventHandler(this.DeleteFlight);
             // 
             // button43
             // 
@@ -711,6 +744,7 @@
             this.button43.TabIndex = 5;
             this.button43.Text = "Düzenle";
             this.button43.UseVisualStyleBackColor = true;
+            this.button43.Click += new System.EventHandler(this.UpdateFlight);
             // 
             // button44
             // 
@@ -1987,37 +2021,6 @@
             this.Column4.ReadOnly = true;
             this.Column4.Visible = false;
             // 
-            // contextRefresh
-            // 
-            this.contextRefresh.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem6});
-            this.contextRefresh.Name = "contextCountryCity";
-            this.contextRefresh.Size = new System.Drawing.Size(173, 26);
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(172, 22);
-            this.toolStripMenuItem6.Text = "Veriyi Getir / Yenile";
-            // 
-            // dateFlightLanding
-            // 
-            this.dateFlightLanding.CustomFormat = "MM/dd/yyyy HH:mm:ss";
-            this.dateFlightLanding.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateFlightLanding.Location = new System.Drawing.Point(6, 350);
-            this.dateFlightLanding.Name = "dateFlightLanding";
-            this.dateFlightLanding.Size = new System.Drawing.Size(330, 20);
-            this.dateFlightLanding.TabIndex = 2;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(6, 334);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(52, 13);
-            this.label55.TabIndex = 7;
-            this.label55.Text = "İniş Tarihi";
-            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.groupBox6);
@@ -2244,6 +2247,7 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFlights)).EndInit();
+            this.contextRefresh.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -2276,7 +2280,6 @@
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridStaff)).EndInit();
-            this.contextRefresh.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
