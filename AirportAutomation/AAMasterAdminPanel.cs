@@ -777,6 +777,41 @@ namespace AirportAutomation
             }
         }
 
+        private void UpdatePilot(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPilotID.Text))
+            {
+                MessageBox.Show("Düzenlenecek pilotu seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var id = int.Parse(txtPilotID.Text);
+
+            MySqlCommand cmd = new MySqlCommand($"update pilots set name = '{ txtPilotName.Text }',surname ='{ txtPilotSurname.Text}',tc='{txtPilotTC.Text}',airlineID=={txtPilotAirlineID.Text} where pilotID = { id }", Globals.Connection);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Aynı tc sahip başka bir pilot daha mevcut. { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (DataGridViewRow r in gridPilots.Rows)
+            {
+                if ((int)r.Cells[0].Value == id)
+                {
+                    r.Cells[1].Value = txtPilotName.Text;
+                    r.Cells[2].Value = txtPilotSurname.Text;
+                    r.Cells[3].Value = txtPilotTC.Text;
+                    r.Cells[4].Value = txtPilotAirlineID.Text;
+                    RefreshPilots();
+                    return;
+                }
+            }
+        }
+
         #endregion
         #region "Adminler"
 
@@ -871,6 +906,57 @@ namespace AirportAutomation
                         gridAirportAdmins.Rows.Remove(r);
                         return;
                     }
+                }
+            }
+        }
+
+        private void UpdateAdmin(object sender, EventArgs e)
+        {
+            string name = txtAAdminName.Text.Trim();
+            string surname = txtAAdminSurname.Text.Trim();
+            string username = txtAAdminUsername.Text;
+            string password = txtAAdminPassword.Text;
+            string tc = txtAAdminTC.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(txtAAdminID.Text))
+            {
+                MessageBox.Show("Düzenlenecek yöneticiyi seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname) || string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("İsim / Soy isim / Kullanıcı Adı / Şifre alanları boş bırakılamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (!tc.IsTCValid())
+            {
+                MessageBox.Show("TC Kimlik numarası alanı 11 karakter ve sadece sayılardan oluşmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            MySqlCommand cmd = new MySqlCommand($"update airport_admins set name = '{ name }', surname = '{ surname }', username = '{ username }', password = '{ password }', tc = '{ tc }' where adminID = { txtAAdminID.Text }", Globals.Connection);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Aynı kullanıcı adı ya da TC Kimlik Numarasına sahip başka bir yönetici daha mevcut. { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (DataGridViewRow r in gridAirportAdmins.Rows)
+            {
+                if (r.Cells[0].Value.ToString() == txtAAdminID.Text)
+                {
+                    r.Cells[1].Value = tc;
+                    r.Cells[2].Value = name;
+                    r.Cells[3].Value = surname;
+                    r.Cells[4].Value = username;
+                    r.Cells[5].Value = password;
+                    return;
                 }
             }
         }
@@ -1409,41 +1495,6 @@ namespace AirportAutomation
             txtStaffAirportName.Text = airport;
             txtStaffUsername.Text = username;
             txtStaffPassword.Text = password;
-        }
-
-        private void UpdatePilot(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtPilotID.Text))
-            {
-                MessageBox.Show("Düzenlenecek pilotu seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            var id = int.Parse(txtPilotID.Text);
-
-            MySqlCommand cmd = new MySqlCommand($"update pilots set name = '{ txtPilotName.Text }',surname ='{ txtPilotSurname.Text}',tc='{txtPilotTC.Text}',airlineID=={txtPilotAirlineID.Text} where pilotID = { id }", Globals.Connection);
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show($"Düzenleme başarısız! Aynı tc sahip başka bir pilot daha mevcut. { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            foreach (DataGridViewRow r in gridPilots.Rows)
-            {
-                if ((int)r.Cells[0].Value == id)
-                {
-                    r.Cells[1].Value = txtPilotName.Text;
-                    r.Cells[2].Value = txtPilotSurname.Text;
-                    r.Cells[3].Value = txtPilotTC.Text;
-                    r.Cells[4].Value = txtPilotAirlineID.Text;
-                    RefreshPilots();
-                    return;
-                }
-            }
         }
 
         private void AddFlight(object sender, EventArgs e)

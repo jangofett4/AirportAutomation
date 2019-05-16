@@ -511,6 +511,7 @@
             this.gridCountries.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCountries.Size = new System.Drawing.Size(444, 185);
             this.gridCountries.TabIndex = 0;
+            this.gridCountries.TabStop = false;
             this.gridCountries.SelectionChanged += new System.EventHandler(this.SelectCountry);
             // 
             // colID
@@ -682,6 +683,7 @@
             this.gridCities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCities.Size = new System.Drawing.Size(444, 252);
             this.gridCities.TabIndex = 5;
+            this.gridCities.TabStop = false;
             this.gridCities.SelectionChanged += new System.EventHandler(this.SelectCity);
             // 
             // dataGridViewTextBoxColumn1
@@ -877,6 +879,7 @@
             this.button11.TabIndex = 8;
             this.button11.Text = "Düzenle";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.UpdateAdmin);
             // 
             // button12
             // 
@@ -909,6 +912,7 @@
             this.gridAirportAdmins.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAirportAdmins.Size = new System.Drawing.Size(444, 466);
             this.gridAirportAdmins.TabIndex = 0;
+            this.gridAirportAdmins.TabStop = false;
             this.gridAirportAdmins.SelectionChanged += new System.EventHandler(this.SelectAirportAdmin);
             // 
             // columnID
@@ -995,6 +999,7 @@
             this.gridAirlines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAirlines.Size = new System.Drawing.Size(444, 466);
             this.gridAirlines.TabIndex = 5;
+            this.gridAirlines.TabStop = false;
             this.gridAirlines.SelectionChanged += new System.EventHandler(this.SelectAirline);
             // 
             // dataGridViewTextBoxColumn3
@@ -1303,6 +1308,7 @@
             this.gridPilots.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPilots.Size = new System.Drawing.Size(444, 466);
             this.gridPilots.TabIndex = 0;
+            this.gridPilots.TabStop = false;
             this.gridPilots.SelectionChanged += new System.EventHandler(this.SelectPilot);
             // 
             // dataGridViewTextBoxColumn4
@@ -1562,6 +1568,7 @@
             this.gridAirports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAirports.Size = new System.Drawing.Size(444, 466);
             this.gridAirports.TabIndex = 0;
+            this.gridAirports.TabStop = false;
             this.gridAirports.SelectionChanged += new System.EventHandler(this.SelectAirport);
             // 
             // dataGridViewTextBoxColumn8
@@ -1822,6 +1829,7 @@
             this.gridPlaneModels.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPlaneModels.Size = new System.Drawing.Size(444, 185);
             this.gridPlaneModels.TabIndex = 0;
+            this.gridPlaneModels.TabStop = false;
             this.gridPlaneModels.SelectionChanged += new System.EventHandler(this.SelectPlaneModel);
             // 
             // dataGridViewTextBoxColumn9
@@ -1987,6 +1995,7 @@
             this.gridPlaneTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPlaneTypes.Size = new System.Drawing.Size(206, 252);
             this.gridPlaneTypes.TabIndex = 5;
+            this.gridPlaneTypes.TabStop = false;
             this.gridPlaneTypes.SelectionChanged += new System.EventHandler(this.SelectPlaneType);
             // 
             // dataGridViewTextBoxColumn11
@@ -2136,6 +2145,7 @@
             this.gridPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPlanes.Size = new System.Drawing.Size(214, 252);
             this.gridPlanes.TabIndex = 5;
+            this.gridPlanes.TabStop = false;
             this.gridPlanes.SelectionChanged += new System.EventHandler(this.SelectPlane);
             // 
             // dataGridViewTextBoxColumn16
@@ -2410,6 +2420,7 @@
             this.gridStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridStaff.Size = new System.Drawing.Size(444, 466);
             this.gridStaff.TabIndex = 0;
+            this.gridStaff.TabStop = false;
             this.gridStaff.SelectionChanged += new System.EventHandler(this.SelectStaff);
             // 
             // dataGridViewTextBoxColumn13
