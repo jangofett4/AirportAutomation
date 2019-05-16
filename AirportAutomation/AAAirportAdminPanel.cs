@@ -38,6 +38,7 @@ namespace AirportAutomation
             else if (src == gridPlaneModels) RefreshPlaneModels();
             else if (src == gridStaff) RefreshStaff();
             else if (src == gridAirports) RefreshAirports();
+            else if (src == gridFlights) RefreshFlights();
         }
         #region "Refresh"
         public void RefreshAirlines()
