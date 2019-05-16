@@ -12,5 +12,7 @@ namespace AirportAutomation
 
         public static string ConnectedAdminUsername = "";
         public static string ConnectedAdminPassword = "";
+        public static int ConnectedAdminID = 0;
+        public static int ConnectedAdminAirportID = 0;
     }
 }

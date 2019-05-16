@@ -39,26 +39,66 @@ namespace AirportAutomation
             var result = cmd.ExecuteReader();
             if (!result.HasRows)
             {
-                MessageBox.Show("Kullanıcı adı veya şifre hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                result.Close();
+                cmd = new MySqlCommand($"Select * from airport_admins where username = '{username}' and password = '{password}';", Globals.Connection);
+                var rd = cmd.ExecuteReader();
+                if (!rd.HasRows)
+                {
+                    MessageBox.Show("Kullanıcı adı veya şifre hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    rd.Close();
+                    return;
+                }
+                else
+                {
+                    rd.Close();
+                    cmd = new MySqlCommand($"Select adminID from airport_admins where username = '{username}' and password = '{password}';", Globals.Connection);
+                    rd = cmd.ExecuteReader();
+                    rd.Read();
+                    Globals.ConnectedAdminID = rd.GetInt32(0);
+                    Globals.ConnectedAdminUsername = username;
+                    Globals.ConnectedAdminPassword = password;
+                    rd.Close();
+                    cmd = new MySqlCommand($"Select airportID from airports where adminID = {Globals.ConnectedAdminID};", Globals.Connection);
+                    var rd2 = cmd.ExecuteReader();
+                    rd2.Read();
+                    Globals.ConnectedAdminAirportID = rd2.GetInt32(0);
+                    rd2.Close();
+                    AAAirportAdminPanel panel = new AAAirportAdminPanel();
+                    if (panel.IsDisposed)
+                    {
+                        MessageBox.Show("Application internal error, Form is disposed before it is initialized!");
+                        Close();
+                        return;
+                    }
+
+                    panel.Show();
+
+                    Hide();
+                }
                 result.Close();
                 return;
             }
-            result.Close();
-
-            Globals.ConnectedAdminUsername = username;
-            Globals.ConnectedAdminPassword = password;
-
-            AAMasterAdminPanel panel = new AAMasterAdminPanel();
-            if (panel.IsDisposed)
+            else
             {
-                MessageBox.Show("Application internal error, Form is disposed before it is initialized!");
-                Close();
-                return;
+                result.Close();
+                Globals.ConnectedAdminUsername = username;
+                Globals.ConnectedAdminPassword = password;
+                AAMasterAdminPanel panel = new AAMasterAdminPanel();
+                if (panel.IsDisposed)
+                {
+                    MessageBox.Show("Application internal error, Form is disposed before it is initialized!");
+                    Close();
+                    return;
+                }
+                
+                panel.Show();
+
+                Hide();
             }
-
-            panel.Show();
-
-            Hide();
+            
+            
+           
+            
         }
 
         private void btnEmployeeLogin_Click(object sender, EventArgs e)

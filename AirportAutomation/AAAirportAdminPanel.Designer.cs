@@ -78,8 +78,8 @@
             this.txtFlightTakeoffAirportID = new System.Windows.Forms.TextBox();
             this.txtFlightID = new System.Windows.Forms.TextBox();
             this.button41 = new System.Windows.Forms.Button();
-            this.button42 = new System.Windows.Forms.Button();
-            this.button43 = new System.Windows.Forms.Button();
+            this.btnDeleteFlight = new System.Windows.Forms.Button();
+            this.btnUpdateFlight = new System.Windows.Forms.Button();
             this.button44 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -304,8 +304,8 @@
             this.groupBox11.Controls.Add(this.txtFlightTakeoffAirportID);
             this.groupBox11.Controls.Add(this.txtFlightID);
             this.groupBox11.Controls.Add(this.button41);
-            this.groupBox11.Controls.Add(this.button42);
-            this.groupBox11.Controls.Add(this.button43);
+            this.groupBox11.Controls.Add(this.btnDeleteFlight);
+            this.groupBox11.Controls.Add(this.btnUpdateFlight);
             this.groupBox11.Controls.Add(this.button44);
             this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox11.Location = new System.Drawing.Point(3, 3);
@@ -372,6 +372,7 @@
             this.gridFlights.Size = new System.Drawing.Size(438, 493);
             this.gridFlights.TabIndex = 5;
             this.gridFlights.TabStop = false;
+            this.gridFlights.SelectionChanged += new System.EventHandler(this.SelectFlight);
             // 
             // dataGridViewTextBoxColumn20
             // 
@@ -482,6 +483,7 @@
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(172, 22);
             this.toolStripMenuItem6.Text = "Veriyi Getir / Yenile";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.RefreshData);
             // 
             // label60
             // 
@@ -590,6 +592,7 @@
             this.txtFlightCopilotName.Size = new System.Drawing.Size(158, 20);
             this.txtFlightCopilotName.TabIndex = 3;
             this.txtFlightCopilotName.TabStop = false;
+            this.txtFlightCopilotName.Click += new System.EventHandler(this.SwitchSelectCopilot);
             // 
             // label48
             // 
@@ -609,6 +612,7 @@
             this.txtFlightPilotName.Size = new System.Drawing.Size(158, 20);
             this.txtFlightPilotName.TabIndex = 3;
             this.txtFlightPilotName.TabStop = false;
+            this.txtFlightPilotName.Click += new System.EventHandler(this.SwitchSelectPilot);
             // 
             // label49
             // 
@@ -645,6 +649,7 @@
             this.txtFlightCopilotID.Size = new System.Drawing.Size(166, 20);
             this.txtFlightCopilotID.TabIndex = 3;
             this.txtFlightCopilotID.TabStop = false;
+            this.txtFlightCopilotID.Click += new System.EventHandler(this.SwitchSelectCopilot);
             // 
             // txtFlightLandingAirportName
             // 
@@ -654,6 +659,7 @@
             this.txtFlightLandingAirportName.Size = new System.Drawing.Size(158, 20);
             this.txtFlightLandingAirportName.TabIndex = 3;
             this.txtFlightLandingAirportName.TabStop = false;
+            this.txtFlightLandingAirportName.Click += new System.EventHandler(this.SwitchSelectLanding);
             // 
             // txtFlightPilotID
             // 
@@ -664,6 +670,7 @@
             this.txtFlightPilotID.Size = new System.Drawing.Size(166, 20);
             this.txtFlightPilotID.TabIndex = 3;
             this.txtFlightPilotID.TabStop = false;
+            this.txtFlightPilotID.Click += new System.EventHandler(this.SwitchSelectPilot);
             // 
             // txtFlightTakeoffAirportName
             // 
@@ -674,6 +681,7 @@
             this.txtFlightTakeoffAirportName.Size = new System.Drawing.Size(158, 20);
             this.txtFlightTakeoffAirportName.TabIndex = 3;
             this.txtFlightTakeoffAirportName.TabStop = false;
+            this.txtFlightTakeoffAirportName.Click += new System.EventHandler(this.SwitchSelectTakeoff);
             // 
             // txtFlightAirlineID
             // 
@@ -692,6 +700,7 @@
             this.txtFlightLandingAirportID.Size = new System.Drawing.Size(166, 20);
             this.txtFlightLandingAirportID.TabIndex = 3;
             this.txtFlightLandingAirportID.TabStop = false;
+            this.txtFlightLandingAirportID.Click += new System.EventHandler(this.SwitchSelectLanding);
             // 
             // txtFlightTakeoffAirportID
             // 
@@ -702,6 +711,7 @@
             this.txtFlightTakeoffAirportID.Size = new System.Drawing.Size(166, 20);
             this.txtFlightTakeoffAirportID.TabIndex = 3;
             this.txtFlightTakeoffAirportID.TabStop = false;
+            this.txtFlightTakeoffAirportID.Click += new System.EventHandler(this.SwitchSelectTakeoff);
             // 
             // txtFlightID
             // 
@@ -711,7 +721,6 @@
             this.txtFlightID.Size = new System.Drawing.Size(330, 20);
             this.txtFlightID.TabIndex = 2;
             this.txtFlightID.TabStop = false;
-            this.txtFlightID.TextChanged += new System.EventHandler(this.txtFlightID_TextChanged);
             // 
             // button41
             // 
@@ -724,27 +733,27 @@
             this.button41.UseVisualStyleBackColor = true;
             this.button41.Click += new System.EventHandler(this.AddFlight);
             // 
-            // button42
+            // btnDeleteFlight
             // 
-            this.button42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button42.Location = new System.Drawing.Point(92, 489);
-            this.button42.Name = "button42";
-            this.button42.Size = new System.Drawing.Size(80, 23);
-            this.button42.TabIndex = 4;
-            this.button42.Text = "Sil";
-            this.button42.UseVisualStyleBackColor = true;
-            this.button42.Click += new System.EventHandler(this.DeleteFlight);
+            this.btnDeleteFlight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDeleteFlight.Location = new System.Drawing.Point(92, 489);
+            this.btnDeleteFlight.Name = "btnDeleteFlight";
+            this.btnDeleteFlight.Size = new System.Drawing.Size(80, 23);
+            this.btnDeleteFlight.TabIndex = 4;
+            this.btnDeleteFlight.Text = "Sil";
+            this.btnDeleteFlight.UseVisualStyleBackColor = true;
+            this.btnDeleteFlight.Click += new System.EventHandler(this.DeleteFlight);
             // 
-            // button43
+            // btnUpdateFlight
             // 
-            this.button43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button43.Location = new System.Drawing.Point(264, 489);
-            this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(72, 23);
-            this.button43.TabIndex = 5;
-            this.button43.Text = "Düzenle";
-            this.button43.UseVisualStyleBackColor = true;
-            this.button43.Click += new System.EventHandler(this.UpdateFlight);
+            this.btnUpdateFlight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUpdateFlight.Location = new System.Drawing.Point(264, 489);
+            this.btnUpdateFlight.Name = "btnUpdateFlight";
+            this.btnUpdateFlight.Size = new System.Drawing.Size(72, 23);
+            this.btnUpdateFlight.TabIndex = 5;
+            this.btnUpdateFlight.Text = "Düzenle";
+            this.btnUpdateFlight.UseVisualStyleBackColor = true;
+            this.btnUpdateFlight.Click += new System.EventHandler(this.UpdateFlight);
             // 
             // button44
             // 
@@ -976,7 +985,7 @@
             this.gridPlaneModels.Size = new System.Drawing.Size(438, 196);
             this.gridPlaneModels.TabIndex = 0;
             this.gridPlaneModels.TabStop = false;
-            this.gridPlaneModels.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPlaneModel);
+            this.gridPlaneModels.SelectionChanged += new System.EventHandler(this.SelectPlaneModel);
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -1110,6 +1119,7 @@
             this.button31.TabIndex = 8;
             this.button31.Text = "Düzenle";
             this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.UpdatePlaneType);
             // 
             // button32
             // 
@@ -1139,7 +1149,7 @@
             this.gridPlaneTypes.Size = new System.Drawing.Size(203, 268);
             this.gridPlaneTypes.TabIndex = 5;
             this.gridPlaneTypes.TabStop = false;
-            this.gridPlaneTypes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPlaneType);
+            this.gridPlaneTypes.SelectionChanged += new System.EventHandler(this.SelectPlaneType);
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -1286,6 +1296,7 @@
             this.gridPlanes.Size = new System.Drawing.Size(211, 268);
             this.gridPlanes.TabIndex = 5;
             this.gridPlanes.TabStop = false;
+            this.gridPlanes.SelectionChanged += new System.EventHandler(this.SelectPlane);
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -1522,6 +1533,7 @@
             this.gridPilots.Size = new System.Drawing.Size(438, 493);
             this.gridPilots.TabIndex = 0;
             this.gridPilots.TabStop = false;
+            this.gridPilots.SelectionChanged += new System.EventHandler(this.SelectPilot);
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -1608,6 +1620,7 @@
             this.gridAirlines.Size = new System.Drawing.Size(438, 493);
             this.gridAirlines.TabIndex = 5;
             this.gridAirlines.TabStop = false;
+            this.gridAirlines.SelectionChanged += new System.EventHandler(this.SelectAirlines);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1932,6 +1945,7 @@
             this.button39.TabIndex = 8;
             this.button39.Text = "Düzenle";
             this.button39.UseVisualStyleBackColor = true;
+            this.button39.Click += new System.EventHandler(this.UpdateStaff);
             // 
             // button40
             // 
@@ -1967,7 +1981,7 @@
             this.gridStaff.Size = new System.Drawing.Size(438, 493);
             this.gridStaff.TabIndex = 0;
             this.gridStaff.TabStop = false;
-            this.gridStaff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectStaff);
+            this.gridStaff.SelectionChanged += new System.EventHandler(this.SelectStaff);
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -2193,6 +2207,7 @@
             this.gridAirports.Size = new System.Drawing.Size(438, 493);
             this.gridAirports.TabIndex = 0;
             this.gridAirports.TabStop = false;
+            this.gridAirports.SelectionChanged += new System.EventHandler(this.SelectAirport);
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -2242,7 +2257,6 @@
             this.Name = "AAAirportAdminPanel";
             this.Text = "AAAirportAdminPanel";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ApplicationExit);
-            this.Load += new System.EventHandler(this.AAAirportAdminPanel_Load);
             this.tabPage5.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
@@ -2390,8 +2404,8 @@
         private System.Windows.Forms.TextBox txtFlightTakeoffAirportID;
         private System.Windows.Forms.TextBox txtFlightID;
         private System.Windows.Forms.Button button41;
-        private System.Windows.Forms.Button button42;
-        private System.Windows.Forms.Button button43;
+        private System.Windows.Forms.Button btnDeleteFlight;
+        private System.Windows.Forms.Button btnUpdateFlight;
         private System.Windows.Forms.Button button44;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView gridAirlines;
