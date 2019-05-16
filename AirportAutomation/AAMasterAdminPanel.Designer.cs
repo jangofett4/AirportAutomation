@@ -2536,7 +2536,7 @@
             this.dateFlightLanding.Location = new System.Drawing.Point(5, 350);
             this.dateFlightLanding.Name = "dateFlightLanding";
             this.dateFlightLanding.Size = new System.Drawing.Size(330, 20);
-            this.dateFlightLanding.TabIndex = 6;
+            this.dateFlightLanding.TabIndex = 2;
             // 
             // dateFlightTakeoff
             // 
@@ -2575,6 +2575,7 @@
             this.gridFlights.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridFlights.Size = new System.Drawing.Size(444, 466);
             this.gridFlights.TabIndex = 5;
+            this.gridFlights.TabStop = false;
             this.gridFlights.SelectionChanged += new System.EventHandler(this.SelectFlight);
             // 
             // dataGridViewTextBoxColumn20
