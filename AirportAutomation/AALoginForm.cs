@@ -21,7 +21,10 @@ namespace AirportAutomation
 
             try
             {
+                var conForm = new AAConnectPanel();
+                conForm.Show();
                 Globals.Connection.Open();
+                conForm.Close();
             }
             catch (Exception)
             {

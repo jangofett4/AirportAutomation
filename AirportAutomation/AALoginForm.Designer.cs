@@ -70,7 +70,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(265, 111);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "loginEmployee";
+            this.tabPage1.Text = "Çalışan Girişi";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnEmployeeLogin
@@ -133,7 +133,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(265, 111);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "loginAdmin";
+            this.tabPage2.Text = "Yönetici Girişi";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnAdminLogin

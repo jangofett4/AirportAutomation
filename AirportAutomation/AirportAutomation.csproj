@@ -65,6 +65,12 @@
     <Compile Include="AAAirportAdminPanel.Designer.cs">
       <DependentUpon>AAAirportAdminPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="AAConnectPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AAConnectPanel.Designer.cs">
+      <DependentUpon>AAConnectPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="AADefs.cs" />
     <Compile Include="AALoginForm.cs">
       <SubType>Form</SubType>
@@ -91,6 +97,9 @@
     <Compile Include="StringExtensions.cs" />
     <EmbeddedResource Include="AAAirportAdminPanel.resx">
       <DependentUpon>AAAirportAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AAConnectPanel.resx">
+      <DependentUpon>AAConnectPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AALoginForm.resx">
       <DependentUpon>AALoginForm.cs</DependentUpon>
