@@ -286,7 +286,46 @@
             this.btnDeleteFlight = new System.Windows.Forms.Button();
             this.btnUpdateFlight = new System.Windows.Forms.Button();
             this.button44 = new System.Windows.Forms.Button();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.gridFlights2 = new System.Windows.Forms.DataGridView();
+            this.gridPassengers = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtPassengerFlightID = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.button42 = new System.Windows.Forms.Button();
+            this.button43 = new System.Windows.Forms.Button();
+            this.button45 = new System.Windows.Forms.Button();
+            this.txtPassengerSurname = new System.Windows.Forms.TextBox();
+            this.txtPassengerName = new System.Windows.Forms.TextBox();
+            this.txtPassengerTc = new System.Windows.Forms.TextBox();
+            this.txtPassengerID = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
             this.tooltipGeneral = new System.Windows.Forms.ToolTip(this.components);
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.contextRefresh.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -332,6 +371,17 @@
             this.tabPage8.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFlights)).BeginInit();
+            this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridFlights2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPassengers)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -345,6 +395,7 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -2959,9 +3010,371 @@
             this.button44.Text = "Temizle";
             this.button44.UseVisualStyleBackColor = true;
             // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.splitContainer4);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(798, 497);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "Yolcular";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.splitContainer5);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.txtPassengerFlightID);
+            this.splitContainer4.Panel2.Controls.Add(this.label62);
+            this.splitContainer4.Panel2.Controls.Add(this.button42);
+            this.splitContainer4.Panel2.Controls.Add(this.button43);
+            this.splitContainer4.Panel2.Controls.Add(this.button45);
+            this.splitContainer4.Panel2.Controls.Add(this.txtPassengerSurname);
+            this.splitContainer4.Panel2.Controls.Add(this.txtPassengerName);
+            this.splitContainer4.Panel2.Controls.Add(this.txtPassengerTc);
+            this.splitContainer4.Panel2.Controls.Add(this.txtPassengerID);
+            this.splitContainer4.Panel2.Controls.Add(this.label63);
+            this.splitContainer4.Panel2.Controls.Add(this.label64);
+            this.splitContainer4.Panel2.Controls.Add(this.label65);
+            this.splitContainer4.Panel2.Controls.Add(this.label66);
+            this.splitContainer4.Panel2.Tag = "";
+            this.splitContainer4.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer4.Size = new System.Drawing.Size(792, 491);
+            this.splitContainer4.SplitterDistance = 480;
+            this.splitContainer4.TabIndex = 1;
+            // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.gridFlights2);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.gridPassengers);
+            this.splitContainer5.Size = new System.Drawing.Size(480, 491);
+            this.splitContainer5.SplitterDistance = 236;
+            this.splitContainer5.TabIndex = 0;
+            // 
+            // gridFlights2
+            // 
+            this.gridFlights2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridFlights2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn31,
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34,
+            this.dataGridViewTextBoxColumn35,
+            this.Column10});
+            this.gridFlights2.ContextMenuStrip = this.contextRefresh;
+            this.gridFlights2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridFlights2.Location = new System.Drawing.Point(0, 0);
+            this.gridFlights2.Name = "gridFlights2";
+            this.gridFlights2.ReadOnly = true;
+            this.gridFlights2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridFlights2.Size = new System.Drawing.Size(480, 236);
+            this.gridFlights2.TabIndex = 6;
+            this.gridFlights2.SelectionChanged += new System.EventHandler(this.SelectFlight2);
+            // 
+            // gridPassengers
+            // 
+            this.gridPassengers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPassengers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.tc,
+            this.adi,
+            this.soyadi,
+            this.ucusID});
+            this.gridPassengers.ContextMenuStrip = this.contextRefresh;
+            this.gridPassengers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridPassengers.Location = new System.Drawing.Point(0, 0);
+            this.gridPassengers.Name = "gridPassengers";
+            this.gridPassengers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridPassengers.Size = new System.Drawing.Size(480, 251);
+            this.gridPassengers.TabIndex = 0;
+            this.gridPassengers.SelectionChanged += new System.EventHandler(this.SelectPassenger);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            // 
+            // tc
+            // 
+            this.tc.HeaderText = "T.C.";
+            this.tc.Name = "tc";
+            // 
+            // adi
+            // 
+            this.adi.HeaderText = "İsim";
+            this.adi.Name = "adi";
+            // 
+            // soyadi
+            // 
+            this.soyadi.HeaderText = "Soyisim";
+            this.soyadi.Name = "soyadi";
+            // 
+            // ucusID
+            // 
+            this.ucusID.HeaderText = "Uçuş ID";
+            this.ucusID.Name = "ucusID";
+            // 
+            // txtPassengerFlightID
+            // 
+            this.txtPassengerFlightID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassengerFlightID.Location = new System.Drawing.Point(9, 29);
+            this.txtPassengerFlightID.Name = "txtPassengerFlightID";
+            this.txtPassengerFlightID.ReadOnly = true;
+            this.txtPassengerFlightID.Size = new System.Drawing.Size(294, 20);
+            this.txtPassengerFlightID.TabIndex = 13;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(6, 13);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(46, 13);
+            this.label62.TabIndex = 12;
+            this.label62.Text = "Ucus ID";
+            // 
+            // button42
+            // 
+            this.button42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button42.Location = new System.Drawing.Point(9, 463);
+            this.button42.Name = "button42";
+            this.button42.Size = new System.Drawing.Size(80, 23);
+            this.button42.TabIndex = 8;
+            this.button42.Text = "Ekle";
+            this.button42.UseVisualStyleBackColor = true;
+            this.button42.Click += new System.EventHandler(this.AddPassenger);
+            // 
+            // button43
+            // 
+            this.button43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button43.Location = new System.Drawing.Point(95, 463);
+            this.button43.Name = "button43";
+            this.button43.Size = new System.Drawing.Size(80, 23);
+            this.button43.TabIndex = 9;
+            this.button43.Text = "Sil";
+            this.button43.UseVisualStyleBackColor = true;
+            this.button43.Click += new System.EventHandler(this.DeletePassenger);
+            // 
+            // button45
+            // 
+            this.button45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button45.Location = new System.Drawing.Point(231, 463);
+            this.button45.Name = "button45";
+            this.button45.Size = new System.Drawing.Size(72, 23);
+            this.button45.TabIndex = 10;
+            this.button45.Text = "Düzenle";
+            this.button45.UseVisualStyleBackColor = true;
+            this.button45.Click += new System.EventHandler(this.EditPassenger);
+            // 
+            // txtPassengerSurname
+            // 
+            this.txtPassengerSurname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassengerSurname.Location = new System.Drawing.Point(9, 185);
+            this.txtPassengerSurname.Name = "txtPassengerSurname";
+            this.txtPassengerSurname.Size = new System.Drawing.Size(294, 20);
+            this.txtPassengerSurname.TabIndex = 7;
+            // 
+            // txtPassengerName
+            // 
+            this.txtPassengerName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassengerName.Location = new System.Drawing.Point(9, 146);
+            this.txtPassengerName.Name = "txtPassengerName";
+            this.txtPassengerName.Size = new System.Drawing.Size(294, 20);
+            this.txtPassengerName.TabIndex = 6;
+            // 
+            // txtPassengerTc
+            // 
+            this.txtPassengerTc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassengerTc.Location = new System.Drawing.Point(9, 107);
+            this.txtPassengerTc.MaxLength = 11;
+            this.txtPassengerTc.Name = "txtPassengerTc";
+            this.txtPassengerTc.Size = new System.Drawing.Size(294, 20);
+            this.txtPassengerTc.TabIndex = 5;
+            // 
+            // txtPassengerID
+            // 
+            this.txtPassengerID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassengerID.Location = new System.Drawing.Point(9, 68);
+            this.txtPassengerID.Name = "txtPassengerID";
+            this.txtPassengerID.ReadOnly = true;
+            this.txtPassengerID.Size = new System.Drawing.Size(294, 20);
+            this.txtPassengerID.TabIndex = 4;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(4, 169);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(42, 13);
+            this.label63.TabIndex = 3;
+            this.label63.Text = "Soyisim";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(4, 130);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(25, 13);
+            this.label64.TabIndex = 2;
+            this.label64.Text = "İsim";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(3, 91);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(27, 13);
+            this.label65.TabIndex = 1;
+            this.label65.Text = "T.C.";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(6, 52);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(18, 13);
+            this.label66.TabIndex = 0;
+            this.label66.Text = "ID";
+            // 
             // tooltipGeneral
             // 
             this.tooltipGeneral.Active = false;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.HeaderText = "TakeoffID";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            this.dataGridViewTextBoxColumn22.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.HeaderText = "Kalkış Havalimanı";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.HeaderText = "TakeoffCity";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            this.dataGridViewTextBoxColumn24.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.HeaderText = "LandingID";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            this.dataGridViewTextBoxColumn25.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.HeaderText = "İniş Havalimanı";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.HeaderText = "LandingCity";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            this.dataGridViewTextBoxColumn27.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.HeaderText = "AirlineID";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn28.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.HeaderText = "Havayolu";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.HeaderText = "FlightPilotID";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            this.dataGridViewTextBoxColumn30.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.HeaderText = "Pilot";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.HeaderText = "FlightCopilotID";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.ReadOnly = true;
+            this.dataGridViewTextBoxColumn32.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.HeaderText = "Yardımcı Pilot";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.HeaderText = "Uçak";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.HeaderText = "Kalkış Tarihi";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "İniş Tarihi";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
             // 
             // AAMasterAdminPanel
             // 
@@ -3030,6 +3443,18 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFlights)).EndInit();
+            this.tabPage9.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            this.splitContainer4.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridFlights2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPassengers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3294,5 +3719,44 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.ToolTip tooltipGeneral;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.DataGridView gridFlights2;
+        private System.Windows.Forms.DataGridView gridPassengers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soyadi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ucusID;
+        private System.Windows.Forms.TextBox txtPassengerFlightID;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Button button42;
+        private System.Windows.Forms.Button button43;
+        private System.Windows.Forms.Button button45;
+        private System.Windows.Forms.TextBox txtPassengerSurname;
+        private System.Windows.Forms.TextBox txtPassengerName;
+        private System.Windows.Forms.TextBox txtPassengerTc;
+        private System.Windows.Forms.TextBox txtPassengerID;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }

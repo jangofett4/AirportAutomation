@@ -18,6 +18,130 @@ namespace AirportAutomation
             InitializeComponent();
         }
 
+        #region "Refresh Kodları"
+
+        public void RefreshAirlines()
+        {
+            gridAirlines.Rows.Clear();
+
+            MySqlCommand cmd = new MySqlCommand("select * from airlines", Globals.Connection);
+            var result = cmd.ExecuteReader();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+
+                    int id = result.GetInt32(0);
+                    string name = result.GetString(1);
+                    gridAirlines.Rows.Add(id, name);
+                }
+            }
+            result.Close();
+        }
+
+        public void RefreshPilots()
+        {
+            RefreshAirlines();
+
+            gridPilots.Rows.Clear();
+
+            MySqlCommand cmd = new MySqlCommand("select * from pilotGridView", Globals.Connection);
+            var result = cmd.ExecuteReader();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    int id = result.GetInt32(0);
+                    string name = result.GetString(1);
+                    string surname = result.GetString(2);
+                    string tc = result.GetString(3);
+                    int aid = result.GetInt32(4);
+                    string aname = result.GetString(5);
+
+                    gridPilots.Rows.Add(id, tc, name, surname, aname, aid);
+                }
+            }
+            result.Close();
+        }
+
+        public void RefreshAirports()
+        {
+            gridAirports.Rows.Clear();
+
+            MySqlCommand cmd = new MySqlCommand("select * from airportGridView", Globals.Connection);
+            var result = cmd.ExecuteReader();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    int id = result.GetInt32(0);
+                    string name = result.GetString(1);
+                    string cityid = result.GetString(2);
+                    string adminid = result.GetString(3);
+                    string adminname = result.GetString("admin_name");
+                    string cityname = result.GetString(5);
+                    gridAirports.Rows.Add(id, name, cityname, adminname, adminid, cityid);
+                }
+            }
+            result.Close();
+        }
+
+        public void RefreshPlanes()
+        {
+            gridPlanes.Rows.Clear();
+
+            MySqlCommand cmd = new MySqlCommand("select * from planeGridView", Globals.Connection);
+            var result = cmd.ExecuteReader();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    string id = result.GetString(0);
+                    string modelName = result.GetString(1);
+                    int model = result.GetInt32(2);
+                    gridPlanes.Rows.Add(id, modelName, model);
+                }
+            }
+            result.Close();
+        }
+
+        public void RefreshFlights()
+        {
+            gridFlights.Rows.Clear();
+            gridFlights2.Rows.Clear();
+
+            MySqlCommand cmd = new MySqlCommand("select * from flightGridView", Globals.Connection);
+            var result = cmd.ExecuteReader();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    object[] objs = {
+                        result.GetInt32(0),
+                        result.GetInt32(1),
+                        result.GetString(2),
+                        result.GetInt32(4),
+                        result.GetString(5),
+                        result.GetInt32(7),
+                        result.GetString(8),
+                        result.GetInt32(9),
+                        result.GetString(10),
+                        result.GetInt32(11),
+                        result.GetString(12),
+                        result.GetString(13),
+                        result.GetDateTime(14),
+                        result.GetDateTime(15)
+                    };
+
+                    gridFlights.Rows.Add(objs);
+                    gridFlights2.Rows.Add(objs);
+                }
+            }
+            result.Close();
+        }
+
+        #endregion
+
         private void AddFlight(object sender, EventArgs e)
         {
             string takeoffid = txtFlightTakeoffAirportID.Text;
@@ -36,7 +160,7 @@ namespace AirportAutomation
             DateTime takeoffDate = dateFlightTakeoff.Value;
             DateTime landingDate = dateFlightLanding.Value;
 
-            if (landingDate <= takeoffDate)
+            if (landingDate.Date < takeoffDate.Date)
             {
                 MessageBox.Show("İniş tarihi kalkış tarihinden büyük olmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -141,46 +265,9 @@ namespace AirportAutomation
             var idstr = r.Cells[0].Value.ToString();
             txtFlightPlane.Text = idstr;
         }
-        public void RefreshPlanes()
-        {
-            gridPlanes.Rows.Clear();
 
-            MySqlCommand cmd = new MySqlCommand("select * from planeGridView", Globals.Connection);
-            var result = cmd.ExecuteReader();
-            if (result.HasRows)
-            {
-                while (result.Read())
-                {
-                    string id = result.GetString(0);
-                    string modelName = result.GetString(1);
-                    int model = result.GetInt32(2);
-                    gridPlanes.Rows.Add(id, modelName, model);
-                }
-            }
-            result.Close();
-        }
-        public void RefreshAirports()
-        {
-            gridAirports.Rows.Clear();
-
-            MySqlCommand cmd = new MySqlCommand("select * from airportGridView", Globals.Connection);
-            using (var result = cmd.ExecuteReader())
-            {
-                while (result.Read())
-                {
-                    int id = result.GetInt32(0);
-                    string name = result.GetString(1);
-                    string cityid = result.GetString(2);
-                    string adminid = result.GetString(3);
-                    string adminname = result.GetString("admin_name");
-                    string cityname = result.GetString(5);
-                    gridAirports.Rows.Add(id, name, cityname, adminname, adminid, cityid);
-                }
-            }
-        }
         private void SelectAirport(object sender, DataGridViewCellEventArgs e)
-    
-    {
+        {
             var row = e.RowIndex;
             if (row < 0) return;
             var r = gridAirports.Rows[row];
@@ -205,48 +292,18 @@ namespace AirportAutomation
             RefreshPlanes();
             RefreshAirports();
             RefreshFlights();
-            RefreshPassengers();
+            // RefreshPassengers();
         }
-        public void RefreshFlights()
-        {
-            gridFlights.Rows.Clear();
 
-            MySqlCommand cmd = new MySqlCommand("select * from flightGridView", Globals.Connection);
-            var result = cmd.ExecuteReader();
-            if (result.HasRows)
-            {
-                while (result.Read())
-                {
-                    object[] objs = {
-                        result.GetInt32(0),
-                        result.GetInt32(1),
-                        result.GetString(2),
-                        result.GetInt32(4),
-                        result.GetString(5),
-                        result.GetInt32(7),
-                        result.GetString(8),
-                        result.GetInt32(9),
-                        result.GetString(10),
-                        result.GetInt32(11),
-                        result.GetString(12),
-                        result.GetString(13),
-                        result.GetDateTime(14)
-                    };
-
-                    gridFlights.Rows.Add(objs);
-                }
-            }
-            result.Close();
-        }
         private void RefreshData(object sender, EventArgs e)
         {
             var src = contextRefresh.SourceControl;
             // if (src == gridCountries) RefreshCountries();
             // else if (src == gridAirportAdmins) RefreshAirportAdmins();
             // else if (src == gridCities) RefreshCities();
-            // else if (src == gridAirlines) RefreshAirlines();
-            // else if (src == gridPilots) RefreshPilots();
-            if (src == gridAirports) RefreshAirports();
+            if (src == gridAirlines) RefreshAirlines();
+            else if (src == gridPilots) RefreshPilots();
+            else if (src == gridAirports) RefreshAirports();
             // else if (src == gridPlaneTypes) RefreshPlaneTypes();
             else if (src == gridPlanes) RefreshPlanes();
             // else if (src == gridPlaneModels) RefreshPlaneModels();
@@ -254,7 +311,7 @@ namespace AirportAutomation
             else if (src == gridFlights) RefreshFlights();
             else if (src == gridPassengers) RefreshPassengers();
         }
-        public void AddPasenger()
+        public void AddPassenger()
         {
             string tc = txtPassengerTc.Text.Trim();
             string name = txtPassengerName.Text.Trim();
@@ -271,7 +328,7 @@ namespace AirportAutomation
                 MessageBox.Show("TC Kimlik numarası alanı 11 karakter ve sadece sayılardan oluşmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            MySqlCommand cmd = new MySqlCommand($"insert into passengers(name,surname,tc,flightID) values ('{ name }', '{ surname }' , '{ tc }',{ flightID }) ",Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"insert into passengers(name,surname,tc,flightID) values ('{ name }', '{ surname }' , '{ tc }',{ flightID }) ", Globals.Connection);
             try
             {
                 int rows = cmd.ExecuteNonQuery();
@@ -293,7 +350,7 @@ namespace AirportAutomation
             rd.Close();
 
             MessageBox.Show($"Yolcu ({ name }) eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            gridPassengers.Rows.Add(id , tc, name, surname, flightID);
+            gridPassengers.Rows.Add(id, tc, name, surname, flightID);
         }
 
         private void AddPlane(object sender, EventArgs e)
@@ -331,12 +388,13 @@ namespace AirportAutomation
 
         }
 
-        private void selectFlight(object sender, DataGridViewCellEventArgs e)
+        private void SelectFlight(object sender, DataGridViewCellEventArgs e)
         {
-            var row = e.RowIndex;
+            if (gridFlights2.SelectedRows.Count < 1) return;
+            var row = gridFlights2.SelectedRows[0].Index;
             if (row < 0) return;
-            var r = gridPassengers.Rows[row];
-            if (row >= gridPassengers.RowCount - 1) return;
+            var r = gridFlights2.Rows[row];
+            if (row >= gridFlights2.RowCount - 1) return;
 
             var idstr = r.Cells[0].Value.ToString();
             txtPassengerFlightID.Text = idstr;
@@ -411,11 +469,11 @@ namespace AirportAutomation
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Bu yolcu sisteme zaten kayıtlı! { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Bu yolcu uçuşta zaten kayıtlı! { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            cmd = new MySqlCommand("select max(staffID) from staff", Globals.Connection);
+            cmd = new MySqlCommand("select max(passengerID) from passengers", Globals.Connection);
             var rd = cmd.ExecuteReader();
             rd.Read();
             var id = rd.GetInt32(0);
@@ -425,32 +483,9 @@ namespace AirportAutomation
 
             MessageBox.Show($"Yolcu ({ name + " " + surname }) eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             gridPassengers.Rows.Add(id, tc, name, surname, flightID);
-
-
         }
 
-        private void selectPassenger(object sender, DataGridViewCellEventArgs e)
-        {
-            if (gridPassengers.SelectedRows.Count < 1) return;
-            var row = gridPassengers.SelectedRows[0].Index;
-            if (row < 0) return;
-            var r = gridPassengers.Rows[row];
-            if (row >= gridPassengers.RowCount - 1) return;
-
-            var id = r.Cells[0].Value.ToString();
-            var tc = r.Cells[1].Value.ToString();
-            var name = r.Cells[2].Value.ToString();
-            var surname = r.Cells[3].Value.ToString();
-            var flightID = r.Cells[4].Value.ToString();
-
-            txtPassengerFlightID.Text = flightID;
-            txtPassengerTc.Text = tc;
-            txtPassengerName.Text = name;
-            txtPassengerSurname.Text = surname;
-            txtPassengerID.Text = id;
-        }
-
-        private void editPassenger(object sender, EventArgs e)
+        private void EditPassenger(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtPassengerID.Text))
             {
@@ -473,7 +508,7 @@ namespace AirportAutomation
                 MessageBox.Show("TC Kimlik numarası alanı 11 karakter ve sadece sayılardan oluşmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            MySqlCommand cmd = new MySqlCommand($"update countries set tc = '{tc}' , name = '{name}',surname = '{surname}' , flightID = {flightID} where id = { id }", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"update passengers set tc = '{tc}' , name = '{name}',surname = '{surname}' , flightID = {flightID} where id = { id }", Globals.Connection);
             try
             {
                 cmd.ExecuteNonQuery();
@@ -485,24 +520,93 @@ namespace AirportAutomation
             }
             RefreshPassengers();
         }
+
         public void RefreshPassengers()
         {
-            MySqlCommand cmd = new MySqlCommand("select * from passengers", Globals.Connection);
+            gridPassengers.Rows.Clear();
+            if (string.IsNullOrWhiteSpace(txtPassengerFlightID.Text)) return;
+            MySqlCommand cmd = new MySqlCommand($"select * from passengers where flightID = { txtPassengerFlightID.Text }", Globals.Connection);
             var result = cmd.ExecuteReader();
             if (result.HasRows)
             {
                 while (result.Read())
                 {
-
                     int id = result.GetInt32(0);
                     string name = result.GetString(1);
                     string surname = result.GetString(2);
                     string tc = result.GetString(3);
                     string flightID = result.GetInt32(4).ToString();
-                    gridPassengers.Rows.Add(id, tc,name,surname,flightID);
+                    gridPassengers.Rows.Add(id, tc, name, surname, flightID);
                 }
             }
             result.Close();
+        }
+
+        private void ApplicationExit(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
+        private void SelectFlight(object sender, EventArgs e)
+        {
+            if (gridFlights.SelectedRows.Count < 1) return;
+            var row = gridFlights.SelectedRows[0].Index;
+            if (row < 0) return;
+            var r = gridFlights.Rows[row];
+            if (row >= gridFlights.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            var takeoffid = r.Cells[1].Value.ToString();
+            var takeoffaip = r.Cells[2].Value.ToString();
+            var landingid = r.Cells[3].Value.ToString();
+            var landingaip = r.Cells[4].Value.ToString();
+            var airlineid = r.Cells[5].Value.ToString();
+            var airline = r.Cells[6].Value.ToString();
+            var pilotid = r.Cells[7].Value.ToString();
+            var pilot = r.Cells[8].Value.ToString();
+            var copilotid = r.Cells[9].Value.ToString();
+            var copilot = r.Cells[10].Value.ToString();
+            var planeid = r.Cells[11].Value.ToString();
+            var takeoffDateStr = r.Cells[12].Value.ToString();
+            var landingDateStr = r.Cells[13].Value.ToString();
+
+            txtFlightID.Text = idstr;
+            txtFlightTakeoffAirportID.Text = takeoffid;
+            txtFlightTakeoffAirportName.Text = takeoffaip;
+            txtFlightLandingAirportID.Text = landingid;
+            txtFlightLandingAirportName.Text = landingaip;
+            txtFlightAirlineID.Text = airlineid;
+            txtFlightAirlineName.Text = airline;
+            txtFlightPilotID.Text = pilotid;
+            txtFlightPilotName.Text = pilot;
+            txtFlightCopilotID.Text = copilotid;
+            txtFlightCopilotName.Text = copilot;
+            txtFlightPlane.Text = planeid;
+            var takeoffDate = DateTime.Parse(takeoffDateStr);
+            dateFlightTakeoff.Value = takeoffDate;
+            var landingDate = DateTime.Parse(landingDateStr);
+            dateFlightLanding.Value = landingDate;
+        }
+
+        private void SelectPassenger(object sender, EventArgs e)
+        {
+            if (gridPassengers.SelectedRows.Count < 1) return;
+            var row = gridPassengers.SelectedRows[0].Index;
+            if (row < 0) return;
+            var r = gridPassengers.Rows[row];
+            if (row >= gridPassengers.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            var tc = r.Cells[1].Value.ToString();
+            var name = r.Cells[2].Value.ToString();
+            var surname = r.Cells[3].Value.ToString();
+            var flight = r.Cells[4].Value.ToString();
+
+            txtPassengerFlightID.Text = flight;
+            txtPassengerID.Text = idstr;
+            txtPassengerName.Text = name;
+            txtPassengerSurname.Text = surname;
+            txtPassengerTc.Text = tc;
         }
     }
 }

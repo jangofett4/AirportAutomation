@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+  Airport Automation
+   Master Admin Panel Form
+  Author: Yahya Gedik
+  License: GNU GPL v3
+  Last edited: 23.05.2019
+ */
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -9,7 +16,7 @@ namespace AirportAutomation
     {
         public AAMasterAdminPanel()
         {
-            MySqlCommand cmd = new MySqlCommand($"select * from admins where username = '{ Globals.ConnectedAdminUsername }' and password = '{ Globals. ConnectedAdminPassword }';", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"select * from admins where username = '{ Globals.ConnectedAdminUsername }' and password = '{ Globals.ConnectedAdminPassword }';", Globals.Connection);
             var result = cmd.ExecuteReader();
             if (!result.HasRows)
             {
@@ -37,9 +44,11 @@ namespace AirportAutomation
             else if (src == gridPlaneModels) RefreshPlaneModels();
             else if (src == gridStaff) RefreshStaff();
             else if (src == gridFlights) RefreshFlights();
+            else if (src == gridFlights2) RefreshFlights();
+            else if (src == gridPassengers) RefreshPassengers();
         }
 
-        #region "Zıkkım"
+        #region "Refresh Kodları"
 
         public void RefreshCountries()
         {
@@ -234,7 +243,6 @@ namespace AirportAutomation
             }
             result.Close();
         }
-        
 
         public void RefreshStaff()
         {
@@ -261,12 +269,17 @@ namespace AirportAutomation
             result.Close();
         }
 
+        private bool RefreshFlightsDone = false;
         public void RefreshFlights()
         {
+            RefreshFlightsDone = false;
+            gridPassengers.Focus();
             gridFlights.Rows.Clear();
+            gridFlights2.Rows.Clear();
 
             MySqlCommand cmd = new MySqlCommand("select * from flightGridView", Globals.Connection);
             var result = cmd.ExecuteReader();
+
             if (result.HasRows)
             {
                 while (result.Read())
@@ -287,11 +300,13 @@ namespace AirportAutomation
                         result.GetDateTime(14),
                         result.GetDateTime(15)
                     };
-                    
+
                     gridFlights.Rows.Add(objs);
+                    gridFlights2.Rows.Add(objs);
                 }
             }
             result.Close();
+            RefreshFlightsDone = true;
         }
 
         #endregion
@@ -393,7 +408,7 @@ namespace AirportAutomation
             }
 
             if (MessageBox.Show($"Seçilen ülke silinecek.\nÜlkeya bağlı bütün bilgiler (havalimanı, uçuşlar vb) silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            {                
+            {
                 MySqlCommand cmd = new MySqlCommand($"delete from countries where countryID = { id }", Globals.Connection);
                 cmd.ExecuteNonQuery();
                 foreach (DataGridViewRow r in gridCountries.Rows)
@@ -1113,7 +1128,7 @@ namespace AirportAutomation
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Uçak türü ({ type }) zaten sistemde kayıtlı! { ex.Message }" , "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Uçak türü ({ type }) zaten sistemde kayıtlı! { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -1218,7 +1233,7 @@ namespace AirportAutomation
 
             MySqlCommand cmd = new MySqlCommand($"insert into planes (planeID, modelID) values ('{ planeid }', '{ modelid }')", Globals.Connection);
             try
-            { 
+            {
                 int rows = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -1287,7 +1302,7 @@ namespace AirportAutomation
             string modelname = txtPlaneModelName.Text;
             int modelcap = (int)txtPlaneModelCap.Value;
 
-            if (string.IsNullOrWhiteSpace(modelname) ||string.IsNullOrWhiteSpace(txtPlaneModelID.Text))
+            if (string.IsNullOrWhiteSpace(modelname) || string.IsNullOrWhiteSpace(txtPlaneModelID.Text))
             {
                 MessageBox.Show("Düzenlenecek modeli seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -1515,7 +1530,7 @@ namespace AirportAutomation
             DateTime takeoffDate = dateFlightTakeoff.Value;
             DateTime landingDate = dateFlightLanding.Value;
 
-            if (landingDate <= takeoffDate)
+            if (landingDate < takeoffDate)
             {
                 MessageBox.Show("İniş tarihi kalkış tarihinden büyük olmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -1826,5 +1841,178 @@ namespace AirportAutomation
                 }
             }
         }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SelectFlight2(object sender, EventArgs e)
+        {
+            if (!RefreshFlightsDone) return;
+            if (gridFlights2.SelectedRows.Count < 1) return;
+            var row = gridFlights2.SelectedRows[0].Index;
+            if (row < 0) return;
+            var r = gridFlights2.Rows[row];
+            if (row >= gridFlights2.RowCount - 1) return;
+            var idstr = r.Cells[0].Value.ToString();
+            
+            txtPassengerFlightID.Text = idstr;
+            /*
+            txtPassengerID.Text = "";
+            txtPassengerName.Text = "";
+            txtPassengerSurname.Text = "";
+            txtPassengerTc.Text = "";
+
+            RefreshPassengers();
+            */
+        }
+
+
+        private void SelectPassenger(object sender, EventArgs e)
+        {
+            if (gridPassengers.SelectedRows.Count < 1) return;
+            var row = gridPassengers.SelectedRows[0].Index;
+            if (row < 0) return;
+            var r = gridPassengers.Rows[row];
+            if (row >= gridPassengers.RowCount - 1) return;
+
+            var idstr = r.Cells[0].Value.ToString();
+            var tc = r.Cells[1].Value.ToString();
+            var name = r.Cells[2].Value.ToString();
+            var surname = r.Cells[3].Value.ToString();
+            var flight = r.Cells[4].Value.ToString();
+
+            txtPassengerFlightID.Text = flight;
+            txtPassengerID.Text = idstr;
+            txtPassengerName.Text = name;
+            txtPassengerSurname.Text = surname;
+            txtPassengerTc.Text = tc;
+        }
+
+        public void RefreshPassengers()
+        {
+            gridPassengers.Rows.Clear();
+            if (string.IsNullOrWhiteSpace(txtPassengerFlightID.Text)) return;
+            MySqlCommand cmd = new MySqlCommand($"select * from passengers where flightID = { txtPassengerFlightID.Text }", Globals.Connection);
+            var result = cmd.ExecuteReader();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    int id = result.GetInt32(0);
+                    string name = result.GetString(1);
+                    string surname = result.GetString(2);
+                    string tc = result.GetString(3);
+                    string flightID = result.GetInt32(4).ToString();
+                    gridPassengers.Rows.Add(id, tc, name, surname, flightID);
+                }
+            }
+            result.Close();
+        }
+
+        private void DeletePassenger(object sender, EventArgs e)
+        {
+            var id = txtPassengerID.Text;
+            if (string.IsNullOrWhiteSpace(id) || gridFlights.RowCount == 1)
+            {
+                MessageBox.Show("Listeden kayıt seçin!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (MessageBox.Show($"Seçilen yolcu silinecek.\nDikkat bu işlem geri alınamaz!", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                MySqlCommand cmd = new MySqlCommand($"delete from passengers where passengerID = { id }", Globals.Connection);
+                cmd.ExecuteNonQuery();
+                foreach (DataGridViewRow r in gridPassengers.Rows)
+                {
+                    if (r.Cells.Count < 0) break;
+                    if (r.Cells[0].Value.ToString() == id)
+                    {
+                        gridPassengers.Rows.Remove(r);
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void AddPassenger(object sender, EventArgs e)
+        {
+            string tc = txtPassengerTc.Text.Trim();
+            string name = txtPassengerName.Text.Trim();
+            string surname = txtPassengerSurname.Text.Trim();
+            string flightID = txtPassengerFlightID.Text;
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname))
+            {
+                MessageBox.Show("İsim / Soy isim alanları boş bırakılamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (!tc.IsTCValid())
+            {
+                MessageBox.Show("TC Kimlik numarası alanı 11 karakter ve sadece sayılardan oluşmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            MySqlCommand cmd = new MySqlCommand($"insert into passengers(name,surname,tc,flightID) values ('{ name }', '{ surname }' , '{ tc }',{ flightID }) ", Globals.Connection);
+            try
+            {
+                int rows = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Aynı TC Kimlik numarasına ya da kullanıcı adına sahip başka bir yönetici zaten sistemde kayıtlı! { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            cmd = new MySqlCommand("select max(airportID) from airports", Globals.Connection);
+
+            var rd = cmd.ExecuteReader();
+            rd.Read();
+
+            var id = rd.GetInt32(0);
+            txtPassengerID.Text = id.ToString();
+
+            rd.Close();
+
+            MessageBox.Show($"Yolcu ({ name }) eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            gridPassengers.Rows.Add(id, tc, name, surname, flightID);
+        }
+
+        private void EditPassenger(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPassengerID.Text))
+            {
+                MessageBox.Show("Düzenlenecek yolcuyu seçin!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            var id = txtPassengerID.Text;
+            var name = txtPassengerName.Text;
+            var surname = txtPassengerSurname.Text;
+            var tc = txtPassengerTc.Text;
+            var flightID = txtPassengerFlightID.Text;
+
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname) || string.IsNullOrWhiteSpace(tc))
+            {
+                MessageBox.Show("Yolcu adı / soyadı / TC alanı boş bırakılamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (!tc.IsTCValid())
+            {
+                MessageBox.Show("TC Kimlik numarası alanı 11 karakter ve sadece sayılardan oluşmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            MySqlCommand cmd = new MySqlCommand($"update passengers set tc = '{tc}' , name = '{name}',surname = '{surname}' , flightID = {flightID} where passengerID = { id }", Globals.Connection);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Düzenleme başarısız! Aynı T.C. ye sahip başka bir yolcu daha mevcut. { ex.Message }", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            RefreshPassengers();
+        }
+
     }
 }

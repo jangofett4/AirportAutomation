@@ -110,7 +110,6 @@
             this.txtEmployeePassword.Name = "txtEmployeePassword";
             this.txtEmployeePassword.Size = new System.Drawing.Size(182, 20);
             this.txtEmployeePassword.TabIndex = 6;
-            this.txtEmployeePassword.Text = "admin";
             this.txtEmployeePassword.UseSystemPasswordChar = true;
             // 
             // txtEmployeeUsername
@@ -121,7 +120,6 @@
             this.txtEmployeeUsername.Name = "txtEmployeeUsername";
             this.txtEmployeeUsername.Size = new System.Drawing.Size(182, 20);
             this.txtEmployeeUsername.TabIndex = 5;
-            this.txtEmployeeUsername.Text = "admin1";
             // 
             // tabPage2
             // 
@@ -175,7 +173,6 @@
             this.txtAdminPassword.Name = "txtAdminPassword";
             this.txtAdminPassword.Size = new System.Drawing.Size(182, 20);
             this.txtAdminPassword.TabIndex = 5;
-            this.txtAdminPassword.Text = "admin";
             this.txtAdminPassword.UseSystemPasswordChar = true;
             // 
             // txtAdminUsername
@@ -186,7 +183,6 @@
             this.txtAdminUsername.Name = "txtAdminUsername";
             this.txtAdminUsername.Size = new System.Drawing.Size(182, 20);
             this.txtAdminUsername.TabIndex = 4;
-            this.txtAdminUsername.Text = "admin1";
             // 
             // AALoginForm
             // 
