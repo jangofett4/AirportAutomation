@@ -802,7 +802,7 @@ namespace AirportAutomation
 
             var id = int.Parse(txtPilotID.Text);
 
-            MySqlCommand cmd = new MySqlCommand($"update pilots set name = '{ txtPilotName.Text }',surname ='{ txtPilotSurname.Text}',tc='{txtPilotTC.Text}',airlineID=={txtPilotAirlineID.Text} where pilotID = { id }", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"update pilots set name = '{ txtPilotName.Text }',surname ='{ txtPilotSurname.Text}',tc='{txtPilotTC.Text}',airlineID={txtPilotAirlineID.Text} where pilotID = { id }", Globals.Connection);
             try
             {
                 cmd.ExecuteNonQuery();
@@ -1024,7 +1024,7 @@ namespace AirportAutomation
                 return;
             }
 
-            MySqlCommand cmd = new MySqlCommand($"update airports set name = '{ txtAirportName.Text }', cityID = '{ txtAirportCityID.Text }', adminID = '{ txtAirportAdminID.Text }' where countryID = { txtAirportID.Text }", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"update airports set name = '{ txtAirportName.Text }', cityID = '{ txtAirportCityID.Text }', adminID = '{ txtAirportAdminID.Text }' where airportID = { txtAirportID.Text }", Globals.Connection);
             try
             {
                 cmd.ExecuteNonQuery();
