@@ -63,10 +63,22 @@ namespace AirportAutomation
                     rd.Close();
                     cmd = new MySqlCommand($"Select airportID from airports where adminID = {Globals.ConnectedAdminID};", Globals.Connection);
                     var rd2 = cmd.ExecuteReader();
+
+                    if (!rd2.HasRows)
+                    {
+                        MessageBox.Show("Havalimanına atanmamış yöneticiler sisteme giriş yapamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        rd2.Close();
+                        return;
+                    }
+
                     rd2.Read();
                     Globals.ConnectedAdminAirportID = rd2.GetInt32(0);
                     rd2.Close();
                     AAAirportAdminPanel panel = new AAAirportAdminPanel();
+
+                    panel.ConnectedAdminID = Globals.ConnectedAdminID.ToString();
+                    panel.ConnectedAirportID = Globals.ConnectedAdminAirportID.ToString();
+
                     if (panel.IsDisposed)
                     {
                         MessageBox.Show("Application internal error, Form is disposed before it is initialized!");

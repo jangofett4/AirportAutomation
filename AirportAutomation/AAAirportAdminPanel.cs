@@ -12,6 +12,9 @@ namespace AirportAutomation
 {
     public partial class AAAirportAdminPanel : Form
     {
+        public string ConnectedAdminID;
+        public string ConnectedAirportID;
+
         public AAAirportAdminPanel()
         {
             MySqlCommand cmd = new MySqlCommand($"select * from airport_admins where username = '{ Globals.ConnectedAdminUsername }' and password = '{ Globals.ConnectedAdminPassword }';", Globals.Connection);
@@ -171,7 +174,7 @@ namespace AirportAutomation
         {
             gridStaff.Rows.Clear();
 
-            MySqlCommand cmd = new MySqlCommand("select * from staffGridView", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"select * from staffGridView where airportID = { ConnectedAirportID.ToString() }", Globals.Connection);
             var result = cmd.ExecuteReader();
             if (result.HasRows)
             {
@@ -196,7 +199,7 @@ namespace AirportAutomation
         {
             gridFlights.Rows.Clear();
 
-            MySqlCommand cmd = new MySqlCommand("select * from flightGridView", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"select * from flightGridView where landing_id = { ConnectedAirportID } or takeoff_id = { ConnectedAirportID }", Globals.Connection);
             var result = cmd.ExecuteReader();
             if (result.HasRows)
             {
@@ -425,7 +428,7 @@ namespace AirportAutomation
 
             var id = int.Parse(txtPilotID.Text);
 
-            MySqlCommand cmd = new MySqlCommand($"update pilots set name = '{ txtPilotName.Text }',surname ='{ txtPilotSurname.Text}',tc='{txtPilotTC.Text}',airlineID=={txtPilotAirlineID.Text} where pilotID = { id }", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"update pilots set name = '{ txtPilotName.Text }', surname ='{ txtPilotSurname.Text }', tc = '{ txtPilotTC.Text }', airlineID = { txtPilotAirlineID.Text } where pilotID = { id }", Globals.Connection);
             try
             {
                 cmd.ExecuteNonQuery();
@@ -550,6 +553,12 @@ namespace AirportAutomation
             if (!tc.IsTCValid())
             {
                 MessageBox.Show("TC Kimlik numarası alanı 11 karakter ve sadece sayılardan oluşmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (airport != ConnectedAirportID)
+            {
+                MessageBox.Show("Başka havalimanına ait çalışan eklenemez!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -889,7 +898,7 @@ namespace AirportAutomation
                 return;
             }
 
-            MySqlCommand cmd = new MySqlCommand($"update types set name = '{ typename }' where typeID = '{ txtPlaneTypeID.Text }'", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"update types set name = '{ typename }' where typeID = { txtPlaneTypeID.Text }", Globals.Connection);
             try
             {
                 cmd.ExecuteNonQuery();
@@ -1083,7 +1092,7 @@ namespace AirportAutomation
             }
             if (int.Parse(txtFlightTakeoffAirportID.Text) != Globals.ConnectedAdminAirportID && int.Parse(txtFlightLandingAirportID.Text) != Globals.ConnectedAdminAirportID)
             {
-                MessageBox.Show("Yetkiniz olmayan ucus düzenliyorsunuz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Yetkiniz olmayan ucuş ekliyorsunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             
@@ -1154,6 +1163,12 @@ namespace AirportAutomation
             if (takeoffid == landingid)
             {
                 MessageBox.Show("Kalkış ve iniş aynı havaalanında gerçekliştirelemez!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (takeoffid != ConnectedAirportID && landingid != ConnectedAirportID)
+            {
+                MessageBox.Show("Yetkisiz uçuş düzenleme başarısız, iniş veya kalkış adresi bu havalimanı na ait olmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -1255,8 +1270,5 @@ namespace AirportAutomation
             }
         }
         #endregion
-
-
-        
     }
  }
