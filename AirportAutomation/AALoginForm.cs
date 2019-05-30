@@ -61,7 +61,7 @@ namespace AirportAutomation
                     Globals.ConnectedAdminUsername = username;
                     Globals.ConnectedAdminPassword = password;
                     rd.Close();
-                    cmd = new MySqlCommand($"Select airportID from airports where adminID = {Globals.ConnectedAdminID};", Globals.Connection);
+                    cmd = new MySqlCommand($"Select * from airports where adminID = {Globals.ConnectedAdminID};", Globals.Connection);
                     var rd2 = cmd.ExecuteReader();
 
                     if (!rd2.HasRows)
@@ -73,12 +73,14 @@ namespace AirportAutomation
 
                     rd2.Read();
                     Globals.ConnectedAdminAirportID = rd2.GetInt32(0);
+                    string name = rd2.GetString(1);
                     rd2.Close();
-                    AAAirportAdminPanel panel = new AAAirportAdminPanel();
 
+                    AAAirportAdminPanel panel = new AAAirportAdminPanel();
                     panel.ConnectedAdminID = Globals.ConnectedAdminID.ToString();
                     panel.ConnectedAirportID = Globals.ConnectedAdminAirportID.ToString();
-
+                    panel.ConnectedAirportName = name;
+                    
                     if (panel.IsDisposed)
                     {
                         MessageBox.Show("Application internal error, Form is disposed before it is initialized!");
@@ -109,11 +111,7 @@ namespace AirportAutomation
                 panel.Show();
 
                 Hide();
-            }
-            
-            
-           
-            
+            } 
         }
 
         private void btnEmployeeLogin_Click(object sender, EventArgs e)
@@ -129,9 +127,12 @@ namespace AirportAutomation
                 result.Close();
                 return;
             }
-            result.Close();
 
+            result.Read();
             AAStaffPanel panel = new AAStaffPanel();
+            panel.ConnectedStaffID = result.GetInt32(0).ToString();
+            panel.ConnectedAirportID = result.GetInt32(6).ToString();
+            result.Close();
             if (panel.IsDisposed)
             {
                 MessageBox.Show("Application internal error, Form is disposed before it is initialized!");
@@ -142,6 +143,11 @@ namespace AirportAutomation
             panel.Show();
 
             Hide();
+        }
+
+        private void LoginFormLoad(object sender, EventArgs e)
+        {
+            Globals.LoginFormInstance = this;
         }
     }
 }

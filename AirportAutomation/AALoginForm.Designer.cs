@@ -173,6 +173,7 @@
             this.txtAdminPassword.Name = "txtAdminPassword";
             this.txtAdminPassword.Size = new System.Drawing.Size(182, 20);
             this.txtAdminPassword.TabIndex = 5;
+            this.txtAdminPassword.Text = "admin";
             this.txtAdminPassword.UseSystemPasswordChar = true;
             // 
             // txtAdminUsername
@@ -183,6 +184,7 @@
             this.txtAdminUsername.Name = "txtAdminUsername";
             this.txtAdminUsername.Size = new System.Drawing.Size(182, 20);
             this.txtAdminUsername.TabIndex = 4;
+            this.txtAdminUsername.Text = "admin1";
             // 
             // AALoginForm
             // 
@@ -192,7 +194,9 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AALoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Havalimanı Otomasyon Sistemi";
+            this.Load += new System.EventHandler(this.LoginFormLoad);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

@@ -225,6 +225,43 @@
             this.columnAiportAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnAirportAdminID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnAirportCityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.gridFlights2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridPassengers = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtPassengerFlightID = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.btnAddPassenger = new System.Windows.Forms.Button();
+            this.btnDeletePassenger = new System.Windows.Forms.Button();
+            this.btnEditPassenger = new System.Windows.Forms.Button();
+            this.txtPassengerSurname = new System.Windows.Forms.TextBox();
+            this.txtPassengerName = new System.Windows.Forms.TextBox();
+            this.txtPassengerTc = new System.Windows.Forms.TextBox();
+            this.txtPassengerID = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFlights)).BeginInit();
@@ -258,6 +295,17 @@
             this.tabPage6.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAirports)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridFlights2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPassengers)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage5
@@ -266,7 +314,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(792, 524);
+            this.tabPage5.Size = new System.Drawing.Size(912, 652);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Uçuşlar";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -309,7 +357,7 @@
             this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox11.Location = new System.Drawing.Point(3, 3);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(786, 518);
+            this.groupBox11.Size = new System.Drawing.Size(906, 646);
             this.groupBox11.TabIndex = 5;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Havayolu Yönetimi";
@@ -340,7 +388,7 @@
             this.gridFlights.Name = "gridFlights";
             this.gridFlights.ReadOnly = true;
             this.gridFlights.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridFlights.Size = new System.Drawing.Size(444, 509);
+            this.gridFlights.Size = new System.Drawing.Size(564, 637);
             this.gridFlights.TabIndex = 8;
             this.gridFlights.TabStop = false;
             this.gridFlights.SelectionChanged += new System.EventHandler(this.SelectFlight);
@@ -715,7 +763,7 @@
             // button41
             // 
             this.button41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button41.Location = new System.Drawing.Point(6, 489);
+            this.button41.Location = new System.Drawing.Point(6, 617);
             this.button41.Name = "button41";
             this.button41.Size = new System.Drawing.Size(80, 23);
             this.button41.TabIndex = 3;
@@ -726,7 +774,7 @@
             // btnDeleteFlight
             // 
             this.btnDeleteFlight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDeleteFlight.Location = new System.Drawing.Point(92, 489);
+            this.btnDeleteFlight.Location = new System.Drawing.Point(92, 617);
             this.btnDeleteFlight.Name = "btnDeleteFlight";
             this.btnDeleteFlight.Size = new System.Drawing.Size(80, 23);
             this.btnDeleteFlight.TabIndex = 4;
@@ -737,7 +785,7 @@
             // btnUpdateFlight
             // 
             this.btnUpdateFlight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnUpdateFlight.Location = new System.Drawing.Point(264, 489);
+            this.btnUpdateFlight.Location = new System.Drawing.Point(264, 617);
             this.btnUpdateFlight.Name = "btnUpdateFlight";
             this.btnUpdateFlight.Size = new System.Drawing.Size(72, 23);
             this.btnUpdateFlight.TabIndex = 5;
@@ -748,7 +796,7 @@
             // button44
             // 
             this.button44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button44.Location = new System.Drawing.Point(178, 489);
+            this.button44.Location = new System.Drawing.Point(178, 617);
             this.button44.Name = "button44";
             this.button44.Size = new System.Drawing.Size(80, 23);
             this.button44.TabIndex = 1;
@@ -762,7 +810,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(792, 524);
+            this.tabPage4.Size = new System.Drawing.Size(912, 652);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Uçaklar";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -781,8 +829,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(786, 518);
-            this.splitContainer2.SplitterDistance = 221;
+            this.splitContainer2.Size = new System.Drawing.Size(906, 646);
+            this.splitContainer2.SplitterDistance = 275;
             this.splitContainer2.TabIndex = 2;
             // 
             // groupBox7
@@ -805,7 +853,7 @@
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox7.Location = new System.Drawing.Point(0, 0);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(786, 221);
+            this.groupBox7.Size = new System.Drawing.Size(906, 275);
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Modeller";
@@ -914,7 +962,7 @@
             // button25
             // 
             this.button25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button25.Location = new System.Drawing.Point(6, 192);
+            this.button25.Location = new System.Drawing.Point(6, 246);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(80, 23);
             this.button25.TabIndex = 3;
@@ -925,7 +973,7 @@
             // button26
             // 
             this.button26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button26.Location = new System.Drawing.Point(92, 192);
+            this.button26.Location = new System.Drawing.Point(92, 246);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(80, 23);
             this.button26.TabIndex = 4;
@@ -936,7 +984,7 @@
             // button27
             // 
             this.button27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button27.Location = new System.Drawing.Point(264, 192);
+            this.button27.Location = new System.Drawing.Point(264, 246);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(72, 23);
             this.button27.TabIndex = 5;
@@ -947,7 +995,7 @@
             // button28
             // 
             this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button28.Location = new System.Drawing.Point(178, 192);
+            this.button28.Location = new System.Drawing.Point(178, 246);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(80, 23);
             this.button28.TabIndex = 1;
@@ -972,7 +1020,7 @@
             this.gridPlaneModels.Name = "gridPlaneModels";
             this.gridPlaneModels.ReadOnly = true;
             this.gridPlaneModels.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPlaneModels.Size = new System.Drawing.Size(438, 196);
+            this.gridPlaneModels.Size = new System.Drawing.Size(558, 250);
             this.gridPlaneModels.TabIndex = 0;
             this.gridPlaneModels.TabStop = false;
             this.gridPlaneModels.SelectionChanged += new System.EventHandler(this.SelectPlaneModel);
@@ -1022,8 +1070,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox9);
-            this.splitContainer3.Size = new System.Drawing.Size(786, 293);
-            this.splitContainer3.SplitterDistance = 387;
+            this.splitContainer3.Size = new System.Drawing.Size(906, 367);
+            this.splitContainer3.SplitterDistance = 446;
             this.splitContainer3.TabIndex = 0;
             // 
             // groupBox8
@@ -1040,7 +1088,7 @@
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(0, 0);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(387, 293);
+            this.groupBox8.Size = new System.Drawing.Size(446, 367);
             this.groupBox8.TabIndex = 3;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Türler";
@@ -1081,7 +1129,7 @@
             // button29
             // 
             this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button29.Location = new System.Drawing.Point(6, 264);
+            this.button29.Location = new System.Drawing.Point(6, 338);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(80, 23);
             this.button29.TabIndex = 7;
@@ -1092,7 +1140,7 @@
             // button30
             // 
             this.button30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button30.Location = new System.Drawing.Point(92, 264);
+            this.button30.Location = new System.Drawing.Point(92, 338);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(80, 23);
             this.button30.TabIndex = 9;
@@ -1103,7 +1151,7 @@
             // button31
             // 
             this.button31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button31.Location = new System.Drawing.Point(92, 235);
+            this.button31.Location = new System.Drawing.Point(92, 309);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(80, 23);
             this.button31.TabIndex = 8;
@@ -1114,7 +1162,7 @@
             // button32
             // 
             this.button32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button32.Location = new System.Drawing.Point(6, 235);
+            this.button32.Location = new System.Drawing.Point(6, 309);
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(80, 23);
             this.button32.TabIndex = 9;
@@ -1136,7 +1184,7 @@
             this.gridPlaneTypes.Name = "gridPlaneTypes";
             this.gridPlaneTypes.ReadOnly = true;
             this.gridPlaneTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPlaneTypes.Size = new System.Drawing.Size(203, 268);
+            this.gridPlaneTypes.Size = new System.Drawing.Size(262, 342);
             this.gridPlaneTypes.TabIndex = 5;
             this.gridPlaneTypes.TabStop = false;
             this.gridPlaneTypes.SelectionChanged += new System.EventHandler(this.SelectPlaneType);
@@ -1170,7 +1218,7 @@
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox9.Location = new System.Drawing.Point(0, 0);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(395, 293);
+            this.groupBox9.Size = new System.Drawing.Size(456, 367);
             this.groupBox9.TabIndex = 4;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Uçaklar";
@@ -1228,7 +1276,7 @@
             // button33
             // 
             this.button33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button33.Location = new System.Drawing.Point(6, 264);
+            this.button33.Location = new System.Drawing.Point(6, 338);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(80, 23);
             this.button33.TabIndex = 11;
@@ -1239,7 +1287,7 @@
             // button34
             // 
             this.button34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button34.Location = new System.Drawing.Point(92, 264);
+            this.button34.Location = new System.Drawing.Point(92, 338);
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(80, 23);
             this.button34.TabIndex = 13;
@@ -1250,7 +1298,7 @@
             // button35
             // 
             this.button35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button35.Location = new System.Drawing.Point(92, 235);
+            this.button35.Location = new System.Drawing.Point(92, 309);
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(80, 23);
             this.button35.TabIndex = 12;
@@ -1261,7 +1309,7 @@
             // button36
             // 
             this.button36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button36.Location = new System.Drawing.Point(6, 235);
+            this.button36.Location = new System.Drawing.Point(6, 309);
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(80, 23);
             this.button36.TabIndex = 9;
@@ -1283,7 +1331,7 @@
             this.gridPlanes.Name = "gridPlanes";
             this.gridPlanes.ReadOnly = true;
             this.gridPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPlanes.Size = new System.Drawing.Size(211, 268);
+            this.gridPlanes.Size = new System.Drawing.Size(272, 342);
             this.gridPlanes.TabIndex = 5;
             this.gridPlanes.TabStop = false;
             this.gridPlanes.SelectionChanged += new System.EventHandler(this.SelectPlane);
@@ -1313,7 +1361,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 524);
+            this.tabPage2.Size = new System.Drawing.Size(912, 652);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pilotlar";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1341,7 +1389,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(786, 518);
+            this.groupBox5.Size = new System.Drawing.Size(906, 646);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Pilot Yönetimi";
@@ -1461,7 +1509,7 @@
             // button17
             // 
             this.button17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button17.Location = new System.Drawing.Point(6, 489);
+            this.button17.Location = new System.Drawing.Point(6, 617);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(80, 23);
             this.button17.TabIndex = 4;
@@ -1472,7 +1520,7 @@
             // button18
             // 
             this.button18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button18.Location = new System.Drawing.Point(92, 489);
+            this.button18.Location = new System.Drawing.Point(92, 617);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(80, 23);
             this.button18.TabIndex = 5;
@@ -1483,7 +1531,7 @@
             // button19
             // 
             this.button19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button19.Location = new System.Drawing.Point(264, 489);
+            this.button19.Location = new System.Drawing.Point(264, 617);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(72, 23);
             this.button19.TabIndex = 6;
@@ -1494,7 +1542,7 @@
             // button20
             // 
             this.button20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button20.Location = new System.Drawing.Point(178, 489);
+            this.button20.Location = new System.Drawing.Point(178, 617);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(80, 23);
             this.button20.TabIndex = 1;
@@ -1520,7 +1568,7 @@
             this.gridPilots.Name = "gridPilots";
             this.gridPilots.ReadOnly = true;
             this.gridPilots.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPilots.Size = new System.Drawing.Size(438, 493);
+            this.gridPilots.Size = new System.Drawing.Size(558, 621);
             this.gridPilots.TabIndex = 0;
             this.gridPilots.TabStop = false;
             this.gridPilots.SelectionChanged += new System.EventHandler(this.SelectPilot);
@@ -1569,7 +1617,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 524);
+            this.tabPage1.Size = new System.Drawing.Size(912, 652);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Havayolları";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1588,7 +1636,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(786, 518);
+            this.groupBox4.Size = new System.Drawing.Size(906, 646);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Havayolu Yönetimi";
@@ -1607,7 +1655,7 @@
             this.gridAirlines.Name = "gridAirlines";
             this.gridAirlines.ReadOnly = true;
             this.gridAirlines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridAirlines.Size = new System.Drawing.Size(438, 493);
+            this.gridAirlines.Size = new System.Drawing.Size(558, 621);
             this.gridAirlines.TabIndex = 5;
             this.gridAirlines.TabStop = false;
             this.gridAirlines.SelectionChanged += new System.EventHandler(this.SelectAirlines);
@@ -1662,7 +1710,7 @@
             // button13
             // 
             this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button13.Location = new System.Drawing.Point(6, 489);
+            this.button13.Location = new System.Drawing.Point(6, 617);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(80, 23);
             this.button13.TabIndex = 2;
@@ -1673,7 +1721,7 @@
             // button14
             // 
             this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button14.Location = new System.Drawing.Point(92, 489);
+            this.button14.Location = new System.Drawing.Point(92, 617);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(80, 23);
             this.button14.TabIndex = 3;
@@ -1684,7 +1732,7 @@
             // button15
             // 
             this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button15.Location = new System.Drawing.Point(264, 489);
+            this.button15.Location = new System.Drawing.Point(264, 617);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(72, 23);
             this.button15.TabIndex = 4;
@@ -1695,7 +1743,7 @@
             // button16
             // 
             this.button16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button16.Location = new System.Drawing.Point(178, 489);
+            this.button16.Location = new System.Drawing.Point(178, 617);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(80, 23);
             this.button16.TabIndex = 1;
@@ -1711,11 +1759,12 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 550);
+            this.tabControl1.Size = new System.Drawing.Size(920, 678);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.TabStop = false;
             // 
@@ -1725,7 +1774,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(792, 524);
+            this.tabPage3.Size = new System.Drawing.Size(912, 652);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Çalışanlar";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1757,7 +1806,7 @@
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox10.Location = new System.Drawing.Point(3, 3);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(786, 518);
+            this.groupBox10.Size = new System.Drawing.Size(906, 646);
             this.groupBox10.TabIndex = 6;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Eleman Yönetimi";
@@ -1907,7 +1956,7 @@
             // button37
             // 
             this.button37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button37.Location = new System.Drawing.Point(6, 489);
+            this.button37.Location = new System.Drawing.Point(6, 617);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(80, 23);
             this.button37.TabIndex = 6;
@@ -1918,7 +1967,7 @@
             // button38
             // 
             this.button38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button38.Location = new System.Drawing.Point(92, 489);
+            this.button38.Location = new System.Drawing.Point(92, 617);
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(80, 23);
             this.button38.TabIndex = 7;
@@ -1929,7 +1978,7 @@
             // button39
             // 
             this.button39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button39.Location = new System.Drawing.Point(264, 489);
+            this.button39.Location = new System.Drawing.Point(264, 617);
             this.button39.Name = "button39";
             this.button39.Size = new System.Drawing.Size(72, 23);
             this.button39.TabIndex = 8;
@@ -1940,7 +1989,7 @@
             // button40
             // 
             this.button40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button40.Location = new System.Drawing.Point(178, 489);
+            this.button40.Location = new System.Drawing.Point(178, 617);
             this.button40.Name = "button40";
             this.button40.Size = new System.Drawing.Size(80, 23);
             this.button40.TabIndex = 1;
@@ -1968,7 +2017,7 @@
             this.gridStaff.Name = "gridStaff";
             this.gridStaff.ReadOnly = true;
             this.gridStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridStaff.Size = new System.Drawing.Size(438, 493);
+            this.gridStaff.Size = new System.Drawing.Size(558, 621);
             this.gridStaff.TabIndex = 0;
             this.gridStaff.TabStop = false;
             this.gridStaff.SelectionChanged += new System.EventHandler(this.SelectStaff);
@@ -2031,7 +2080,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(792, 524);
+            this.tabPage6.Size = new System.Drawing.Size(912, 652);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Havalimanları";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -2055,7 +2104,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(786, 518);
+            this.groupBox6.Size = new System.Drawing.Size(906, 646);
             this.groupBox6.TabIndex = 6;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Havalimanı Yönetimi";
@@ -2194,7 +2243,7 @@
             this.gridAirports.Name = "gridAirports";
             this.gridAirports.ReadOnly = true;
             this.gridAirports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridAirports.Size = new System.Drawing.Size(438, 493);
+            this.gridAirports.Size = new System.Drawing.Size(558, 621);
             this.gridAirports.TabIndex = 0;
             this.gridAirports.TabStop = false;
             this.gridAirports.SelectionChanged += new System.EventHandler(this.SelectAirport);
@@ -2238,15 +2287,369 @@
             this.columnAirportCityID.ReadOnly = true;
             this.columnAirportCityID.Visible = false;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.splitContainer4);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(912, 652);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Yolcular";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.splitContainer5);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.txtPassengerFlightID);
+            this.splitContainer4.Panel2.Controls.Add(this.label62);
+            this.splitContainer4.Panel2.Controls.Add(this.btnAddPassenger);
+            this.splitContainer4.Panel2.Controls.Add(this.btnDeletePassenger);
+            this.splitContainer4.Panel2.Controls.Add(this.btnEditPassenger);
+            this.splitContainer4.Panel2.Controls.Add(this.txtPassengerSurname);
+            this.splitContainer4.Panel2.Controls.Add(this.txtPassengerName);
+            this.splitContainer4.Panel2.Controls.Add(this.txtPassengerTc);
+            this.splitContainer4.Panel2.Controls.Add(this.txtPassengerID);
+            this.splitContainer4.Panel2.Controls.Add(this.label63);
+            this.splitContainer4.Panel2.Controls.Add(this.label64);
+            this.splitContainer4.Panel2.Controls.Add(this.label65);
+            this.splitContainer4.Panel2.Controls.Add(this.label66);
+            this.splitContainer4.Panel2.Tag = "";
+            this.splitContainer4.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer4.Size = new System.Drawing.Size(906, 646);
+            this.splitContainer4.SplitterDistance = 549;
+            this.splitContainer4.TabIndex = 2;
+            // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.gridFlights2);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.gridPassengers);
+            this.splitContainer5.Size = new System.Drawing.Size(549, 646);
+            this.splitContainer5.SplitterDistance = 310;
+            this.splitContainer5.TabIndex = 0;
+            // 
+            // gridFlights2
+            // 
+            this.gridFlights2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridFlights2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn31,
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34,
+            this.dataGridViewTextBoxColumn35,
+            this.Column10});
+            this.gridFlights2.ContextMenuStrip = this.contextRefresh;
+            this.gridFlights2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridFlights2.Location = new System.Drawing.Point(0, 0);
+            this.gridFlights2.Name = "gridFlights2";
+            this.gridFlights2.ReadOnly = true;
+            this.gridFlights2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridFlights2.Size = new System.Drawing.Size(549, 310);
+            this.gridFlights2.TabIndex = 6;
+            this.gridFlights2.SelectionChanged += new System.EventHandler(this.SelectFlight2);
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.HeaderText = "TakeoffID";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            this.dataGridViewTextBoxColumn22.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.HeaderText = "Kalkış Havalimanı";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.HeaderText = "LandingID";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            this.dataGridViewTextBoxColumn25.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.HeaderText = "İniş Havalimanı";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.HeaderText = "AirlineID";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn28.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.HeaderText = "Havayolu";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.HeaderText = "FlightPilotID";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            this.dataGridViewTextBoxColumn30.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.HeaderText = "Pilot";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.HeaderText = "FlightCopilotID";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.ReadOnly = true;
+            this.dataGridViewTextBoxColumn32.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.HeaderText = "Yardımcı Pilot";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.HeaderText = "Uçak";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.HeaderText = "Kalkış Tarihi";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "İniş Tarihi";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // gridPassengers
+            // 
+            this.gridPassengers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPassengers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.tc,
+            this.adi,
+            this.soyadi,
+            this.ucusID});
+            this.gridPassengers.ContextMenuStrip = this.contextRefresh;
+            this.gridPassengers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridPassengers.Location = new System.Drawing.Point(0, 0);
+            this.gridPassengers.Name = "gridPassengers";
+            this.gridPassengers.ReadOnly = true;
+            this.gridPassengers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridPassengers.Size = new System.Drawing.Size(549, 332);
+            this.gridPassengers.TabIndex = 0;
+            this.gridPassengers.SelectionChanged += new System.EventHandler(this.SelectPassenger);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // tc
+            // 
+            this.tc.HeaderText = "T.C.";
+            this.tc.Name = "tc";
+            this.tc.ReadOnly = true;
+            // 
+            // adi
+            // 
+            this.adi.HeaderText = "İsim";
+            this.adi.Name = "adi";
+            this.adi.ReadOnly = true;
+            // 
+            // soyadi
+            // 
+            this.soyadi.HeaderText = "Soyisim";
+            this.soyadi.Name = "soyadi";
+            this.soyadi.ReadOnly = true;
+            // 
+            // ucusID
+            // 
+            this.ucusID.HeaderText = "Uçuş ID";
+            this.ucusID.Name = "ucusID";
+            this.ucusID.ReadOnly = true;
+            // 
+            // txtPassengerFlightID
+            // 
+            this.txtPassengerFlightID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassengerFlightID.Location = new System.Drawing.Point(9, 29);
+            this.txtPassengerFlightID.Name = "txtPassengerFlightID";
+            this.txtPassengerFlightID.ReadOnly = true;
+            this.txtPassengerFlightID.Size = new System.Drawing.Size(339, 20);
+            this.txtPassengerFlightID.TabIndex = 13;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(6, 13);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(46, 13);
+            this.label62.TabIndex = 12;
+            this.label62.Text = "Ucus ID";
+            // 
+            // btnAddPassenger
+            // 
+            this.btnAddPassenger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddPassenger.Location = new System.Drawing.Point(9, 618);
+            this.btnAddPassenger.Name = "btnAddPassenger";
+            this.btnAddPassenger.Size = new System.Drawing.Size(80, 23);
+            this.btnAddPassenger.TabIndex = 8;
+            this.btnAddPassenger.Text = "Ekle";
+            this.btnAddPassenger.UseVisualStyleBackColor = true;
+            this.btnAddPassenger.Click += new System.EventHandler(this.AddPassenger);
+            // 
+            // btnDeletePassenger
+            // 
+            this.btnDeletePassenger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDeletePassenger.Location = new System.Drawing.Point(95, 618);
+            this.btnDeletePassenger.Name = "btnDeletePassenger";
+            this.btnDeletePassenger.Size = new System.Drawing.Size(80, 23);
+            this.btnDeletePassenger.TabIndex = 9;
+            this.btnDeletePassenger.Text = "Sil";
+            this.btnDeletePassenger.UseVisualStyleBackColor = true;
+            this.btnDeletePassenger.Click += new System.EventHandler(this.DeletePassenger);
+            // 
+            // btnEditPassenger
+            // 
+            this.btnEditPassenger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditPassenger.Location = new System.Drawing.Point(276, 618);
+            this.btnEditPassenger.Name = "btnEditPassenger";
+            this.btnEditPassenger.Size = new System.Drawing.Size(72, 23);
+            this.btnEditPassenger.TabIndex = 10;
+            this.btnEditPassenger.Text = "Düzenle";
+            this.btnEditPassenger.UseVisualStyleBackColor = true;
+            this.btnEditPassenger.Click += new System.EventHandler(this.EditPassenger);
+            // 
+            // txtPassengerSurname
+            // 
+            this.txtPassengerSurname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassengerSurname.Location = new System.Drawing.Point(9, 185);
+            this.txtPassengerSurname.Name = "txtPassengerSurname";
+            this.txtPassengerSurname.Size = new System.Drawing.Size(339, 20);
+            this.txtPassengerSurname.TabIndex = 7;
+            // 
+            // txtPassengerName
+            // 
+            this.txtPassengerName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassengerName.Location = new System.Drawing.Point(9, 146);
+            this.txtPassengerName.Name = "txtPassengerName";
+            this.txtPassengerName.Size = new System.Drawing.Size(339, 20);
+            this.txtPassengerName.TabIndex = 6;
+            // 
+            // txtPassengerTc
+            // 
+            this.txtPassengerTc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassengerTc.Location = new System.Drawing.Point(9, 107);
+            this.txtPassengerTc.MaxLength = 11;
+            this.txtPassengerTc.Name = "txtPassengerTc";
+            this.txtPassengerTc.Size = new System.Drawing.Size(339, 20);
+            this.txtPassengerTc.TabIndex = 5;
+            // 
+            // txtPassengerID
+            // 
+            this.txtPassengerID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassengerID.Location = new System.Drawing.Point(9, 68);
+            this.txtPassengerID.Name = "txtPassengerID";
+            this.txtPassengerID.ReadOnly = true;
+            this.txtPassengerID.Size = new System.Drawing.Size(339, 20);
+            this.txtPassengerID.TabIndex = 4;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(4, 169);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(42, 13);
+            this.label63.TabIndex = 3;
+            this.label63.Text = "Soyisim";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(4, 130);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(25, 13);
+            this.label64.TabIndex = 2;
+            this.label64.Text = "İsim";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(3, 91);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(27, 13);
+            this.label65.TabIndex = 1;
+            this.label65.Text = "T.C.";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(6, 52);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(18, 13);
+            this.label66.TabIndex = 0;
+            this.label66.Text = "ID";
+            // 
             // AAAirportAdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 550);
+            this.ClientSize = new System.Drawing.Size(920, 678);
             this.Controls.Add(this.tabControl1);
             this.Name = "AAAirportAdminPanel";
-            this.Text = "AAAirportAdminPanel";
+            this.Text = "Havalimanı Yöneticisi";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ApplicationExit);
+            this.Load += new System.EventHandler(this.AAAirportAdminLoad);
             this.tabPage5.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
@@ -2288,6 +2691,18 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAirports)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            this.splitContainer4.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridFlights2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPassengers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2490,5 +2905,42 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.DataGridView gridFlights2;
+        private System.Windows.Forms.DataGridView gridPassengers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soyadi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ucusID;
+        private System.Windows.Forms.TextBox txtPassengerFlightID;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Button btnAddPassenger;
+        private System.Windows.Forms.Button btnDeletePassenger;
+        private System.Windows.Forms.Button btnEditPassenger;
+        private System.Windows.Forms.TextBox txtPassengerSurname;
+        private System.Windows.Forms.TextBox txtPassengerName;
+        private System.Windows.Forms.TextBox txtPassengerTc;
+        private System.Windows.Forms.TextBox txtPassengerID;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }

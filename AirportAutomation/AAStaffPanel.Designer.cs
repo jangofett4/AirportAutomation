@@ -33,6 +33,22 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.gridFlights2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.gridPassengers = new System.Windows.Forms.DataGridView();
@@ -43,9 +59,9 @@
             this.ucusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPassengerFlightID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddPassenger = new System.Windows.Forms.Button();
+            this.btnDeletePassenger = new System.Windows.Forms.Button();
+            this.btnEditPassenger = new System.Windows.Forms.Button();
             this.txtPassengerSurname = new System.Windows.Forms.TextBox();
             this.txtPassengerName = new System.Windows.Forms.TextBox();
             this.txtPassengerTc = new System.Windows.Forms.TextBox();
@@ -64,21 +80,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateFlightTakeoff = new System.Windows.Forms.DateTimePicker();
             this.gridFlights = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label60 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
@@ -130,22 +131,20 @@
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnPilotAirlineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnPilotAirlineID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -200,9 +199,9 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.txtPassengerFlightID);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
-            this.splitContainer1.Panel2.Controls.Add(this.button2);
-            this.splitContainer1.Panel2.Controls.Add(this.button3);
+            this.splitContainer1.Panel2.Controls.Add(this.btnAddPassenger);
+            this.splitContainer1.Panel2.Controls.Add(this.btnDeletePassenger);
+            this.splitContainer1.Panel2.Controls.Add(this.btnEditPassenger);
             this.splitContainer1.Panel2.Controls.Add(this.txtPassengerSurname);
             this.splitContainer1.Panel2.Controls.Add(this.txtPassengerName);
             this.splitContainer1.Panel2.Controls.Add(this.txtPassengerTc);
@@ -264,6 +263,109 @@
             this.gridFlights2.Size = new System.Drawing.Size(847, 290);
             this.gridFlights2.TabIndex = 6;
             this.gridFlights2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectFlight);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "TakeoffID";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Kalkış Havalimanı";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "TakeoffCity";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "LandingID";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "İniş Havalimanı";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "LandingCity";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "AirlineID";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Havayolu";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "FlightPilotID";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "Pilot";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "FlightCopilotID";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "Yardımcı Pilot";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "Uçak";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Kalkış Tarihi";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "İniş Tarihi";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // contextRefresh
             // 
@@ -347,37 +449,37 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Ucus ID";
             // 
-            // button1
+            // btnAddPassenger
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(9, 573);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Ekle";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.addPassenger);
+            this.btnAddPassenger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddPassenger.Location = new System.Drawing.Point(9, 573);
+            this.btnAddPassenger.Name = "btnAddPassenger";
+            this.btnAddPassenger.Size = new System.Drawing.Size(80, 23);
+            this.btnAddPassenger.TabIndex = 8;
+            this.btnAddPassenger.Text = "Ekle";
+            this.btnAddPassenger.UseVisualStyleBackColor = true;
+            this.btnAddPassenger.Click += new System.EventHandler(this.addPassenger);
             // 
-            // button2
+            // btnDeletePassenger
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(95, 573);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Sil";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDeletePassenger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDeletePassenger.Location = new System.Drawing.Point(95, 573);
+            this.btnDeletePassenger.Name = "btnDeletePassenger";
+            this.btnDeletePassenger.Size = new System.Drawing.Size(80, 23);
+            this.btnDeletePassenger.TabIndex = 9;
+            this.btnDeletePassenger.Text = "Sil";
+            this.btnDeletePassenger.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnEditPassenger
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(267, 573);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Düzenle";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.EditPassenger);
+            this.btnEditPassenger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditPassenger.Location = new System.Drawing.Point(267, 573);
+            this.btnEditPassenger.Name = "btnEditPassenger";
+            this.btnEditPassenger.Size = new System.Drawing.Size(72, 23);
+            this.btnEditPassenger.TabIndex = 10;
+            this.btnEditPassenger.Text = "Düzenle";
+            this.btnEditPassenger.UseVisualStyleBackColor = true;
+            this.btnEditPassenger.Click += new System.EventHandler(this.EditPassenger);
             // 
             // txtPassengerSurname
             // 
@@ -568,7 +670,7 @@
             // dateFlightTakeoff
             // 
             this.dateFlightTakeoff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dateFlightTakeoff.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.dateFlightTakeoff.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.dateFlightTakeoff.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateFlightTakeoff.Location = new System.Drawing.Point(6, 498);
             this.dateFlightTakeoff.Name = "dateFlightTakeoff";
@@ -585,10 +687,8 @@
             this.dataGridViewTextBoxColumn20,
             this.Column5,
             this.Column6,
-            this.Column7,
             this.Column8,
             this.Column9,
-            this.Column10,
             this.Column11,
             this.Column12,
             this.Column13,
@@ -596,7 +696,8 @@
             this.Column15,
             this.Column16,
             this.Column17,
-            this.Column18});
+            this.Column18,
+            this.Column4});
             this.gridFlights.ContextMenuStrip = this.contextRefresh;
             this.gridFlights.Location = new System.Drawing.Point(342, 19);
             this.gridFlights.Name = "gridFlights";
@@ -605,103 +706,6 @@
             this.gridFlights.Size = new System.Drawing.Size(847, 576);
             this.gridFlights.TabIndex = 5;
             this.gridFlights.SelectionChanged += new System.EventHandler(this.SelectFlight);
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "TakeoffID";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Visible = false;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Kalkış Havalimanı";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "TakeoffCity";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "LandingID";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "İniş Havalimanı";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "LandingCity";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Visible = false;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "AirlineID";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Visible = false;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Havayolu";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "FlightPilotID";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Visible = false;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Pilot";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "FlightCopilotID";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Visible = false;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Yardımcı Pilot";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "Uçak";
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "Kalkış Tarihi";
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
             // 
             // label60
             // 
@@ -1118,7 +1122,7 @@
             this.gridAirlines.Size = new System.Drawing.Size(601, 601);
             this.gridAirlines.TabIndex = 6;
             this.gridAirlines.TabStop = false;
-            this.gridAirlines.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectAirline);
+            this.gridAirlines.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectAirline);
             // 
             // dataGridViewTextBoxColumn23
             // 
@@ -1152,7 +1156,7 @@
             this.gridPilots.Size = new System.Drawing.Size(590, 601);
             this.gridPilots.TabIndex = 1;
             this.gridPilots.TabStop = false;
-            this.gridPilots.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectPilot);
+            this.gridPilots.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectPilot);
             // 
             // dataGridViewTextBoxColumn18
             // 
@@ -1192,108 +1196,94 @@
             this.columnPilotAirlineID.ReadOnly = true;
             this.columnPilotAirlineID.Visible = false;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn20
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // Column5
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "TakeoffID";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
+            this.Column5.HeaderText = "TakeoffID";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
             // 
-            // dataGridViewTextBoxColumn3
+            // Column6
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Kalkış Havalimanı";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.Column6.HeaderText = "Kalkış Havalimanı";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // Column8
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "TakeoffCity";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Visible = false;
+            this.Column8.HeaderText = "LandingID";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
             // 
-            // dataGridViewTextBoxColumn5
+            // Column9
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "LandingID";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Visible = false;
+            this.Column9.HeaderText = "İniş Havalimanı";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // Column11
             // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "İniş Havalimanı";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.Column11.HeaderText = "AirlineID";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
             // 
-            // dataGridViewTextBoxColumn7
+            // Column12
             // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "LandingCity";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Visible = false;
+            this.Column12.HeaderText = "Havayolu";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn9
+            // Column13
             // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "AirlineID";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Visible = false;
+            this.Column13.HeaderText = "FlightPilotID";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
             // 
-            // dataGridViewTextBoxColumn10
+            // Column14
             // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Havayolu";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.Column14.HeaderText = "Pilot";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn11
+            // Column15
             // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "FlightPilotID";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Visible = false;
+            this.Column15.HeaderText = "FlightCopilotID";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
             // 
-            // dataGridViewTextBoxColumn12
+            // Column16
             // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Pilot";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.Column16.HeaderText = "Yardımcı Pilot";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn13
+            // Column17
             // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "FlightCopilotID";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Visible = false;
+            this.Column17.HeaderText = "Uçak";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn14
+            // Column18
             // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "Yardımcı Pilot";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.Column18.HeaderText = "Kalkış Tarihi";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn15
+            // Column4
             // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "Uçak";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "Kalkış Tarihi";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "İniş Tarihi";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.Column4.HeaderText = "İniş Tarihi";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // AAStaffPanel
             // 
@@ -1303,6 +1293,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "AAStaffPanel";
             this.Text = "AAStaffPanel";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ApplicationExit);
             this.Load += new System.EventHandler(this.AAStaffPanel_Load);
             this.tabPage2.ResumeLayout(false);
@@ -1344,26 +1335,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.DataGridView gridPlanes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DateTimePicker dateFlightTakeoff;
         private System.Windows.Forms.DataGridView gridFlights;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label56;
@@ -1417,9 +1390,9 @@
         private System.Windows.Forms.TextBox txtPassengerName;
         private System.Windows.Forms.TextBox txtPassengerTc;
         private System.Windows.Forms.TextBox txtPassengerID;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAddPassenger;
+        private System.Windows.Forms.Button btnDeletePassenger;
+        private System.Windows.Forms.Button btnEditPassenger;
         private System.Windows.Forms.TextBox txtPassengerFlightID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
@@ -1457,5 +1430,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

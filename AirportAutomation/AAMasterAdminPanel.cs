@@ -49,9 +49,10 @@ namespace AirportAutomation
         }
 
         #region "Refresh Kodları"
-
+        private bool RefreshCountriesFinished = false;
         public void RefreshCountries()
         {
+            RefreshCountriesFinished = false;
             gridCountries.Rows.Clear();
 
             MySqlCommand cmd = new MySqlCommand("select * from countries", Globals.Connection);
@@ -67,6 +68,7 @@ namespace AirportAutomation
                 }
             }
             result.Close();
+            RefreshCountriesFinished = true;
         }
 
         public void RefreshAirportAdmins()
@@ -93,11 +95,11 @@ namespace AirportAutomation
 
         public void RefreshCities()
         {
-            RefreshCountries();
+            if (string.IsNullOrEmpty(txtCountryID.Text) || !RefreshCountriesFinished) { return; }
 
             gridCities.Rows.Clear();
 
-            MySqlCommand cmd = new MySqlCommand("select * from cities", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"select * from cities where countryID={txtCountryID.Text}", Globals.Connection);
             var result = cmd.ExecuteReader();
             if (result.HasRows)
             {
@@ -364,6 +366,7 @@ namespace AirportAutomation
 
             txtCityCountryID.Text = idstr;
             txtCityCountryName.Text = namestr;
+            RefreshCities();
         }
 
         private void UpdateCountry(object sender, EventArgs e)
@@ -1759,7 +1762,7 @@ namespace AirportAutomation
 
         private void ApplicationExit(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            Globals.LoginFormInstance.Visible = true;
         }
 
         private void UpdateFlight(object sender, EventArgs e)
@@ -1856,16 +1859,30 @@ namespace AirportAutomation
             var r = gridFlights2.Rows[row];
             if (row >= gridFlights2.RowCount - 1) return;
             var idstr = r.Cells[0].Value.ToString();
-            
+            var takeoffDateStr = r.Cells[12].Value.ToString();
+            var takeoffDate = DateTime.Parse(takeoffDateStr);
+
             txtPassengerFlightID.Text = idstr;
-            /*
+            
             txtPassengerID.Text = "";
             txtPassengerName.Text = "";
             txtPassengerSurname.Text = "";
             txtPassengerTc.Text = "";
 
             RefreshPassengers();
-            */
+
+            if (takeoffDate < DateTime.Now)
+            {
+                btnAddPassenger.Enabled = false;
+                btnEditPassenger.Enabled = false;
+                //tooltipGeneral.Active = true;
+            }
+            else
+            {
+                btnAddPassenger.Enabled = true;
+                btnEditPassenger.Enabled = true;
+                //tooltipGeneral.Active = false;
+            }
         }
 
 
@@ -1953,6 +1970,17 @@ namespace AirportAutomation
                 MessageBox.Show("TC Kimlik numarası alanı 11 karakter ve sadece sayılardan oluşmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            MySqlCommand tcCheck = new MySqlCommand($"select * from passengers where flightID = { flightID } and tc = '{ tc }'", Globals.Connection);
+            var result = tcCheck.ExecuteReader();
+            if (result.HasRows)
+            {
+                result.Read();
+                MessageBox.Show($"Aynı uçuşta aynı TC Kimlik Numarasına sahip başka bir yolcu daha var ({ result.GetString(1) + " " + result.GetString(2) })!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                result.Close();
+                return;
+            }
+            result.Close();
+
             MySqlCommand cmd = new MySqlCommand($"insert into passengers(name,surname,tc,flightID) values ('{ name }', '{ surname }' , '{ tc }',{ flightID }) ", Globals.Connection);
             try
             {
@@ -2001,6 +2029,17 @@ namespace AirportAutomation
                 MessageBox.Show("TC Kimlik numarası alanı 11 karakter ve sadece sayılardan oluşmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            MySqlCommand tcCheck = new MySqlCommand($"select * from passengers where flightID = { flightID } and tc = '{ tc }'", Globals.Connection);
+            var result = tcCheck.ExecuteReader();
+            if (result.HasRows)
+            {
+                result.Read();
+                MessageBox.Show($"Aynı uçuşta aynı TC Kimlik Numarasına sahip başka bir yolcu daha var ({ result.GetString(1) + " " + result.GetString(2) })!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                result.Close();
+                return;
+            }
+            result.Close();
+
             MySqlCommand cmd = new MySqlCommand($"update passengers set tc = '{tc}' , name = '{name}',surname = '{surname}' , flightID = {flightID} where passengerID = { id }", Globals.Connection);
             try
             {

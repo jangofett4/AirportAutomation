@@ -13,6 +13,9 @@ namespace AirportAutomation
 {
     public partial class AAStaffPanel : Form
     {
+        public string ConnectedStaffID;
+        public string ConnectedAirportID;
+
         public AAStaffPanel()
         {
             InitializeComponent();
@@ -105,12 +108,14 @@ namespace AirportAutomation
             result.Close();
         }
 
+        private bool RefreshFlightsDone = false;
         public void RefreshFlights()
         {
+            RefreshFlightsDone = false;
             gridFlights.Rows.Clear();
             gridFlights2.Rows.Clear();
 
-            MySqlCommand cmd = new MySqlCommand("select * from flightGridView", Globals.Connection);
+            MySqlCommand cmd = new MySqlCommand($"select * from flightGridView where takeoff_id = { ConnectedAirportID } or landing_id = { ConnectedAirportID }", Globals.Connection);
             var result = cmd.ExecuteReader();
             if (result.HasRows)
             {
@@ -138,6 +143,7 @@ namespace AirportAutomation
                 }
             }
             result.Close();
+            RefreshFlightsDone = true;
         }
 
         #endregion
@@ -187,6 +193,12 @@ namespace AirportAutomation
             if (string.IsNullOrWhiteSpace(pilotid) || string.IsNullOrWhiteSpace(copilotid))
             {
                 MessageBox.Show("Pilot ve yardımcı pilotu ilgili seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (txtFlightTakeoffAirportID.Text != ConnectedAirportID && txtFlightLandingAirportID.Text != ConnectedAirportID)
+            {
+                MessageBox.Show("Yetkiniz olmayan ucuş ekliyorsunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -309,6 +321,7 @@ namespace AirportAutomation
             // else if (src == gridPlaneModels) RefreshPlaneModels();
             // else if (src == gridStaff) RefreshStaff();
             else if (src == gridFlights) RefreshFlights();
+            else if (src == gridFlights2) RefreshFlights();
             else if (src == gridPassengers) RefreshPassengers();
         }
         public void AddPassenger()
@@ -392,15 +405,34 @@ namespace AirportAutomation
         {
             if (gridFlights2.SelectedRows.Count < 1) return;
             var row = gridFlights2.SelectedRows[0].Index;
-            if (row < 0) return;
+            if (row < 0 || !RefreshFlightsDone) return;
             var r = gridFlights2.Rows[row];
             if (row >= gridFlights2.RowCount - 1) return;
+            var takeoffDateStr = r.Cells[12].Value.ToString();
+            var takeoffDate = DateTime.Parse(takeoffDateStr);
 
             var idstr = r.Cells[0].Value.ToString();
             txtPassengerFlightID.Text = idstr;
+
+            if (takeoffDate < DateTime.Now)
+            {
+                btnAddPassenger.Enabled = false;
+                btnEditPassenger.Enabled = false;
+                btnDeletePassenger.Enabled = false;
+                //tooltipGeneral.Active = true;
+            }
+            else
+            {
+                btnAddPassenger.Enabled = true;
+                btnEditPassenger.Enabled = true;
+                btnDeletePassenger.Enabled = true;
+                //tooltipGeneral.Active = false;
+            }
+
+            RefreshPassengers();
         }
 
-        private void selectAirline(object sender, DataGridViewCellEventArgs e)
+        private void SelectAirline(object sender, DataGridViewCellEventArgs e)
         {
             if (gridAirlines.SelectedRows.Count < 1) return;
             var row = gridAirlines.SelectedRows[0].Index;
@@ -415,7 +447,7 @@ namespace AirportAutomation
             txtFlightAirlineName.Text = namestr;
         }
 
-        private void selectPilot(object sender, DataGridViewCellEventArgs e)
+        private void SelectPilot(object sender, DataGridViewCellEventArgs e)
         {
             if (gridPilots.SelectedRows.Count < 1) return;
             var row = gridPilots.SelectedRows[0].Index;
@@ -544,7 +576,7 @@ namespace AirportAutomation
 
         private void ApplicationExit(object sender, FormClosingEventArgs e)
         {
-            Environment.Exit(1);
+            Globals.LoginFormInstance.Visible = true;
         }
 
         private void SelectFlight(object sender, EventArgs e)
